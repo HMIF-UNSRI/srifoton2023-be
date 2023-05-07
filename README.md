@@ -1,6 +1,6 @@
 # Sriwijaya Exhibition 2023 Backend
 
-Repository for Srifoton 2023 website backend project
+A web-based competition and seminar registration platform at the Sriwijaya Exhibition with a [Laravel 10](https://laravel.com/docs/10.x) backend.
 
 ## Requirements
 
