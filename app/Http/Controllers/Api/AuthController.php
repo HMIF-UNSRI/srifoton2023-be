@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
 
@@ -27,6 +28,21 @@ class AuthController extends Controller
             'data' => [
                 'token' => $token,
                 'user' => $user
+            ]
+        ]);
+    }
+
+    public function login(LoginRequest $request)
+    {
+        $request->authenticate();
+
+        $token = $request->user()->createToken('authtoken')->plainTextToken;
+
+        return response()->json([
+            'message' => 'Berhasil login',
+            'data' => [
+                'token' => $token,
+                'user' => $request->user()
             ]
         ]);
     }
