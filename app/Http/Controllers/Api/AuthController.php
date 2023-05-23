@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -54,5 +55,9 @@ class AuthController extends Controller
         return response()->json([
             'message' => 'Berhasil logout'
         ]);
+    }
+
+    public function me() {
+        return response()->json(Auth::user());
     }
 }

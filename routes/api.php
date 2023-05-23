@@ -21,12 +21,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Register
 Route::post('register', [AuthController::class, 'register']);
+// Login
 Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
+    // Get data user
+    Route::get('me', [AuthController::class, 'me']);
+    // Logout
     Route::post('logout', [AuthController::class, 'logout']);
+    // Send Email Verification
     Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail']);
+    // Verify Email
     Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify');
 });
 
