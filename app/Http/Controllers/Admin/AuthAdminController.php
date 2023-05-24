@@ -10,4 +10,6 @@ class AuthAdminController extends Controller
     public function index(){
         return view('auth.login');
     }
+
+    
 }
