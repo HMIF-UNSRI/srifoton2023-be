@@ -1,81 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login - Admin</title>
-    <link rel="stylesheet" href="{{ asset('vendors/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="robots" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+    <meta property="og:title" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+    <meta property="og:description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+    <meta property="og:image" content="https://fillow.dexignlab.com/xhtml/social-image.png">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- PAGE TITLE HERE -->
+    <title>Admin Dashboard</title>
+
+    <!-- FAVICONS ICON -->
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 </head>
 
-<body>
-    <div class="container-scroller">
-        <div class="container-fluid page-body-wrapper full-page-wrapper">
-            <div class="content-wrapper d-flex align-items-center auth">
-                <div class="row flex-grow">
-                    <div class="col-lg-4 mx-auto">
-                        <div class="auth-form-light text-left p-5">
-                            <div class="brand-logo text-center">
-                                <img style="height:75px; width:fit-content"
-                                    src="{{ asset('images/dashboard/LOGO SRIFOTON 2023.png') }}">
+<body class="vh-100">
+    <div class="authincation h-100">
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+                    <div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+                                    <div class="text-center mb-3">
+                                        <img style="width:fit-content; height:60px"
+                                            src="{{ asset('images/LOGO SRIFOTON 2023.png') }}" alt="">
+                                    </div>
+                                    <h3 class="text-center">Welcome Admin Srifoton</h3>
+                                    <h6 class="font-weight-light text-center">Sign in to continue.</h6>
+                                    @if (session()->has('loginError'))
+                                        <div class="alert alert-danger mt-4 text-center" role="alert">
+                                            {{ session('loginError') }}
+                                        </div>
+                                    @endif
+                                    <form method="post" action="{{ route('login') }}" class="pt-3"> @csrf
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Email</strong></label>
+                                            <input type="email" name="email"
+                                                class="form-control @error('email')
+                                            is-invalid
+                                        @enderror""
+                                                placeholder="hello@example.com">
+                                            @error('email')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Password</strong></label>
+                                            <input type="password" name="password"
+                                                class="form-control @error('email')
+                                            is-invalid
+                                        @enderror""
+                                                placeholder="Password">
+                                            @error('password')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary btn-block">Sign Me In</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                            <h3 class="text-center">Welcome Admin Srifoton</h3>
-                            <h6 class="font-weight-light text-center">Sign in to continue.</h6>
-                            @if (session()->has('loginError'))
-                                <div class="alert alert-danger mt-4 text-center" role="alert">
-                                    {{ session('loginError') }}
-                                </div>
-                            @endif
-
-                            <form method="post" action="{{ route('login') }}" class="pt-3">
-                                @csrf
-
-                                <div class="form-group">
-                                    <input type="email" name="email"
-                                        class="form-control form-control-lg @error('email')
-                                        is-invalid
-                                    @enderror"
-                                        id="exampleInputEmail1" placeholder="Email">
-                                    @error('email')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="password"
-                                        class="form-control form-control-lg @error('email')
-                                    is-invalid
-                                @enderror"
-                                        id="exampleInputPassword1" placeholder="Password">
-                                    @error('password')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="mt-3">
-                                    <button type="submit"
-                                        class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn w-100"
-                                        href="../../index.html">SIGN IN</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="{{ asset('js/off-canvas.js') }}"></script>
-    <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('js/misc.js"></script') }}"></script>
-    <!-- endinject -->
+
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="vendor/global/global.min.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="js/dlabnav-init.js"></script>
+    <script src="js/styleSwitcher.js"></script>
 </body>
 
 </html>
