@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthAdminController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 
 /*
@@ -20,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard/admin', [DashboardAdminController::class, 'index']);
+
+Route::get('srifoton2023/login-admin', [AuthAdminController::class, 'index']);
