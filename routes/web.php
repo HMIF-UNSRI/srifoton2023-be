@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AuthAdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DashboardAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware('auth:admin')->group(function(){
+    Route::get('dashboard/admin', [DashboardAdminController::class, 'index']);
+    Route::get('srifoton2023/logout-admin', [AuthAdminController::class, 'logout'])->name('logout');
+});
+
+Route::middleware('guest:admin')->group(function(){
+    Route::get('srifoton2023/login-admin', [AuthAdminController::class, 'index']);
+    Route::post('srifoton2023/login-admin', [AuthAdminController::class, 'login'])->name('login');
 });
