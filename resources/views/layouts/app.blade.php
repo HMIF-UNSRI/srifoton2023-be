@@ -15,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <title>Admin Dashboard</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/LOGO SRIFOTON 2023.png') }}">
     <link href="{{ asset('vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
 </head>
