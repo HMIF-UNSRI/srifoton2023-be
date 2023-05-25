@@ -57,14 +57,13 @@
                                     <form method="post" action="{{ route('login') }}" class="pt-3">
                                         @csrf
                                         <div class="mb-3">
-                                            <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" name="email"
-                                                class="form-control @error('email')
+                                            <label class="mb-1"><strong>Username</strong></label>
+                                            <input type="text" name="username"
+                                                class="form-control @error('username')
                                             is-invalid
                                         @enderror"
-                                                placeholder="hello@example.com"
-                                                value="{{ old('email') }}">
-                                            @error('email')
+                                                placeholder="Username" value="{{ old('username') }}">
+                                            @error('username')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
@@ -73,7 +72,7 @@
                                             <input type="password" name="password"
                                                 class="form-control @error('password')
                                             is-invalid
-                                        @enderror""
+                                        @enderror"
                                                 placeholder="Password">
                                             @error('password')
                                                 <div class="invalid-feedback">{{ $message }}</div>

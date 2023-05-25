@@ -16,7 +16,7 @@ class AuthAdminController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'username' => ['required'],
             'password' => ['required'],
         ]);
 
@@ -36,5 +36,4 @@ class AuthAdminController extends Controller
 
         return redirect()->route('login');
     }
-
 }

@@ -18,43 +18,43 @@ class DatabaseSeeder extends Seeder
 
         Admin::create([
             'name' => 'Admin Inti',
-            'email' => 'inti@gmail.com',
+            'username' => 'inti',
             'password' => Hash::make('12345678'),
             'role' => 'inti',
         ]);
         Admin::create([
             'name' => 'Admin Competition',
-            'email' => 'competition@gmail.com',
+            'username' => 'competition',
             'password' => Hash::make('12345678'),
             'role' => 'competition',
         ]);
         Admin::create([
             'name' => 'Admin Competitive Programming',
-            'email' => 'competitive_programming@gmail.com',
+            'username' => 'competitive_programming',
             'password' => Hash::make('12345678'),
             'role' => 'competitive_programming',
         ]);
         Admin::create([
             'name' => 'Admin UI/UX Design',
-            'email' => 'uiux_design@gmail.com',
+            'username' => 'uiux_design',
             'password' => Hash::make('12345678'),
             'role' => 'uiux_design',
         ]);
         Admin::create([
             'name' => 'Admin Web Development',
-            'email' => 'web_development@gmail.com',
+            'username' => 'web_development',
             'password' => Hash::make('12345678'),
             'role' => 'web_development',
         ]);
         Admin::create([
             'name' => 'Admin Mobile Legends',
-            'email' => 'mobile_legends@gmail.com',
+            'username' => 'mobile_legends',
             'password' => Hash::make('12345678'),
             'role' => 'mobile_legends',
         ]);
         Admin::create([
             'name' => 'Admin Seminar',
-            'email' => 'seminar@gmail.com',
+            'username' => 'seminar',
             'password' => Hash::make('12345678'),
             'role' => 'seminar',
         ]);
