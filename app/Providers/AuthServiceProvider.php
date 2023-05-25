@@ -38,23 +38,20 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('inti', function (Admin $admin) {
             return $admin->role == 'inti';
         });
-        Gate::define('competition', function (Admin $admin) {
-            return $admin->role == 'competition';
-        });
         Gate::define('competitive_programming', function (Admin $admin) {
-            return $admin->role == 'competitive_programming';
+            return $admin->role == 'competitive_programming' || $admin->role == 'competition' || $admin->role == 'inti';
         });
         Gate::define('uiux_design', function (Admin $admin) {
-            return $admin->role == 'uiux_design';
+            return $admin->role == 'uiux_design' || $admin->role == 'competition' || $admin->role == 'inti';
         });
         Gate::define('web_development', function (Admin $admin) {
-            return $admin->role == 'web_development';
+            return $admin->role == 'web_development' || $admin->role == 'competition' || $admin->role == 'inti';
         });
         Gate::define('mobile_legends', function (Admin $admin) {
-            return $admin->role == 'mobile_legends';
+            return $admin->role == 'mobile_legends' || $admin->role == 'competition' || $admin->role == 'inti';
         });
         Gate::define('seminar', function (Admin $admin) {
-            return $admin->role == 'seminar';
+            return $admin->role == 'seminar' || $admin->role == 'inti' ;
         });
     }
 }

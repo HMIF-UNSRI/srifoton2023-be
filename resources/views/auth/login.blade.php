@@ -39,18 +39,31 @@
                                     <h3 class="text-center">Welcome Admin Srifoton</h3>
                                     <h6 class="font-weight-light text-center">Sign in to continue.</h6>
                                     @if (session()->has('loginError'))
-                                        <div class="alert alert-danger mt-4 text-center" role="alert">
-                                            {{ session('loginError') }}
+                                        <div class="alert alert-danger alert-dismissible fade show mt-3">
+                                            <svg viewbox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                                                stroke-width="2" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round" class="me-2">
+                                                <polygon
+                                                    points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2">
+                                                </polygon>
+                                                <line x1="15" y1="9" x2="9" y2="15">
+                                                </line>
+                                                <line x1="9" y1="9" x2="15" y2="15">
+                                                </line>
+                                            </svg>
+                                            <strong>Error!</strong> {{ session('loginError') }}
                                         </div>
                                     @endif
-                                    <form method="post" action="{{ route('login') }}" class="pt-3"> @csrf
+                                    <form method="post" action="{{ route('login') }}" class="pt-3">
+                                        @csrf
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Email</strong></label>
                                             <input type="email" name="email"
                                                 class="form-control @error('email')
                                             is-invalid
-                                        @enderror""
-                                                placeholder="hello@example.com">
+                                        @enderror"
+                                                placeholder="hello@example.com"
+                                                value="{{ old('email') }}">
                                             @error('email')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -58,7 +71,7 @@
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Password</strong></label>
                                             <input type="password" name="password"
-                                                class="form-control @error('email')
+                                                class="form-control @error('password')
                                             is-invalid
                                         @enderror""
                                                 placeholder="Password">
