@@ -1,48 +1,39 @@
-<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="../../index.html"><img class="img-fluid"
-                src="{{ asset('images/dashboard/Logo.png') }}" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img style="object-fit:cover" class="img-fluid"
-                src="{{ asset('images/dashboard/LOGO SRIFOTON 2023.png') }}" alt="logo" /></a>
-    </div>
-    <div class="navbar-menu-wrapper d-flex align-items-stretch">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-            <span class="mdi mdi-menu"></span>
-        </button>
-        <div class="search-field d-none d-md-block">
-            <form class="d-flex align-items-center h-100" action="#">
-                <div class="input-group">
-                    <div class="input-group-prepend bg-transparent">
-                        <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                    </div>
-                    <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
-                </div>
-            </form>
+<div class="nav-header">
+    <a href="index.html" class="brand-logo">
+        <img style="width:fit-content; height:40px"
+        src="{{ asset('images/LOGO SRIFOTON 2023.png') }}" alt="">
+    </a>
+    <div class="nav-control">
+        <div class="hamburger">
+            <span class="line"></span><span class="line"></span><span class="line"></span>
         </div>
-        <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item nav-profile dropdown">
-                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <div class="nav-profile-img">
-                        <img src="{{ asset('images/faces/my-avatar.png') }}" alt="image">
-                        <span class="availability-status online"></span>
-                    </div>
-                    <div class="nav-profile-text">
-                        <p class="mb-1 text-black">David Greymaax</p>
-                    </div>
-                </a>
-                <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="#">
-                        <i class="mdi mdi-cached me-2 text-success"></i> Activity Log </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('logout') }}">
-                        <i class="mdi mdi-logout me-2 text-primary"></i> Signout </a>
-                </div>
-            </li>
-        </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-            data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-        </button>
     </div>
-</nav>
+</div>
+
+<div class="header">
+    <div class="header-content">
+        <nav class="navbar navbar-expand">
+            <div class="collapse navbar-collapse justify-content-between">
+                <div class="header-left">
+                    <div class="dashboard_bar text-primary">
+                        Dashboard
+                    </div>
+                    
+                </div>
+                <ul class="navbar-nav header-right">
+                    <li class="nav-item dropdown  header-profile">
+                        <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                            <img src="{{ asset('images/user.png') }}" width="56" alt="">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a href="{{ route('logout')}}" class="dropdown-item ai-icon">
+                                <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                <span class="ms-2">Logout </span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

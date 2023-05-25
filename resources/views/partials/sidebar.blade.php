@@ -1,52 +1,60 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span class="menu-title">Dashboard</span>
-          <i class="mdi mdi-home menu-icon"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span class="menu-title">User</span>
-          <i class="mdi mdi-account-multiple menu-icon"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span class="menu-title">Comp. Programming</span>
-          <i class="mdi mdi-brain menu-icon"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span class="menu-title">UI/UX Design</span>
-          <i class="mdi mdi-brush menu-icon"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span class="menu-title">Web Development</span>
-          <i class="mdi mdi-laptop-windows menu-icon"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span class="menu-title">Mobile Legends</span>
-          <i class="mdi mdi-gamepad-variant menu-icon"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span class="menu-title">Seminar</span>
-          <i class="mdi mdi-bullhorn menu-icon"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">
-          <span class="menu-title">Icons</span>
-          <i class="mdi mdi-contacts menu-icon"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
+<div class="dlabnav">
+    <div class="dlabnav-scroll">
+        <ul class="metismenu" id="menu">
+            <li>
+                <a href="{{ route('dashboard') }}" aria-expanded="false">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            @can('inti')
+                <li>
+                    <a href="{{ route('users') }}" aria-expanded="false">
+                        <i class="fas fa-users"></i>
+                        <span class="nav-text">Users</span>
+                    </a>
+                </li>
+            @endcanany
+            @canany(['inti', 'competition', 'competitive_programming'])
+                <li>
+                    <a href="{{ route('competition.cp') }}" aria-expanded="false">
+                        <i class="fas fa-brain"></i>
+                        <span class="nav-text">Comp. Programming</span>
+                    </a>
+                </li>
+            @endcanany
+            @canany(['inti', 'competition', 'uiux_design'])
+                <li>
+                    <a href="{{ route('competition.uiux') }}" aria-expanded="false">
+                        <i class="fas fa-paint-brush"></i>
+                        <span class="nav-text">UI/UX Design</span>
+                    </a>
+                </li>
+            @endcanany
+            @canany(['inti', 'competition', 'web_development'])
+                <li>
+                    <a href="{{ route('competition.webdev') }}" aria-expanded="false">
+                        <i class="fas fa-laptop"></i>
+                        <span class="nav-text">Web Development</span>
+                    </a>
+                </li>
+            @endcanany
+            @canany(['inti', 'competition', 'mobile_legends'])
+                <li>
+                    <a href="{{ route('competition.mole') }}" aria-expanded="false">
+                        <i class="fas fa-gamepad"></i>
+                        <span class="nav-text">Mobile Legend</span>
+                    </a>
+                </li>
+            @endcanany
+            @canany(['inti', 'seminar'])
+                <li>
+                    <a href="{{ route('seminar') }}" aria-expanded="false">
+                        <i class="fas fa-microphone"></i>
+                        <span class="nav-text">Seminar</span>
+                    </a>
+                </li>
+            @endcanany
+        </ul>
+    </div>
+</div>
