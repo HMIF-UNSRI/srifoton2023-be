@@ -4,9 +4,12 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 
+use App\Models\Admin;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Auth\Notifications\VerifyEmail;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -31,6 +34,27 @@ class AuthServiceProvider extends ServiceProvider
                 ->subject('Verify Email Address')
                 ->line('Click the button below to verify your email address')
                 ->action('Verify Email Address', $spaUrl);
+        });
+        Gate::define('inti', function (Admin $admin) {
+            return $admin->role == 'inti';
+        });
+        Gate::define('competition', function (Admin $admin) {
+            return $admin->role == 'competition';
+        });
+        Gate::define('competitive_programming', function (Admin $admin) {
+            return $admin->role == 'competitive_programming';
+        });
+        Gate::define('uiux_design', function (Admin $admin) {
+            return $admin->role == 'uiux_design';
+        });
+        Gate::define('web_development', function (Admin $admin) {
+            return $admin->role == 'web_development';
+        });
+        Gate::define('mobile_legends', function (Admin $admin) {
+            return $admin->role == 'mobile_legends';
+        });
+        Gate::define('seminar', function (Admin $admin) {
+            return $admin->role == 'seminar';
         });
     }
 }

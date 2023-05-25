@@ -23,7 +23,7 @@
                 <ul class="navbar-nav header-right">
                     <li class="nav-item dropdown  header-profile">
                         <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-                            <img src="images/user.jpg" width="56" alt="">
+                            <img src="{{ asset('images/user.png') }}" width="56" alt="">
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a href="{{ route('logout')}}" class="dropdown-item ai-icon">
