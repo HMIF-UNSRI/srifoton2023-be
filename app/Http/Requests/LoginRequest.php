@@ -32,16 +32,6 @@ class LoginRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
-    {
-        return [
-            'email.required' => 'Kolom email harus diisi.',
-            'email.string' => 'Kolom email harus berupa teks.',
-            'email.email' => 'Kolom email harus berisi format email yang valid.',
-            'password.required' => 'Kolom password harus diisi.',
-        ];
-    }
-
     /**
      * Attempt to authenticate the request's credentials.
      *

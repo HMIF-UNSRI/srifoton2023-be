@@ -17,9 +17,6 @@ class NewPasswordController extends Controller
     {
         $request->validate([
             'email' => 'required|email'
-        ], [
-            'email.required' => 'Kolom email harus diisi.',
-            'email.email' => 'Kolom email harus berisi format email yang valid.',
         ]);
 
         $status = Password::sendResetLink(
