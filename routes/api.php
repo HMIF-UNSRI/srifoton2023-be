@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\DashboardUserController;
 use App\Http\Controllers\Api\NewPasswordController;
 use App\Http\Controllers\Api\EmailVerificationController;
 
@@ -35,7 +36,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail']);
     // Verify Email
     Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify');
+    // Update data user
+    Route::post('update-data-user', [DashboardUserController::class, 'update']);
 });
 
+// Send email forgot password
 Route::post('forgot-password', [NewPasswordController::class, 'forgotPassword']);
+// Reset password
 Route::post('reset-password', [NewPasswordController::class, 'resetPassword']);
