@@ -48,7 +48,14 @@ class Handler extends ExceptionHandler
         }
 
         if ($exception instanceof \ErrorException || $exception instanceof \Throwable) {
-            return response()->view('errors.500', [], 500);
+            if ($request->expectsJson()) {
+                return response()->json(['error' => 'Internal Server Error'], 500);
+            } else {
+                if (!auth()->check()) {
+                    return redirect()->guest(route('login'));
+                }
+                return response()->view('errors.500', [], 500);
+            }
         }
 
         if ($exception instanceof \Illuminate\Database\QueryException) {
