@@ -35032,8 +35032,8 @@ code {
 }
 
 .bgl-success {
-  background: #67f890;
-  border-color: #67f890;
+  background: #e4f5e9;
+  border-color: #e4f5e9;
 }
 
 [data-theme-version="dark"] .bgl-success {
@@ -35062,8 +35062,8 @@ code {
 }
 
 .bgl-info {
-  background: #efbae6;
-  border-color: #efbae6;
+  background: #faf0f9;
+  border-color: #faf0f9;
 }
 
 [data-theme-version="dark"] .bgl-info {
