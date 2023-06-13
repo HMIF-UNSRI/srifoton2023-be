@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DashboardUserController;
 use App\Http\Controllers\Api\NewPasswordController;
 use App\Http\Controllers\Api\EmailVerificationController;
+use App\Http\Controllers\Api\SeminarRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify');
     // Update data user
     Route::post('update-data-user', [DashboardUserController::class, 'update']);
+    // Seminar Register
+    Route::post('seminar/register', [SeminarRegisterController::class, 'register']);
 });
 
 // Send email forgot password
