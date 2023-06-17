@@ -18,10 +18,6 @@ use App\Http\Controllers\Api\EmailVerificationController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 // Register
 Route::post('register', [AuthController::class, 'register']);
 // Login
@@ -37,7 +33,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Verify Email
     Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify');
     // Update data user
-    Route::post('update-data-user', [DashboardUserController::class, 'update']);
+    Route::put('update-data-user', [DashboardUserController::class, 'update']);
 });
 
 // Send email forgot password

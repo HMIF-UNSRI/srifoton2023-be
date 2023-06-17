@@ -25,11 +25,8 @@ class AuthController extends Controller
         $token = $user->createToken('authtoken')->plainTextToken;
 
         return response()->json([
-            'messages' => 'User berhasil terdaftar',
-            'data' => [
-                'token' => $token,
-                'user' => $user
-            ]
+            'messages' => 'Berhasil daftar',
+            'token' => $token,
         ]);
     }
 
@@ -41,10 +38,7 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Berhasil login',
-            'data' => [
-                'token' => $token,
-                'user' => $request->user()
-            ]
+            'token' => $token,
         ]);
     }
 
@@ -57,7 +51,8 @@ class AuthController extends Controller
         ]);
     }
 
-    public function me() {
+    public function me()
+    {
         return response()->json(Auth::user());
     }
 }
