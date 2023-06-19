@@ -17,9 +17,6 @@ class NewPasswordController extends Controller
     {
         $request->validate([
             'email' => 'required|email'
-        ], [
-            'email.required' => 'Kolom email harus diisi.',
-            'email.email' => 'Kolom email harus berisi format email yang valid.',
         ]);
 
         $status = Password::sendResetLink(
@@ -47,15 +44,6 @@ class NewPasswordController extends Controller
                 'confirmed',
                 RulesPassword::min(8)->mixedCase()->numbers()->symbols()
             ]
-        ], [
-            'email.required' => 'Kolom email harus diisi.',
-            'email.email' => 'Kolom email harus berisi format email yang valid.',
-            'password.required' => 'Kolom password harus diisi.',
-            'password.confirmed' => 'Konfirmasi password tidak cocok.',
-            'password.min' => 'Password harus memiliki minimal 8 karakter.',
-            'password.mixed_case' => 'Password harus mengandung huruf besar dan huruf kecil.',
-            'password.numbers' => 'Password harus mengandung angka.',
-            'password.symbols' => 'Password harus mengandung simbol.'
         ]);
 
         $status = Password::reset(

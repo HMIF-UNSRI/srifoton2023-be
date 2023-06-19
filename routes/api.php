@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\NewPasswordController;
+use App\Http\Controllers\Api\MobileLegendController;
+use App\Http\Controllers\Api\DashboardUserController;
 use App\Http\Controllers\Api\EmailVerificationController;
 
 /*
@@ -17,25 +19,31 @@ use App\Http\Controllers\Api\EmailVerificationController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 // Register
 Route::post('register', [AuthController::class, 'register']);
 // Login
 Route::post('login', [AuthController::class, 'login']);
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('auth:api')->group(function () {
     // Get data user
-    Route::get('me', [AuthController::class, 'me']);
+    Route::post('me', [AuthController::class, 'me']);
     // Logout
     Route::post('logout', [AuthController::class, 'logout']);
     // Send Email Verification
     Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail']);
     // Verify Email
     Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify');
+
+    Route::middleware('verified')->group(function () {
+        // Update data user
+        Route::put('update-data-user', [DashboardUserController::class, 'update']);
+
+        // Competition (Mobile legends)
+        Route::post('mobile-legends/register', [MobileLegendController::class, 'register']);
+    });
 });
 
+// Send email forgot password
 Route::post('forgot-password', [NewPasswordController::class, 'forgotPassword']);
+// Reset password
 Route::post('reset-password', [NewPasswordController::class, 'resetPassword']);

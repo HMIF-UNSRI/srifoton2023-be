@@ -33,23 +33,4 @@ class RegisterRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
-    {
-        return [
-            'name.required' => 'Kolom nama harus diisi.',
-            'name.string' => 'Kolom nama harus berupa teks.',
-            'name.max' => 'Kolom nama tidak boleh lebih dari 255 karakter.',
-            'email.required' => 'Kolom email harus diisi.',
-            'email.string' => 'Kolom email harus berupa teks.',
-            'email.email' => 'Kolom email harus berisi format email yang valid.',
-            'email.max' => 'Kolom email tidak boleh lebih dari 100 karakter.',
-            'email.unique' => 'Email tersebut sudah digunakan oleh pengguna lain.',
-            'password.required' => 'Kolom password harus diisi.',
-            'password.confirmed' => 'Konfirmasi password tidak cocok.',
-            'password.min' => 'Password harus memiliki minimal 8 karakter.',
-            'password.mixed_case' => 'Password harus mengandung huruf besar dan huruf kecil.',
-            'password.numbers' => 'Password harus mengandung angka.',
-            'password.symbols' => 'Password harus mengandung simbol.'
-        ];
-    }
 }

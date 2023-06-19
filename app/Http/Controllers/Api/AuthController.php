@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Requests\LoginRequest;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
-use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -22,42 +23,45 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        $token = $user->createToken('authtoken')->plainTextToken;
+        $token = JWTAuth::fromUser($user);
+        $user = User::find($user->id);
 
-        return response()->json([
-            'messages' => 'User berhasil terdaftar',
-            'data' => [
+        if ($user) {
+            return response()->json([
+                'messages' => 'Berhasil daftar',
                 'token' => $token,
                 'user' => $user
-            ]
-        ]);
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+        ], 409);
     }
 
     public function login(LoginRequest $request)
     {
         $request->authenticate();
-
-        $token = $request->user()->createToken('authtoken')->plainTextToken;
+        $token = JWTAuth::fromUser(Auth::guard('api')->user());
 
         return response()->json([
             'message' => 'Berhasil login',
-            'data' => [
-                'token' => $token,
-                'user' => $request->user()
-            ]
+            'token' => $token,
+            'user' => Auth::guard('api')->user()
         ]);
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
-        $request->user()->tokens()->delete();
+        Auth::guard('api')->logout();
 
         return response()->json([
-            'message' => 'Berhasil logout'
+            'message' => 'Berhasil log out'
         ]);
     }
 
-    public function me() {
-        return response()->json(Auth::user());
+    public function me()
+    {
+        return response()->json(Auth::guard('api')->user());
     }
 }
