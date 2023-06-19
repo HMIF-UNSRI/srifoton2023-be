@@ -11,22 +11,25 @@
     </div>
     <div class="row">
         {{-- Users --}}
-        <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
-            <div class="widget-stat card">
-                <div class="card-body p-4">
-                    <div class="media ai-icon">
-                        <span class="me-3 bgl-success text-success">
-                            <i class="fas fa-users"></i>
-                        </span>
-                        <div class="media-body">
-                            <p class="mb-1">Users</p>
-                            <h4 class="mb-0">3280</h4>
+        @can('inti')
+            <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
+                <div class="widget-stat card">
+                    <div class="card-body p-4">
+                        <div class="media ai-icon">
+                            <span class="me-3 bgl-success text-success">
+                                <i class="fas fa-users"></i>
+                            </span>
+                            <div class="media-body">
+                                <p class="mb-1">Users</p>
+                                <h4 class="mb-0">3280</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endcan
 
+        @canany(['inti', 'seminar'])
         {{-- Seminar --}}
         <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
             <div class="widget-stat card">
@@ -43,8 +46,10 @@
                 </div>
             </div>
         </div>
+        @endcanany
 
-        {{-- Competition --}}
+        @canany(['inti', 'competition', 'competitive_programming'])
+        {{-- Competitive Programming --}}
         <div class="col-xl-2 col-xxl-3 col-lg-3 col-sm-3">
             <div class="widget-stat card">
                 <div class="card-body p-4">
@@ -60,7 +65,9 @@
                 </div>
             </div>
         </div>
+        @endcanany
 
+        @canany(['inti', 'competition', 'uiux_design'])
         {{-- UI/UX --}}
         <div class="col-xl-2 col-xxl-3 col-lg-3 col-sm-3">
             <div class="widget-stat card">
@@ -77,7 +84,9 @@
                 </div>
             </div>
         </div>
-
+        @endcanany
+        
+        @canany(['inti', 'competition', 'web_development'])
         {{-- Web Development --}}
         <div class="col-xl-2 col-xxl-3 col-lg-3 col-sm-3">
             <div class="widget-stat card">
@@ -94,7 +103,9 @@
                 </div>
             </div>
         </div>
+        @endcanany
 
+        @canany(['inti', 'competition', 'mobile_legends'])
         {{-- Mobile Legends --}}
         <div class="col-xl-2 col-xxl-3 col-lg-3 col-sm-3">
             <div class="widget-stat card">
@@ -105,11 +116,12 @@
                         </span>
                         <div class="media-body">
                             <p class="mb-1">Mobile Legends</p>
-                            <h4 class="mb-0">3280</h4>
+                            <h4 class="mb-1">3280</h4>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        @endcanany
     </div>
 @endsection

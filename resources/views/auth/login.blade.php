@@ -18,7 +18,7 @@
     <title>Admin Dashboard</title>
 
     <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/LOGO SRIFOTON 2023.png') }}">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 </head>
