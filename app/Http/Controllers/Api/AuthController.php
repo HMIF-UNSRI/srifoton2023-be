@@ -24,11 +24,13 @@ class AuthController extends Controller
         ]);
 
         $token = JWTAuth::fromUser($user);
+        $user = User::find($user->id);
 
         if ($user) {
             return response()->json([
                 'messages' => 'Berhasil daftar',
                 'token' => $token,
+                'user' => $user
             ]);
         }
 
@@ -44,7 +46,8 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Berhasil login',
-            'token' => $token
+            'token' => $token,
+            'user' => Auth::guard('api')->user()
         ]);
     }
 
@@ -61,5 +64,4 @@ class AuthController extends Controller
     {
         return response()->json(Auth::guard('api')->user());
     }
-
 }
