@@ -33,8 +33,16 @@ Route::middleware('auth:admin')->group(function(){
         Route::get('/competitive-programming', [CompetitiveProgrammingController::class, 'competitive_programming'])->name('competition.cp');
         Route::get('/uiux-design', [UIUXDesignController::class, 'uiux_design'])->name('competition.uiux');
         Route::get('/web-development', [WebDevelopmentController::class, 'web_development'])->name('competition.webdev');
+
+
         Route::get('/mobile-legends', [MobileLegendController::class, 'index'])->name('competition.mole');
+        Route::post('/mobile-legends/{id}', [MobileLegendController::class, 'update'])->name('competition.mole.verification');
+
+
+        
         Route::get('/seminar', [SeminarController::class, 'seminar'])->name('seminar');
+
+
     });
     
     Route::get('srifoton2023/logout-admin', [AuthAdminController::class, 'logout'])->name('logout');

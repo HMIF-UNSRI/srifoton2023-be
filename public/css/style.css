@@ -53,12 +53,6 @@
         _page-user-lock
 
 */
-@import url("../../css2.css");
-@import url("../../css.css");
-@import url("../../css-1.css");
-@import url("../../css-2.css");
-@import url("../../css-3.css");
-@import url("../../css-4.css");
 @import url("../icons/simple-line-icons/css/simple-line-icons.css");
 @import url("../icons/font-awesome/css/all.min.css");
 @import url("../icons/material-design-iconic-font/css/materialdesignicons.min.css");
@@ -20382,11 +20376,11 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   z-index: 9999;
 }
 
-.sidebar-right .bg-label-pattern {
+/* .sidebar-right .bg-label-pattern {
   background: transparent;
   background-image: url("../images/pattern/pattern5.png");
   background-size: 130%;
-}
+} */
 
 .sidebar-right .bootstrap-select {
   height: 3rem;
