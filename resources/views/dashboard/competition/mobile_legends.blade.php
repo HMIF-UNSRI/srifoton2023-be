@@ -13,6 +13,7 @@
     <script src="{{ asset('js/plugins-init/toastr-init.js') }}"></script>
     <script>
         $(document).ready(function() {
+            // edit modal
             $(document).on('show.bs.modal', '#editModalMobileLegends', function(event) {
                 const button = $(event.relatedTarget);
                 const id = button.data('id');
@@ -26,17 +27,31 @@
 
                 modal.find('#teamName').val(teamName);
                 modal.find('#paymentMethod').val(paymentMethod);
-                modal.find('#proof').attr('src', proof);
+                modal.find('#proof').attr('src', '{{ asset('storage')}}/' +proof);
                 
                 if (isVerified) {
                     editForm.hide();
                     editModalTitle.html(teamName + ' telah diverifikasi')
                 } else {
                     editForm.show();
-                    editForm.attr('action', '/dashboard/admin/mobile-legends/' + id)
+                    editForm.attr('action', `/dashboard/admin/mobile-legends/${id}/verification`)
                     editModalTitle.html('Verifikasi Pembayaran');
                 }
+            });
 
+            // Delete Modal
+            $(document).on('show.bs.modal', '#deleteModalMobileLegends', function(event) {
+                const button = $(event.relatedTarget);
+                const id = button.data('id');
+                const teamName = button.data('team-name');
+                const modal = $(this);
+                const deleteForm = $('#deleteFormMobileLegends');
+                const deleteModalBody = $('#deleteModalBody');
+
+                deleteModalBody.html(`Apakah anda yakin ingin menghapus tim ${teamName}`);
+                deleteForm.attr('action', `/dashboard/admin/mobile-legends/${id}/delete`);
+
+                modal.find('#teamName').val(teamName);
 
             });
         });
@@ -146,7 +161,9 @@
                                                     data-is-verified={{ $mobilelegend->isVerified }}><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 <a href="#" class="btn btn-danger shadow btn-rounded btn-xs sharp"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModalMobileLegends"><i
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModalMobileLegends" 
+                                                    data-id= {{ $mobilelegend->id }}
+                                                    data-team-name="{{ $mobilelegend->team_name }}"><i
                                                         class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
@@ -212,15 +229,19 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Modal title</h5>
+                                        <h5 class="modal-title">Hapus Data</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                         </button>
                                     </div>
-                                    <div class="modal-body">Modal body text goes here.</div>
+                                    <div class="modal-body" id="deleteModalBody"></div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger light"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                            <form method="post" id="deleteFormMobileLegends">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
                                     </div>
                                 </div>
                             </div>

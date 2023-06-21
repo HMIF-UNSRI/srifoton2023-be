@@ -26,7 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('auth:admin')->group(function(){
+Route::middleware('auth:admin')->group(function () {
     Route::prefix('dashboard/admin')->group(function () {
         Route::get('/', [DashboardAdminController::class, 'index'])->name('dashboard');
         Route::get('/users', [UserController::class, 'index'])->name('users');
@@ -36,19 +36,20 @@ Route::middleware('auth:admin')->group(function(){
 
 
         Route::get('/mobile-legends', [MobileLegendController::class, 'index'])->name('competition.mole');
-        Route::post('/mobile-legends/{id}', [MobileLegendController::class, 'update'])->name('competition.mole.verification');
+        Route::post('/mobile-legends/{id}/verification', [MobileLegendController::class, 'update'])->name('competition.mole.verification');
+        Route::delete('/mobile-legends/{id}/delete', [MobileLegendController::class, 'delete'])->name('competition.mole.delete');
 
 
-        
+
         Route::get('/seminar', [SeminarController::class, 'seminar'])->name('seminar');
 
 
     });
-    
+
     Route::get('srifoton2023/logout-admin', [AuthAdminController::class, 'logout'])->name('logout');
 });
 
-Route::middleware('guest:admin')->group(function(){
+Route::middleware('guest:admin')->group(function () {
     Route::get('srifoton2023/login-admin', [AuthAdminController::class, 'index']);
     Route::post('srifoton2023/login-admin', [AuthAdminController::class, 'login'])->name('login');
 });
