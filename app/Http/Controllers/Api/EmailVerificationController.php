@@ -9,6 +9,21 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 class EmailVerificationController extends Controller
 {
+    /**
+     * Send Email Verification
+     * 
+     * Endpoint ini digunakan untuk mengirimkan email verifikasi ke user.
+     * 
+     * @authenticated
+     * 
+     * @bodyParam email string required
+     * <ul>
+     *      <li>Harus berupa email valid.</li>
+     * </ul>
+     * Example: youremail@gmail.com
+     * 
+     * 
+     */
     public function sendVerificationEmail(Request $request)
     {
         if ($request->user()->hasVerifiedEmail()) {
@@ -22,6 +37,23 @@ class EmailVerificationController extends Controller
         return ['status' => 'Link verifikasi telah dikirim'];
     }
 
+    /**
+     * Verify User
+     * 
+     * Endpoint ini digunakan untuk memverifikasi user setelah email verifikasi dikirim.
+     * 
+     * @authenticated
+     * 
+     * @urlParam id integer required
+     * Id didapatkan pada url yang ada di email verification yang dikirim.<br>
+     * Example: 1
+     * 
+     * @urlParam hash string required
+     * Hash didapatkan pada url yang ada di email verification yang dikirim.<br>
+     * Example: 80eb661aa0dd5dd1da50f5d62050554c2a5f4af7
+     * 
+     * 
+     */
     public function verify(EmailVerificationRequest $request)
     {
         if ($request->user()->hasVerifiedEmail()) {
