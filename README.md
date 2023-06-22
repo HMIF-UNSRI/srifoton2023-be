@@ -32,8 +32,8 @@ Generate a new application key
 
 Generate a new JWT authentication secret key
 
-    php artisan jwt:generate
-    
+    php artisan jwt:secret
+
 Run the database migrations (**Set the database connection in .env before migrating**)
 
     php artisan migrate
@@ -42,4 +42,4 @@ Start the local development server
 
     php artisan serve
 
-You can now access the server at http://localhost:8000
+You can now access the server at http://localhost:8000 and you can access the api documentation at http://localhost:8000/docs
