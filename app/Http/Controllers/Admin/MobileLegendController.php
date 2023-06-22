@@ -19,7 +19,15 @@ class MobileLegendController extends Controller
     public function index()
     {
         $mobilelegends = MobileLegend::all();
-        return view('dashboard.competition.mobile_legends', compact('mobilelegends'));
+        return view('dashboard.competition.mobile_legends.index', compact('mobilelegends'));
+    }
+
+    public function show($id)   
+    {
+        $mobilelegend = MobileLegend::findOrFail($id);
+        $members = $mobilelegend->id_card6 == null ? 5 : 6;
+        return view('dashboard.competition.mobile_legends.show', compact('mobilelegend', 'members'));
+
     }
 
     public function update($id)

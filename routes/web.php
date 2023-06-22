@@ -30,12 +30,13 @@ Route::middleware('auth:admin')->group(function () {
     Route::prefix('dashboard/admin')->group(function () {
         Route::get('/', [DashboardAdminController::class, 'index'])->name('dashboard');
         Route::get('/users', [UserController::class, 'index'])->name('users');
-        Route::get('/competitive-programming', [CompetitiveProgrammingController::class, 'competitive_programming'])->name('competition.cp');
-        Route::get('/uiux-design', [UIUXDesignController::class, 'uiux_design'])->name('competition.uiux');
-        Route::get('/web-development', [WebDevelopmentController::class, 'web_development'])->name('competition.webdev');
+        Route::get('/competitive-programming', [CompetitiveProgrammingController::class, 'index'])->name('competition.cp');
+        Route::get('/uiux-design', [UIUXDesignController::class, 'index'])->name('competition.uiux');
+        Route::get('/web-development', [WebDevelopmentController::class, 'index'])->name('competition.webdev');
 
-
+        // MobileLegends
         Route::get('/mobile-legends', [MobileLegendController::class, 'index'])->name('competition.mole');
+        Route::get('/mobile-legends/{id}', [MobileLegendController::class, 'show'])->name('competition.mole.show');
         Route::post('/mobile-legends/{id}/verification', [MobileLegendController::class, 'update'])->name('competition.mole.verification');
         Route::delete('/mobile-legends/{id}/delete', [MobileLegendController::class, 'delete'])->name('competition.mole.delete');
 

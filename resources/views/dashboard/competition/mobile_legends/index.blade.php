@@ -148,7 +148,7 @@
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
-                                                <a href="#"
+                                                <a href="{{ route('competition.mole.show' ,$mobilelegend->id)}}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
                                                         class="fas fa-eye"></i></a>
                                                 <a href="#"
@@ -202,7 +202,7 @@
                                             <tr>
                                                 <td>Bukti Pembayaran</td>
                                                 <td>
-                                                    <img class="img-fluid mb-3" alt="" id="proof"
+                                                    <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
                                                 </td>
                                             </tr>
@@ -246,8 +246,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

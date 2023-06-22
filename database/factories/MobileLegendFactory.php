@@ -28,7 +28,7 @@ class MobileLegendFactory extends Factory
             'phone_number1' => $this->faker->name(),
             'instagram1' => $this->faker->name(),
             'id_mole1' => $this->faker->name(),
-            'id_card1' => $this->faker->name(),
+            'id_card1' => 'https://source.unsplash.com/random/450×800/?card',
             // Anggota 2
             'name2' => $this->faker->name(),
             'nim2' => $this->faker->name(),
@@ -36,7 +36,7 @@ class MobileLegendFactory extends Factory
             'phone_number2' => $this->faker->name(),
             'instagram2' => $this->faker->name(),
             'id_mole2' => $this->faker->name(),
-            'id_card2' => $this->faker->name(),
+            'id_card2' => 'https://source.unsplash.com/random/450×800/?card',
             // Anggota 3
             'name3' => $this->faker->name(),
             'nim3' => $this->faker->name(),
@@ -44,7 +44,7 @@ class MobileLegendFactory extends Factory
             'phone_number3' => $this->faker->name(),
             'instagram3' => $this->faker->name(),
             'id_mole3' => $this->faker->name(),
-            'id_card3' => $this->faker->name(),
+            'id_card3' => 'https://source.unsplash.com/random/450×800/?card',
             // Anggota 4
             'name4' => $this->faker->name(),
             'nim4' => $this->faker->name(),
@@ -52,7 +52,7 @@ class MobileLegendFactory extends Factory
             'phone_number4' => $this->faker->name(),
             'instagram4' => $this->faker->name(),
             'id_mole4' => $this->faker->name(),
-            'id_card4' => $this->faker->name(),
+            'id_card4' => 'https://source.unsplash.com/random/450×800/?card',
             // Anggota 5
             'name5' => $this->faker->name(),
             'nim5' => $this->faker->name(),
@@ -60,7 +60,7 @@ class MobileLegendFactory extends Factory
             'phone_number5' => $this->faker->name(),
             'instagram5' => $this->faker->name(),
             'id_mole5' => $this->faker->name(),
-            'id_card5' => $this->faker->name(),
+            'id_card5' => 'https://source.unsplash.com/random/450×800/?card',
             // Anggota 6
             'name6' => $this->faker->name(),
             'nim6' => $this->faker->name(),
@@ -68,7 +68,7 @@ class MobileLegendFactory extends Factory
             'phone_number6' => $this->faker->name(),
             'instagram6' => $this->faker->name(),
             'id_mole6' => $this->faker->name(),
-            'id_card6' => $this->faker->name(),
+            'id_card6' => 'https://source.unsplash.com/random/450×800/?card',
 
             // Payment
             'proof' => 'https://source.unsplash.com/random/450×800/?payment',
