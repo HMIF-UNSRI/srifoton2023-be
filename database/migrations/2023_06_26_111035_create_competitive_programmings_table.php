@@ -16,24 +16,22 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->string('team_name')->unique();
             $table->string('email')->unique();
+            $table->string('college');
             // Anggota 1
             $table->string('name1');
             $table->string('nim1');
-            $table->string('college1');
             $table->string('phone_number1');
             $table->string('instagram1');
             $table->string('id_card1');
             // Anggota 2
             $table->string('name2')->nullable();
             $table->string('nim2')->nullable();
-            $table->string('college2')->nullable();
             $table->string('phone_number2')->nullable();
             $table->string('instagram2')->nullable();
             $table->string('id_card2')->nullable();
             // Anggota 3
             $table->string('name3')->nullable();
             $table->string('nim3')->nullable();
-            $table->string('college3')->nullable();
             $table->string('phone_number3')->nullable();
             $table->string('instagram3')->nullable();
             $table->string('id_card3')->nullable();

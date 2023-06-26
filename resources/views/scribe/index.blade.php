@@ -95,6 +95,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-mobile-legends-register">
                                 <a href="#endpoints-POSTapi-mobile-legends-register">Mobile Legend Registration</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-competitive-programming-register">
+                                <a href="#endpoints-POSTapi-competitive-programming-register">Competitive Programming Registration</a>
+                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-forgot-password">
                                 <a href="#endpoints-POSTapi-forgot-password">Send Email Forgot password</a>
                             </li>
@@ -112,7 +115,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: June 23, 2023</li>
+        <li>Last updated: June 26, 2023</li>
     </ul>
 </div>
 
@@ -1277,13 +1280,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "instagram6=clubbapukasu" \
     --form "id_mole6=283913038" \
     --form "payment_method=Dana" \
-    --form "id_card1=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE718.tmp" \
-    --form "id_card2=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE728.tmp" \
-    --form "id_card3=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE729.tmp" \
-    --form "id_card4=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE72A.tmp" \
-    --form "id_card5=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE72B.tmp" \
-    --form "id_card6=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE72C.tmp" \
-    --form "proof=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE72D.tmp" </code></pre></div>
+    --form "id_card1=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA51.tmp" \
+    --form "id_card2=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA62.tmp" \
+    --form "id_card3=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA63.tmp" \
+    --form "id_card4=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA64.tmp" \
+    --form "id_card5=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA65.tmp" \
+    --form "id_card6=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA66.tmp" \
+    --form "proof=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA67.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1539,7 +1542,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <ul>
      <li>Maksimal 2 MB</li>
      <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
-</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE718.tmp`
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA51.tmp`
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name2</code></b>&nbsp;&nbsp;
@@ -1619,7 +1622,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <ul>
      <li>Maksimal 2 MB</li>
      <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
-</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE728.tmp`
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA62.tmp`
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name3</code></b>&nbsp;&nbsp;
@@ -1699,7 +1702,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <ul>
      <li>Maksimal 2 MB</li>
      <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
-</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE729.tmp`
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA63.tmp`
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name4</code></b>&nbsp;&nbsp;
@@ -1779,7 +1782,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <ul>
      <li>Maksimal 2 MB</li>
      <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
-</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE72A.tmp`
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA64.tmp`
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name5</code></b>&nbsp;&nbsp;
@@ -1859,7 +1862,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <ul>
      <li>Maksimal 2 MB</li>
      <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
-</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE72B.tmp`
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA65.tmp`
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name6</code></b>&nbsp;&nbsp;
@@ -1939,7 +1942,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <ul>
      <li>Maksimal 2 MB</li>
      <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
-</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE72C.tmp`
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA66.tmp`
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>proof</code></b>&nbsp;&nbsp;
@@ -1953,7 +1956,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <ul>
      <li>Maksimal 2 MB</li>
      <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
-</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpE72D.tmp`
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEA67.tmp`
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>payment_method</code></b>&nbsp;&nbsp;
@@ -1961,6 +1964,407 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                name="payment_method"                data-endpoint="POSTapi-mobile-legends-register"
+               value="Dana"
+               data-component="body">
+    <br>
+<p>Example: <code>Dana</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-POSTapi-competitive-programming-register">Competitive Programming Registration</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Endpoint ini digunakan untuk mendaftar kompetisi competitive programming.</p>
+
+<span id="example-requests-POSTapi-competitive-programming-register">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/competitive-programming/register" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "team_name=Liverpool" \
+    --form "email=youremail@gmail.com" \
+    --form "college=Universitas Liverpool" \
+    --form "name1=Mohammed Salah" \
+    --form "nim1=09021182126001" \
+    --form "phone_number1=082162798119" \
+    --form "instagram1=kiyaisalah" \
+    --form "name2=Darwin Nunez" \
+    --form "nim2=09021182126002" \
+    --form "phone_number2=082296232641" \
+    --form "instagram2=nunezgoat" \
+    --form "name3=Thiago Alcantara" \
+    --form "nim3=09021182126003" \
+    --form "phone_number3=081278059819" \
+    --form "instagram3=juarapildun" \
+    --form "payment_method=Dana" \
+    --form "id_card1=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEAC0.tmp" \
+    --form "id_card2=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEAC1.tmp" \
+    --form "id_card3=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEAC2.tmp" \
+    --form "proof=@C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEAC3.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/competitive-programming/register"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('team_name', 'Liverpool');
+body.append('email', 'youremail@gmail.com');
+body.append('college', 'Universitas Liverpool');
+body.append('name1', 'Mohammed Salah');
+body.append('nim1', '09021182126001');
+body.append('phone_number1', '082162798119');
+body.append('instagram1', 'kiyaisalah');
+body.append('name2', 'Darwin Nunez');
+body.append('nim2', '09021182126002');
+body.append('phone_number2', '082296232641');
+body.append('instagram2', 'nunezgoat');
+body.append('name3', 'Thiago Alcantara');
+body.append('nim3', '09021182126003');
+body.append('phone_number3', '081278059819');
+body.append('instagram3', 'juarapildun');
+body.append('payment_method', 'Dana');
+body.append('id_card1', document.querySelector('input[name="id_card1"]').files[0]);
+body.append('id_card2', document.querySelector('input[name="id_card2"]').files[0]);
+body.append('id_card3', document.querySelector('input[name="id_card3"]').files[0]);
+body.append('proof', document.querySelector('input[name="proof"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-competitive-programming-register">
+</span>
+<span id="execution-results-POSTapi-competitive-programming-register" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-competitive-programming-register"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-competitive-programming-register"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-competitive-programming-register" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-competitive-programming-register">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-competitive-programming-register" data-method="POST"
+      data-path="api/competitive-programming/register"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-competitive-programming-register', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-competitive-programming-register"
+                    onclick="tryItOut('POSTapi-competitive-programming-register');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-competitive-programming-register"
+                    onclick="cancelTryOut('POSTapi-competitive-programming-register');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-competitive-programming-register"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/competitive-programming/register</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Authorization" class="auth-value"               data-endpoint="POSTapi-competitive-programming-register"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-competitive-programming-register"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-competitive-programming-register"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>team_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="team_name"                data-endpoint="POSTapi-competitive-programming-register"
+               value="Liverpool"
+               data-component="body">
+    <br>
+<p>Example: <code>Liverpool</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="email"                data-endpoint="POSTapi-competitive-programming-register"
+               value="youremail@gmail.com"
+               data-component="body">
+    <br>
+<ul>
+     <li>Harus berupa email valid.</li>
+     <li>Harus unique (tidak boleh email yang telah terdaftar di kompetisi competitive programming)</li>
+</ul> Example: `youremail@gmail.com`
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>college</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="college"                data-endpoint="POSTapi-competitive-programming-register"
+               value="Universitas Liverpool"
+               data-component="body">
+    <br>
+<p>Example: <code>Universitas Liverpool</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="name1"                data-endpoint="POSTapi-competitive-programming-register"
+               value="Mohammed Salah"
+               data-component="body">
+    <br>
+<p>Example: <code>Mohammed Salah</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nim1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="nim1"                data-endpoint="POSTapi-competitive-programming-register"
+               value="09021182126001"
+               data-component="body">
+    <br>
+<p>Example: <code>09021182126001</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone_number1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="phone_number1"                data-endpoint="POSTapi-competitive-programming-register"
+               value="082162798119"
+               data-component="body">
+    <br>
+<p>Example: <code>082162798119</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>instagram1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="instagram1"                data-endpoint="POSTapi-competitive-programming-register"
+               value="kiyaisalah"
+               data-component="body">
+    <br>
+<p>Example: <code>kiyaisalah</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_card1</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+               name="id_card1"                data-endpoint="POSTapi-competitive-programming-register"
+               value=""
+               data-component="body">
+    <br>
+<ul>
+     <li>Maksimal 2 MB</li>
+     <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEAC0.tmp`
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name2</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="name2"                data-endpoint="POSTapi-competitive-programming-register"
+               value="Darwin Nunez"
+               data-component="body">
+    <br>
+<p>Example: <code>Darwin Nunez</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nim2</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="nim2"                data-endpoint="POSTapi-competitive-programming-register"
+               value="09021182126002"
+               data-component="body">
+    <br>
+<p>Example: <code>09021182126002</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone_number2</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="phone_number2"                data-endpoint="POSTapi-competitive-programming-register"
+               value="082296232641"
+               data-component="body">
+    <br>
+<p>Example: <code>082296232641</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>instagram2</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="instagram2"                data-endpoint="POSTapi-competitive-programming-register"
+               value="nunezgoat"
+               data-component="body">
+    <br>
+<p>Example: <code>nunezgoat</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_card2</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+               name="id_card2"                data-endpoint="POSTapi-competitive-programming-register"
+               value=""
+               data-component="body">
+    <br>
+<ul>
+     <li>Maksimal 2 MB</li>
+     <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEAC1.tmp`
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name3</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="name3"                data-endpoint="POSTapi-competitive-programming-register"
+               value="Thiago Alcantara"
+               data-component="body">
+    <br>
+<p>Example: <code>Thiago Alcantara</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>nim3</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="nim3"                data-endpoint="POSTapi-competitive-programming-register"
+               value="09021182126003"
+               data-component="body">
+    <br>
+<p>Example: <code>09021182126003</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phone_number3</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="phone_number3"                data-endpoint="POSTapi-competitive-programming-register"
+               value="081278059819"
+               data-component="body">
+    <br>
+<p>Example: <code>081278059819</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>instagram3</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="instagram3"                data-endpoint="POSTapi-competitive-programming-register"
+               value="juarapildun"
+               data-component="body">
+    <br>
+<p>Example: <code>juarapildun</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>id_card3</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+               name="id_card3"                data-endpoint="POSTapi-competitive-programming-register"
+               value=""
+               data-component="body">
+    <br>
+<ul>
+     <li>Maksimal 2 MB</li>
+     <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEAC2.tmp`
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>proof</code></b>&nbsp;&nbsp;
+<small>file</small>&nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+               name="proof"                data-endpoint="POSTapi-competitive-programming-register"
+               value=""
+               data-component="body">
+    <br>
+<ul>
+     <li>Maksimal 2 MB</li>
+     <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
+</ul> Example: `C:\Users\Dewa Sheva Dzaky\AppData\Local\Temp\phpEAC3.tmp`
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>payment_method</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="payment_method"                data-endpoint="POSTapi-competitive-programming-register"
                value="Dana"
                data-component="body">
     <br>

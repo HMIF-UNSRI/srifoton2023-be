@@ -157,7 +157,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer afce5vVd3aZEkD4hbP6681g'
+      - 'Bearer ad6Z16Pg5Dh8ck3E4bVeavf'
     controller: null
     method: null
     route: null
@@ -191,7 +191,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer be8hZd3cvgDaEaP4k16V65f'
+      - 'Bearer cgvPEf3d4Vh6ebaZDa86k51'
     controller: null
     method: null
     route: null
@@ -236,7 +236,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer e1Ea6PcV35a8hfvd46gDbZk'
+      - 'Bearer caP5gd18vh6EbD4keZfa6V3'
     controller: null
     method: null
     route: null
@@ -295,7 +295,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer g136d6kVvhbD4PafE8cZea5'
+      - 'Bearer d8E66Da1VfgZP3bvakce54h'
     controller: null
     method: null
     route: null
@@ -380,7 +380,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 8P6f1baZa64cVvhe5Dgk3Ed'
+      - 'Bearer khV5vP6aDEg84badZ13cfe6'
     controller: null
     method: null
     route: null
@@ -814,7 +814,221 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer h6PZaDb5a1kfc68dgVvE43e'
+      - 'Bearer 1Vfhvg36Dka68e5bZdcaP4E'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/competitive-programming/register
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Competitive Programming Registration'
+      description: 'Endpoint ini digunakan untuk mendaftar kompetisi competitive programming.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      team_name:
+        name: team_name
+        description: ''
+        required: true
+        example: Liverpool
+        type: string
+        custom: []
+      email:
+        name: email
+        description: |-
+          <ul>
+               <li>Harus berupa email valid.</li>
+               <li>Harus unique (tidak boleh email yang telah terdaftar di kompetisi competitive programming)</li>
+          </ul>
+        required: true
+        example: youremail@gmail.com
+        type: string
+        custom: []
+      college:
+        name: college
+        description: ''
+        required: true
+        example: 'Universitas Liverpool'
+        type: string
+        custom: []
+      name1:
+        name: name1
+        description: ''
+        required: true
+        example: 'Mohammed Salah'
+        type: string
+        custom: []
+      nim1:
+        name: nim1
+        description: ''
+        required: true
+        example: '09021182126001'
+        type: string
+        custom: []
+      phone_number1:
+        name: phone_number1
+        description: ''
+        required: true
+        example: '082162798119'
+        type: string
+        custom: []
+      instagram1:
+        name: instagram1
+        description: ''
+        required: true
+        example: kiyaisalah
+        type: string
+        custom: []
+      id_card1:
+        name: id_card1
+        description: |-
+          <ul>
+               <li>Maksimal 2 MB</li>
+               <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
+          </ul>
+        required: true
+        example: null
+        type: file
+        custom: []
+      name2:
+        name: name2
+        description: ''
+        required: false
+        example: 'Darwin Nunez'
+        type: string
+        custom: []
+      nim2:
+        name: nim2
+        description: ''
+        required: false
+        example: '09021182126002'
+        type: string
+        custom: []
+      phone_number2:
+        name: phone_number2
+        description: ''
+        required: false
+        example: '082296232641'
+        type: string
+        custom: []
+      instagram2:
+        name: instagram2
+        description: ''
+        required: false
+        example: nunezgoat
+        type: string
+        custom: []
+      id_card2:
+        name: id_card2
+        description: |-
+          <ul>
+               <li>Maksimal 2 MB</li>
+               <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
+          </ul>
+        required: false
+        example: null
+        type: file
+        custom: []
+      name3:
+        name: name3
+        description: ''
+        required: false
+        example: 'Thiago Alcantara'
+        type: string
+        custom: []
+      nim3:
+        name: nim3
+        description: ''
+        required: false
+        example: '09021182126003'
+        type: string
+        custom: []
+      phone_number3:
+        name: phone_number3
+        description: ''
+        required: false
+        example: '081278059819'
+        type: string
+        custom: []
+      instagram3:
+        name: instagram3
+        description: ''
+        required: false
+        example: juarapildun
+        type: string
+        custom: []
+      id_card3:
+        name: id_card3
+        description: |-
+          <ul>
+               <li>Maksimal 2 MB</li>
+               <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
+          </ul>
+        required: false
+        example: null
+        type: file
+        custom: []
+      proof:
+        name: proof
+        description: |-
+          <ul>
+               <li>Maksimal 2 MB</li>
+               <li>Harus berupa ekstensi png, jpg, jpeg, svg, pdf</li>
+          </ul>
+        required: true
+        example: null
+        type: file
+        custom: []
+      payment_method:
+        name: payment_method
+        description: ''
+        required: true
+        example: Dana
+        type: string
+        custom: []
+    cleanBodyParameters:
+      team_name: Liverpool
+      email: youremail@gmail.com
+      college: 'Universitas Liverpool'
+      name1: 'Mohammed Salah'
+      nim1: '09021182126001'
+      phone_number1: '082162798119'
+      instagram1: kiyaisalah
+      name2: 'Darwin Nunez'
+      nim2: '09021182126002'
+      phone_number2: '082296232641'
+      instagram2: nunezgoat
+      name3: 'Thiago Alcantara'
+      nim3: '09021182126003'
+      phone_number3: '081278059819'
+      instagram3: juarapildun
+      payment_method: Dana
+    fileParameters:
+      id_card1: null
+      id_card2: null
+      id_card3: null
+      proof: null
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer kD6avVhdZ538P6ca4f1egEb'
     controller: null
     method: null
     route: null

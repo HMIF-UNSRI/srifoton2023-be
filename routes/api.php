@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CompetitiveProgrammingController;
 use App\Http\Controllers\Api\NewPasswordController;
 use App\Http\Controllers\Api\MobileLegendController;
 use App\Http\Controllers\Api\DashboardUserController;
@@ -40,6 +41,8 @@ Route::middleware('auth:api')->group(function () {
 
         // Competition (Mobile legends)
         Route::post('mobile-legends/register', [MobileLegendController::class, 'register']);
+        // Competition (Competitive Programming)
+        Route::post('competitive-programming/register', [CompetitiveProgrammingController::class, 'register']);
     });
 });
 
