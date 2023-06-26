@@ -27,8 +27,8 @@
 
                 modal.find('#teamName').val(teamName);
                 modal.find('#paymentMethod').val(paymentMethod);
-                modal.find('#proof').attr('src', '{{ asset('storage')}}/' +proof);
-                
+                modal.find('#proof').attr('src', '{{ asset('storage') }}/' + proof);
+
                 if (isVerified) {
                     editForm.hide();
                     editModalTitle.html(teamName + ' telah diverifikasi')
@@ -94,36 +94,29 @@
                             role="grid" aria-describedby="example3_info">
                             <thead>
                                 <tr role="row">
-                                    <th class="sorting_asc text-center" tabindex="0" aria-controls="example3"
-                                        rowspan="1" colspan="1" style="width: 25px;">No</th>
-                                    <th class="sorting text-center" tabindex="0" aria-controls="example3" rowspan="1"
-                                        colspan="1" aria-label="Name: activate to sort column ascending"
+                                    <th class="sorting_asc text-center" tabindex="0" rowspan="1" colspan="1"
+                                        style="width: 25px;">No</th>
+                                    <th class="sorting text-center" tabindex="0" rowspan="1" colspan="1"
                                         style="width: 180px;">Team Name</th>
-                                    <th class="text-center sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                        colspan="1" aria-label="Position: activate to sort column ascending"
+                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
                                         style="width: 160px;">
                                         Player 1</th>
-                                    <th class="text-center sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                        colspan="1" aria-label="Office: activate to sort column ascending"
+                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
                                         aria-sort="descending" style="width: 160px;">
                                         Player 2</th>
-                                    <th class="text-center sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                        colspan="1" aria-label="Age: activate to sort column ascending"
+                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
                                         style="width: 160px;">Player 3</th>
-                                    <th class="text-center sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                        colspan="1" aria-label="Start date: activate to sort column ascending"
+                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
                                         style="width: 160px;">
                                         Player 4</th>
-                                    <th class="text-center sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                        colspan="1" aria-label="Salary: activate to sort column ascending"
+                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
                                         style="width: 160px;">Player 5
                                     </th>
-                                    <th class="text-center sorting" tabindex="0" aria-controls="example3" rowspan="1"
-                                        colspan="1" aria-label="Salary: activate to sort column ascending"
+                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
                                         style="width: 160px;">Status
                                     </th>
-                                    <th class="text-center sorting_desc" tabindex="0" aria-controls="example3"
-                                        rowspan="1" colspan="1" aria-sort="descending" style="width: 25px;">Action
+                                    <th class="text-center sorting_desc" tabindex="0" rowspan="1" colspan="1"
+                                        aria-sort="descending" style="width: 25px;">Action
                                     </th>
                                 </tr>
                             </thead>
@@ -148,7 +141,7 @@
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{ route('competition.mole.show' ,$mobilelegend->id)}}"
+                                                <a href="{{ route('competition.mole.show', $mobilelegend->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
                                                         class="fas fa-eye"></i></a>
                                                 <a href="#"
@@ -161,8 +154,8 @@
                                                     data-is-verified={{ $mobilelegend->isVerified }}><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 <a href="#" class="btn btn-danger shadow btn-rounded btn-xs sharp"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModalMobileLegends" 
-                                                    data-id= {{ $mobilelegend->id }}
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModalMobileLegends"
+                                                    data-id={{ $mobilelegend->id }}
                                                     data-team-name="{{ $mobilelegend->team_name }}"><i
                                                         class="fa fa-trash"></i></a>
                                             </div>
@@ -237,11 +230,11 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger light"
                                             data-bs-dismiss="modal">Close</button>
-                                            <form method="post" id="deleteFormMobileLegends">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
+                                        <form method="post" id="deleteFormMobileLegends">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
