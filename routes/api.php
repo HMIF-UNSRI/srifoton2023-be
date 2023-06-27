@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\NewPasswordController;
 use App\Http\Controllers\Api\MobileLegendController;
 use App\Http\Controllers\Api\DashboardUserController;
 use App\Http\Controllers\Api\EmailVerificationController;
+use App\Http\Controllers\Api\SeminarRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,9 @@ Route::middleware('auth:api')->group(function () {
     Route::middleware('verified')->group(function () {
         // Update data user
         Route::put('update-data-user', [DashboardUserController::class, 'update']);
+
+        // Seminar Registration
+        Route::post('seminar/register', [SeminarRegisterController::class, 'register']);
 
         // Competition (Mobile legends)
         Route::post('mobile-legends/register', [MobileLegendController::class, 'register']);
