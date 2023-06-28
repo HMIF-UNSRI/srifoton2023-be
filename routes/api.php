@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\MobileLegendController;
 use App\Http\Controllers\Api\DashboardUserController;
 use App\Http\Controllers\Api\EmailVerificationController;
 use App\Http\Controllers\Api\SeminarController;
+use App\Http\Controllers\Api\UiuxDesignController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,8 @@ Route::middleware('auth:api')->group(function () {
         Route::post('mobile-legends/register', [MobileLegendController::class, 'register']);
         // Competition (Competitive Programming)
         Route::post('competitive-programming/register', [CompetitiveProgrammingController::class, 'register']);
+        // Competition (UIUX Design)
+        Route::post('uiux-design/register', [UiuxDesignController::class, 'register']);
     });
 });
 
