@@ -79,4 +79,5 @@ class MobileLegendRequest extends FormRequest
             'payment_method' => 'required',
         ];
     }
+
 }

@@ -3,10 +3,14 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CompetitiveProgrammingController;
 use App\Http\Controllers\Api\NewPasswordController;
 use App\Http\Controllers\Api\MobileLegendController;
 use App\Http\Controllers\Api\DashboardUserController;
 use App\Http\Controllers\Api\EmailVerificationController;
+use App\Http\Controllers\Api\SeminarController;
+use App\Http\Controllers\Api\UiuxDesignController;
+use App\Http\Controllers\Api\WebDevelopmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +42,17 @@ Route::middleware('auth:api')->group(function () {
         // Update data user
         Route::put('update-data-user', [DashboardUserController::class, 'update']);
 
+        // Seminar Registration
+        Route::post('seminar/register', [SeminarController::class, 'register']);
+
         // Competition (Mobile legends)
         Route::post('mobile-legends/register', [MobileLegendController::class, 'register']);
+        // Competition (Competitive Programming)
+        Route::post('competitive-programming/register', [CompetitiveProgrammingController::class, 'register']);
+        // Competition (UIUX Design)
+        Route::post('uiux-design/register', [UiuxDesignController::class, 'register']);
+        // Competition (Web Development)
+        Route::post('web-development/register', [WebDevelopmentController::class, 'register']);
     });
 });
 

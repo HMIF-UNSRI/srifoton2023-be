@@ -13,6 +13,37 @@ use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
 {
+    /**
+     * Register
+     * 
+     * Endpoint ini digunakan untuk mendaftarkan pengguna baru ke dalam sistem.
+     * 
+     * @bodyParam name string required
+     * <ul>
+     *      <li>Maksimal 255 karakter.</li>
+     * </ul>
+     * Example: Dewa Sheva Dzaky
+     * 
+     * @bodyParam email string required
+     * <ul>
+     *      <li>Harus berupa email valid.</li>
+     *      <li>Maksimal 100 karakter.</li>
+     *      <li>Harus unique (tidak boleh email yang telah terdaftar).</li>
+     * </ul>
+     * Example: youremail@gmail.com
+     * 
+     * @bodyParam password string required
+     * <ul>
+     *      <li>Minimal 8 karakter.</li>
+     *      <li>Harus terdapat huruf besar dan kecil.</li>
+     *      <li>Harus terdapat angka.</li>
+     *      <li>Harus sama dengan password_confirmation.</li>
+     * </ul>
+     * Example: Srifoton2023
+     * 
+     * @bodyParam password_confirmation string required
+     * Example: Srifoton2023
+     */
     public function register(RegisterRequest $request)
     {
         $request->validated();
@@ -39,6 +70,20 @@ class AuthController extends Controller
         ], 409);
     }
 
+    /**
+     * Login
+     * 
+     * Endpoint ini digunakan untuk melakukan proses autentikasi dan login pengguna ke dalam sistem.
+     * 
+     * @bodyParam email string required
+     * <ul>
+     *      <li>Harus berupa email valid.</li>
+     * </ul>
+     * Example: youremail@gmail.com
+     * 
+     * @bodyParam password string required
+     * Example: Srifoton2023
+     */
     public function login(LoginRequest $request)
     {
         $request->authenticate();
@@ -51,6 +96,13 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Logout
+     * 
+     * Endpoint ini digunakan untuk melakukan proses logout pengguna dari sistem.
+     * 
+     * @authenticated
+     */
     public function logout()
     {
         Auth::guard('api')->logout();
@@ -60,6 +112,13 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Get Data User
+     * 
+     * Endpoint ini digunakan untuk mendapatkan data dari user yang sudah login.
+     * 
+     * @authenticated
+     */
     public function me()
     {
         return response()->json(Auth::guard('api')->user());
