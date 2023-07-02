@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\DashboardUserController;
 use App\Http\Controllers\Api\EmailVerificationController;
 use App\Http\Controllers\Api\SeminarController;
 use App\Http\Controllers\Api\UiuxDesignController;
+use App\Http\Controllers\Api\WebDevelopmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ Route::middleware('auth:api')->group(function () {
         Route::post('competitive-programming/register', [CompetitiveProgrammingController::class, 'register']);
         // Competition (UIUX Design)
         Route::post('uiux-design/register', [UiuxDesignController::class, 'register']);
+        // Competition (Web Development)
+        Route::post('web-development/register', [WebDevelopmentController::class, 'register']);
     });
 });
 
