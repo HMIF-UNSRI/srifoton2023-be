@@ -20,4 +20,10 @@ class UserController extends Controller
         $users = User::all();
         return view('dashboard.user.index', compact('users'));
     }
+
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+        return view('dashboard.user.show', compact('user'));
+    }
 }

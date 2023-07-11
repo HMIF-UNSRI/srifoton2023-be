@@ -29,10 +29,14 @@ Route::get('/', function () {
 Route::middleware('auth:admin')->group(function () {
     Route::prefix('dashboard/admin')->group(function () {
         Route::get('/', [DashboardAdminController::class, 'index'])->name('dashboard');
-        Route::get('/users', [UserController::class, 'index'])->name('users');
         Route::get('/competitive-programming', [CompetitiveProgrammingController::class, 'index'])->name('competition.cp');
         Route::get('/uiux-design', [UIUXDesignController::class, 'index'])->name('competition.uiux');
         Route::get('/web-development', [WebDevelopmentController::class, 'index'])->name('competition.webdev');
+
+        // Users
+        Route::get('/users', [UserController::class, 'index'])->name('users');
+        Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+
 
         // MobileLegends
         Route::get('/mobile-legends', [MobileLegendController::class, 'index'])->name('competition.mole');

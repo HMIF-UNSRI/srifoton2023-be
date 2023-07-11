@@ -64,7 +64,7 @@
                                         <td>{{ $user->instagram ? $user->instagram : '-'}}</td>
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{ route('competition.mole.show', $user->id) }}"
+                                                <a href="{{ route('users.show', $user->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
                                                         class="fas fa-eye"></i></a>
                                             </div>
