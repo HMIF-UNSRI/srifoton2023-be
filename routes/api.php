@@ -35,8 +35,6 @@ Route::middleware('auth:api')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
     // Send Email Verification
     Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail']);
-    // Verify Email
-    Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify');
 
     Route::middleware('verified')->group(function () {
         // Update data user
@@ -56,6 +54,8 @@ Route::middleware('auth:api')->group(function () {
     });
 });
 
+// Verify Email
+Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'verify'])->name('verification.verify')->middleware('signed');
 // Send email forgot password
 Route::post('forgot-password', [NewPasswordController::class, 'forgotPassword']);
 // Reset password

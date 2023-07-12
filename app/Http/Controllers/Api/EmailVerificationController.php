@@ -54,20 +54,18 @@ class EmailVerificationController extends Controller
      * 
      * 
      */
-    public function verify(EmailVerificationRequest $request)
+    public function verify(Request $request)
     {
+        auth()->loginUsingId($request->route('id'));
+
         if ($request->user()->hasVerifiedEmail()) {
-            return [
-                'message' => 'Email already verified'
-            ];
+            return redirect('http://localhost:3000/?message=' . urlencode('Email sudah diverifikasi'));
         }
 
         if ($request->user()->markEmailAsVerified()) {
             event(new Verified($request->user()));
         }
 
-        return [
-            'message' => 'Email has been verified'
-        ];
+        return redirect('http://localhost:3000/?message=' . urlencode('Email berhasil diverifikasi'));
     }
 }
