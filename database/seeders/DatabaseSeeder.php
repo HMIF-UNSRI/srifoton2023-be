@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use App\Models\Admin;
+use App\Models\CompetitiveProgramming;
+use App\Models\MobileLegend;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,8 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(5)->create();
-        \App\Models\MobileLegend::factory(50)->create();
+        User::factory(5)->create();
+        MobileLegend::factory(50)->create();
+        CompetitiveProgramming::factory(50)->create();
 
         Admin::create([
             'name' => 'Admin Inti',

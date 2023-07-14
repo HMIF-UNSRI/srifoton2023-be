@@ -37,6 +37,12 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/users', [UserController::class, 'index'])->name('users');
         Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
 
+        // Competitive Programming
+        Route::get('/competitive-programming', [CompetitiveProgrammingController::class, 'index'])->name('competition.cp');
+        Route::get('/competitive-programming/{id}', [CompetitiveProgrammingController::class, 'show'])->name('competition.cp.show');
+        Route::post('/competitive-programming/{id}/verification', [CompetitiveProgrammingController::class, 'update'])->name('competition.cp.verification');
+        Route::delete('/competitive-programming/{id}/delete', [CompetitiveProgrammingController::class, 'delete'])->name('competition.cp.delete');
+
 
         // MobileLegends
         Route::get('/mobile-legends', [MobileLegendController::class, 'index'])->name('competition.mole');
