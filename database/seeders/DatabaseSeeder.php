@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\CompetitiveProgramming;
 use App\Models\MobileLegend;
+use App\Models\Seminar;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
         User::factory(5)->create();
         MobileLegend::factory(50)->create();
         CompetitiveProgramming::factory(50)->create();
+        Seminar::factory(50)->create();
 
         Admin::create([
             'name' => 'Admin Inti',

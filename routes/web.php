@@ -50,9 +50,10 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('/mobile-legends/{id}/verification', [MobileLegendController::class, 'update'])->name('competition.mole.verification');
         Route::delete('/mobile-legends/{id}/delete', [MobileLegendController::class, 'delete'])->name('competition.mole.delete');
 
+        //Seminar
+        Route::get('/seminar', [SeminarController::class, 'index'])->name('seminar');
+        Route::post('/seminar/{id}/verification', [SeminarController::class, 'update'])->name('seminar.verification');
 
-
-        Route::get('/seminar', [SeminarController::class, 'seminar'])->name('seminar');
 
 
     });
