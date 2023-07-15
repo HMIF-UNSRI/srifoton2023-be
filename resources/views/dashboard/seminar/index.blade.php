@@ -42,18 +42,18 @@
             });
 
             // Delete Modal
-            $(document).on('show.bs.modal', '#deleteModalseminar', function(event) {
+            $(document).on('show.bs.modal', '#deleteModalSeminar', function(event) {
                 const button = $(event.relatedTarget);
                 const id = button.data('id');
-                const teamName = button.data('team-name');
+                const name = button.data('name');
                 const modal = $(this);
-                const deleteForm = $('#deleteFormseminar');
+                const deleteForm = $('#deleteFormSeminar');
                 const deleteModalBody = $('#deleteModalBody');
 
-                deleteModalBody.html(`Apakah anda yakin ingin menghapus tim ${teamName}`);
-                deleteForm.attr('action', `/dashboard/admin/competitive-seminar/${id}/delete`);
+                deleteModalBody.html(`Apakah anda yakin ingin menghapus ${name}`);
+                deleteForm.attr('action', `/dashboard/admin/seminar/${id}/delete`);
 
-                modal.find('#teamName').val(teamName);
+                modal.find('#name').val(name);
 
             });
         });
@@ -151,7 +151,7 @@
                                                     data-is-verified={{ $seminar->isVerified }}><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 <a href="#" class="btn btn-danger shadow btn-rounded btn-xs sharp"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModalseminar"
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModalSeminar"
                                                     data-id={{ $seminar->id }}
                                                     data-name="{{ $seminar->name }}"><i
                                                         class="fa fa-trash"></i></a>
@@ -222,7 +222,7 @@
                         </div>
 
                         <!-- Delete Modal -->
-                        <div class="modal fade" id="deleteModalseminar">
+                        <div class="modal fade" id="deleteModalSeminar">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -234,7 +234,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger light"
                                             data-bs-dismiss="modal">Close</button>
-                                        <form method="post" id="deleteFormseminar">
+                                        <form method="post" id="deleteFormSeminar">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="btn btn-danger">Delete</button>

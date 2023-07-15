@@ -53,6 +53,8 @@ Route::middleware('auth:admin')->group(function () {
         //Seminar
         Route::get('/seminar', [SeminarController::class, 'index'])->name('seminar');
         Route::post('/seminar/{id}/verification', [SeminarController::class, 'update'])->name('seminar.verification');
+        Route::delete('/seminar/{id}/delete', [SeminarController::class, 'delete'])->name('seminar.delete');
+
 
 
 

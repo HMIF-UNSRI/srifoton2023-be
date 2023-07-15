@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Seminar;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class SeminarController extends Controller
 {
@@ -27,5 +28,14 @@ class SeminarController extends Controller
         ]);
 
         return redirect()->route('seminar')->with('success', 'Verification Successful');
+    }
+
+    public function delete($id)
+    {
+        $seminar = Seminar::findOrFail($id);
+        Storage::disk('public')->delete($seminar->proof);
+        $seminar->delete();
+
+        return redirect()->route('seminar')->with('success', 'Delete Successfull');
     }
 }
