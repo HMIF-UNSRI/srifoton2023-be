@@ -14,7 +14,7 @@
     <script>
         $(document).ready(function() {
             // edit modal
-            $(document).on('show.bs.modal', '#editModalMobileLegends', function(event) {
+            $(document).on('show.bs.modal', '#editModalWebdev', function(event) {
                 const button = $(event.relatedTarget);
                 const id = button.data('id');
                 const teamName = button.data('team-name');
@@ -23,7 +23,7 @@
                 const isVerified = button.data('is-verified');
                 const editModalTitle = $('#editModalTitle');
                 const modal = $(this);
-                const editForm = $('#editFormMobileLegends');
+                const editForm = $('#editFormWebdev');
 
                 modal.find('#teamName').val(teamName);
                 modal.find('#paymentMethod').val(paymentMethod);
@@ -31,25 +31,25 @@
 
                 if (isVerified) {
                     editForm.hide();
-                    editModalTitle.html(teamName + ' telah diverifikasi')
+                    editModalTitle.html(teamName + ' telah diverifikasi');
                 } else {
                     editForm.show();
-                    editForm.attr('action', '{{ route('competition.mole.verification', ':id') }}'.replace(':id', id));
+                    editForm.attr('action', '{{ route('competition.webdev.verification', ':id')}}'.replace(':id', id));
                     editModalTitle.html('Verifikasi Pembayaran');
                 }
             });
 
             // Delete Modal
-            $(document).on('show.bs.modal', '#deleteModalMobileLegends', function(event) {
+            $(document).on('show.bs.modal', '#deleteModalWebdev', function(event) {
                 const button = $(event.relatedTarget);
                 const id = button.data('id');
                 const teamName = button.data('team-name');
                 const modal = $(this);
-                const deleteForm = $('#deleteFormMobileLegends');
+                const deleteForm = $('#deleteFormWebdev');
                 const deleteModalBody = $('#deleteModalBody');
 
                 deleteModalBody.html(`Apakah anda yakin ingin menghapus tim ${teamName}`);
-                deleteForm.attr('action', `/dashboard/admin/mobile-legends/${id}/delete`);
+                deleteForm.attr('action', '{{ route('competition.webdev.delete', ':id')}}'.replace(':id', id));
 
                 modal.find('#teamName').val(teamName);
 
@@ -107,11 +107,8 @@
                                     <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
                                         style="width: 160px;">Player 3</th>
                                     <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">
-                                        Player 4</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">Player 5
-                                    </th>
+                                        style="width: 160px;">Submission
+                                        </th>
                                     <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
                                         style="width: 160px;">Status
                                     </th>
@@ -121,42 +118,41 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($mobilelegends as $index => $mobilelegend)
+                                @foreach ($webdevs as $index => $webdev)
                                     <tr class="text-center" role="row">
                                         <td class="">{{ $index + 1 }}</td>
-                                        <td class="">{{ $mobilelegend->team_name }}</td>
-                                        <td>{{ $mobilelegend->name1 }}</td>
-                                        <td class="sorting_1">{{ $mobilelegend->name2 }}</td>
-                                        <td>{{ $mobilelegend->name3 }}</td>
-                                        <td>{{ $mobilelegend->name4 }}</td>
-                                        <td>{{ $mobilelegend->name5 }}</td>
+                                        <td class="">{{ $webdev->team_name }}</td>
+                                        <td>{{ $webdev->name1 }}</td>
+                                        <td class="sorting_1">{{ $webdev->name2 }}</td>
+                                        <td>{{ $webdev->name3 }}</td>
+                                        <td>{{ $webdev->submission }}</td>
                                         <td>
                                             <span
-                                                class="badge badge-rounded badge-sm {{ $mobilelegend->isVerified ? 'badge-success' : 'badge-warning' }}">
+                                                class="badge badge-rounded badge-sm {{ $webdev->isVerified ? 'badge-success' : 'badge-warning' }}">
                                                 <i
-                                                    class="{{ $mobilelegend->isVerified ? 'fas fa-check-circle me-1' : 'fas fa-exclamation-circle me-1' }}"></i>
-                                                {{ $mobilelegend->isVerified ? 'Verified' : 'Unverified' }}
+                                                    class="{{ $webdev->isVerified ? 'fas fa-check-circle me-1' : 'fas fa-exclamation-circle me-1' }}"></i>
+                                                {{ $webdev->isVerified ? 'Verified' : 'Unverified' }}
                                             </span>
                                         </td>
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{ route('competition.mole.show', $mobilelegend->id) }}"
+                                                <a href="{{ route('competition.mole.show', $webdev->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
                                                         class="fas fa-eye"></i></a>
                                                 <a href="#"
                                                     class="btn btn-warning shadow btn-rounded btn-xs sharp me-1"
-                                                    data-bs-toggle="modal" data-bs-target="#editModalMobileLegends"
-                                                    data-id="{{ $mobilelegend->id }}"
-                                                    data-team-name="{{ $mobilelegend->team_name }}"
-                                                    data-proof="{{ $mobilelegend->proof }}"
-                                                    data-payment-method="{{ $mobilelegend->payment_method }}"
-                                                    data-is-verified={{ $mobilelegend->isVerified }}><i
+                                                    data-bs-toggle="modal" data-bs-target="#editModalWebdev"
+                                                    data-id="{{ $webdev->id }}"
+                                                    data-team-name="{{ $webdev->team_name }}"
+                                                    data-proof="{{ $webdev->proof }}"
+                                                    data-payment-method="{{ $webdev->payment_method }}"
+                                                    data-is-verified={{ $webdev->isVerified }}><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 <a href="#" class="btn btn-danger shadow btn-rounded btn-xs sharp"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModalMobileLegends"
-                                                    data-id={{ $mobilelegend->id }}
-                                                    data-team-name="{{ $mobilelegend->team_name }}"><i
+                                                    data-bs-toggle="modal" data-bs-target="#deleteModalWebdev"
+                                                    data-id={{ $webdev->id }}
+                                                    data-team-name="{{ $webdev->team_name }}"><i
                                                         class="fa fa-trash"></i></a>
                                             </div>
                                         </td>
@@ -167,7 +163,7 @@
                         </table>
 
                         <!-- Edit Modal -->
-                        <div class="modal fade" id="editModalMobileLegends">
+                        <div class="modal fade" id="editModalWebdev">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -207,7 +203,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger light"
                                             data-bs-dismiss="modal">Close</button>
-                                        <form method="post" id="editFormMobileLegends">
+                                        <form method="post" id="editFormWebdev">
                                             @csrf
                                             <button type="submit" name="isVerified"
                                                 class="btn btn-primary">Verified</button>
@@ -218,7 +214,7 @@
                         </div>
 
                         <!-- Delete Modal -->
-                        <div class="modal fade" id="deleteModalMobileLegends">
+                        <div class="modal fade" id="deleteModalWebdev">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -230,7 +226,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger light"
                                             data-bs-dismiss="modal">Close</button>
-                                        <form method="post" id="deleteFormMobileLegends">
+                                        <form method="post" id="deleteFormWebdev">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="btn btn-danger">Delete</button>

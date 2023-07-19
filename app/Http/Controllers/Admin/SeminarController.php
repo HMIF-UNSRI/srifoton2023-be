@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Storage;
 
 class SeminarController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $this->authorize('seminar');
+            return $next($request);
+        });
+    }
     public function index()
     {
         $seminars = Seminar::all();

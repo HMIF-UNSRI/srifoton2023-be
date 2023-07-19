@@ -22,7 +22,7 @@ class SeminarFactory extends Factory
             'email' => $this->faker->unique()->email(),
             'nim' => $this->faker->name(),
             'college' => $this->faker->name(),
-            'phone_number`' => $this->faker->name(),
+            'phone_number' => $this->faker->name(),
             'type' => $this->faker->randomElement(['Online', 'Offline']),
             'proof' => 'https://source.unsplash.com/random/450×800/?payment',
             'isVerified' => rand(0, 1),

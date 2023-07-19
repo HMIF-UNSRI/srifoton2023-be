@@ -55,7 +55,6 @@
                     </a>
                 </li>
             @endcanany
-
         </ul>
     </div>
 </div>

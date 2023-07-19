@@ -41,7 +41,7 @@ class CompetitiveProgrammingController extends Controller
     public function delete($id)
     {
         $programming = CompetitiveProgramming::findOrFail($id);
-        $members = 3;
+        $members = ($programming->id_card3) ? 3 : (($programming->id_card2) ? 2 : 1);
         for($i = 1; $i <= $members; $i++){
             Storage::disk('public')->delete($programming->{"id_card$i"});
         }
