@@ -3,14 +3,14 @@
         <ul class="metismenu" id="menu">
             <li>
                 <a href="{{ route('dashboard') }}" aria-expanded="false">
-                    <i class="fas fa-home"></i>
+                    <i class="bi bi-speedometer2 fs-2"></i>
                     <span class="nav-text">Dashboard</span>
                 </a>
             </li>
             @can('inti')
                 <li>
                     <a href="{{ route('users') }}" aria-expanded="false">
-                        <i class="fas fa-users"></i>
+                        <i class="bi bi-people fs-2"></i>
                         <span class="nav-text">Users</span>
                     </a>
                 </li>
@@ -18,7 +18,7 @@
             @canany(['inti', 'seminar'])
                 <li>
                     <a href="{{ route('seminar') }}" aria-expanded="false">
-                        <i class="fas fa-microphone"></i>
+                        <i class="bi bi-easel fs-2"></i>
                         <span class="nav-text">Seminar</span>
                     </a>
                 </li>
@@ -26,7 +26,7 @@
             @canany(['inti', 'competition', 'competitive_programming'])
                 <li>
                     <a href="{{ route('competition.cp') }}" aria-expanded="false">
-                        <i class="fas fa-laptop"></i>
+                        <i class="bi bi-laptop fs-2"></i>
                         <span class="nav-text">Programming</span>
                     </a>
                 </li>
@@ -34,7 +34,7 @@
             @canany(['inti', 'competition', 'uiux_design'])
                 <li>
                     <a href="{{ route('competition.uiux') }}" aria-expanded="false">
-                        <i class="fas fa-pen-nib"></i>
+                        <i class="bi bi-palette fs-2"></i>
                         <span class="nav-text">UI/UX Design</span>
                     </a>
                 </li>
@@ -42,16 +42,8 @@
             @canany(['inti', 'competition', 'web_development'])
                 <li>
                     <a href="{{ route('competition.webdev') }}" aria-expanded="false">
-                        <i class="fas fa-code"></i>
+                        <i class="bi bi-code-slash fs-2"></i>
                         <span class="nav-text">Web Development</span>
-                    </a>
-                </li>
-            @endcanany
-            @canany(['inti', 'competition', 'mobile_legends'])
-                <li>
-                    <a href="{{ route('competition.mole') }}" aria-expanded="false">
-                        <i class="fas fa-gamepad"></i>
-                        <span class="nav-text">Mobile Legends</span>
                     </a>
                 </li>
             @endcanany

@@ -17,7 +17,7 @@
                     <div class="card-body p-4">
                         <div class="media ai-icon">
                             <span class="me-3 bgl-success text-success">
-                                <i class="fas fa-users"></i>
+                                <i class="bi bi-people fs-1"></i>
                             </span>
                             <div class="media-body">
                                 <p class="mb-1">Users</p>
@@ -36,7 +36,7 @@
                 <div class="card-body p-4">
                     <div class="media ai-icon">
                         <span class="me-3 bgl-warning text-warning">
-                            <i class="fas fa-microphone"></i>
+                            <i class="bi bi-easel fs-1"></i>
                         </span>
                         <div class="media-body">
                             <p class="mb-1">Seminar</p>
@@ -50,12 +50,12 @@
 
         @canany(['inti', 'competition', 'competitive_programming'])
         {{-- Competitive Programming --}}
-        <div class="col-xl-2 col-xxl-3 col-lg-3 col-sm-3">
+        <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
             <div class="widget-stat card">
                 <div class="card-body p-4">
                     <div class="media ai-icon">
                         <span class="me-3 bgl-danger text-danger">
-                            <i class="fas fa-laptop"></i>
+                            <i class="bi bi-laptop fs-1"></i>
                         </span>
                         <div class="media-body">
                             <p class="mb-1">Competitive Programming</p>
@@ -69,12 +69,12 @@
 
         @canany(['inti', 'competition', 'uiux_design'])
         {{-- UI/UX --}}
-        <div class="col-xl-2 col-xxl-3 col-lg-3 col-sm-3">
+        <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
             <div class="widget-stat card">
                 <div class="card-body p-4">
                     <div class="media ai-icon">
                         <span class="me-3 bgl-info text-info">
-                            <i class="fas fa-pen-nib"></i>
+                            <i class="bi bi-palette fs-1"></i>
                         </span>
                         <div class="media-body">
                             <p class="mb-1">UI/UX Design</p>
@@ -88,35 +88,16 @@
         
         @canany(['inti', 'competition', 'web_development'])
         {{-- Web Development --}}
-        <div class="col-xl-2 col-xxl-3 col-lg-3 col-sm-3">
+        <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
             <div class="widget-stat card">
                 <div class="card-body p-4">
                     <div class="media ai-icon">
                         <span class="me-3 bgl-dark text-dark">
-                            <i class="fas fa-code"></i>
+                            <i class="bi bi-code-slash fs-1"></i>
                         </span>
                         <div class="media-body">
                             <p class="mb-1">Web Development</p>
                             <h4 class="mb-0">3280</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endcanany
-
-        @canany(['inti', 'competition', 'mobile_legends'])
-        {{-- Mobile Legends --}}
-        <div class="col-xl-2 col-xxl-3 col-lg-3 col-sm-3">
-            <div class="widget-stat card">
-                <div class="card-body p-4">
-                    <div class="media ai-icon">
-                        <span class="me-3 bgl-primary text-primary">
-                            <i class="fas fa-gamepad"></i>
-                        </span>
-                        <div class="media-body">
-                            <p class="mb-1">Mobile Legends</p>
-                            <h4 class="mb-1">3280</h4>
                         </div>
                     </div>
                 </div>
