@@ -34,7 +34,8 @@
                     editModalTitle.html(teamName + ' telah diverifikasi');
                 } else {
                     editForm.show();
-                    editForm.attr('action', '{{ route('competition.webdev.verification', ':id')}}'.replace(':id', id));
+                    editForm.attr('action', '{{ route('competition.webdev.verification', ':id') }}'.replace(
+                        ':id', id));
                     editModalTitle.html('Verifikasi Pembayaran');
                 }
             });
@@ -49,7 +50,8 @@
                 const deleteModalBody = $('#deleteModalBody');
 
                 deleteModalBody.html(`Apakah anda yakin ingin menghapus tim ${teamName}`);
-                deleteForm.attr('action', '{{ route('competition.webdev.delete', ':id')}}'.replace(':id', id));
+                deleteForm.attr('action', '{{ route('competition.webdev.delete', ':id') }}'.replace(':id',
+                    id));
 
                 modal.find('#teamName').val(teamName);
 
@@ -84,8 +86,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title text-primary">Mobile Legends Datatable</h4>
-                <button class="btn btn-primary shadow btn-rounded btn-sm sharp"><i class="fas fa-plus me-2"></i>Add</button>
+                <h4 class="card-title text-primary">Web Development</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -94,27 +95,14 @@
                             role="grid" aria-describedby="example3_info">
                             <thead>
                                 <tr role="row">
-                                    <th class="sorting_asc text-center" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 25px;">No</th>
-                                    <th class="sorting text-center" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 180px;">Team Name</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">
-                                        Player 1</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        aria-sort="descending" style="width: 160px;">
-                                        Player 2</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">Player 3</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">Submission
-                                        </th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">Status
-                                    </th>
-                                    <th class="text-center sorting_desc" tabindex="0" rowspan="1" colspan="1"
-                                        aria-sort="descending" style="width: 25px;">Action
-                                    </th>
+                                    <th class="sorting_asc text-center">No</th>
+                                    <th class="sorting text-center">Team Name</th>
+                                    <th class="text-center sorting">Player 1</th>
+                                    <th class="text-center sorting">Player 2</th>
+                                    <th class="text-center sorting">Player 3</th>
+                                    <th class="text-center sorting">Submission</th>
+                                    <th class="text-center sorting">Status</th>
+                                    <th class="text-center sorting_desc">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -128,9 +116,9 @@
                                         <td>{{ $webdev->submission }}</td>
                                         <td>
                                             <span
-                                                class="badge badge-rounded badge-sm {{ $webdev->isVerified ? 'badge-success' : 'badge-warning' }}">
+                                                class="badge badge-rounded badge-sm {{ $webdev->isVerified ? 'bg-success' : 'bg-warning' }}">
                                                 <i
-                                                    class="{{ $webdev->isVerified ? 'fas fa-check-circle me-1' : 'fas fa-exclamation-circle me-1' }}"></i>
+                                                    class="{{ $webdev->isVerified ? 'bi bi-check-circle-fill me-1' : 'bi bi-exclamation-circle-fill me-1' }}"></i>
                                                 {{ $webdev->isVerified ? 'Verified' : 'Unverified' }}
                                             </span>
                                         </td>
@@ -139,36 +127,33 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{ route('competition.mole.show', $webdev->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
-                                                        class="fas fa-eye"></i></a>
-                                                <a href="#"
-                                                    class="btn btn-warning shadow btn-rounded btn-xs sharp me-1"
+                                                        class="bi bi-eye-fill"></i></a>
+                                                <button class="btn btn-warning shadow btn-rounded btn-xs sharp me-1"
                                                     data-bs-toggle="modal" data-bs-target="#editModalWebdev"
                                                     data-id="{{ $webdev->id }}"
                                                     data-team-name="{{ $webdev->team_name }}"
                                                     data-proof="{{ $webdev->proof }}"
                                                     data-payment-method="{{ $webdev->payment_method }}"
                                                     data-is-verified={{ $webdev->isVerified }}><i
-                                                        class="fas fa-pencil-alt"></i></a>
-                                                <a href="#" class="btn btn-danger shadow btn-rounded btn-xs sharp"
+                                                        class="bi bi-pencil-fill text-dark"></i></button>
+                                                <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
                                                     data-bs-toggle="modal" data-bs-target="#deleteModalWebdev"
                                                     data-id={{ $webdev->id }}
                                                     data-team-name="{{ $webdev->team_name }}"><i
-                                                        class="fa fa-trash"></i></a>
+                                                        class="bi bi-trash-fill"></i></button>
                                             </div>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
-
                         </table>
 
-                        <!-- Edit Modal -->
+                        {{-- Edit Modal --}}
                         <div class="modal fade" id="editModalWebdev">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title text-primary" id="editModalTitle"></h5>
-
                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                         </button>
                                     </div>
@@ -213,7 +198,7 @@
                             </div>
                         </div>
 
-                        <!-- Delete Modal -->
+                        {{-- Delete Modal --}}
                         <div class="modal fade" id="deleteModalWebdev">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
