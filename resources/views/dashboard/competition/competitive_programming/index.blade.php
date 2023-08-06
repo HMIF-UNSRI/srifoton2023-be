@@ -82,82 +82,69 @@
 
 @section('content')
     <div class="col-12">
-        <div class="card">
+        <div class="card" style="overflow-x: scroll">
             <div class="card-header">
-                <h4 class="card-title text-primary">Competitive Programming Datatable</h4>
+                <h4 class="card-title text-primary">Competitive Programming</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <div id="example3_wrapper" class="dataTables_wrapper no-footer">
-                        <table id="example3" class="display dataTable no-footer mb-3" style="min-width: 845px"
+                        <table id="example3" class="display dataTable cell-border no-footer mb-3" style="min-width: 845px"
                             role="grid" aria-describedby="example3_info">
                             <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc text-center" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 25px;">No</th>
-                                    <th class="sorting text-center" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 180px;">Team Name</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">
-                                        Player 1</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        aria-sort="descending" style="width: 160px;">
-                                        Player 2</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">Player 3</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">Status
-                                    </th>
-                                    <th class="text-center sorting_desc" tabindex="0" rowspan="1" colspan="1"
-                                        aria-sort="descending" style="width: 25px;">Action
-                                    </th>
+                                <tr class="text-center" role="row">
+                                    <th class="sorting">No</th>
+                                    <th class="sorting">Team Name</th>
+                                    <th class="sorting">Member 1</th>
+                                    <th class="sorting">Member 2</th>
+                                    <th class="sorting">Member 3</th>
+                                    <th class="sorting">Status</th>
+                                    <th class="sorting">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($programmings as $index => $programming)
-                                    <tr class="text-center" role="row">
-                                        <td class="">{{ $index + 1 }}</td>
-                                        <td class="">{{ $programming->team_name }}</td>
+                                    <tr role="row">
+                                        <td class="text-center">{{ $index + 1 }}</td>
+                                        <td>{{ $programming->team_name }}</td>
                                         <td>{{ $programming->name1 }}</td>
                                         <td class="sorting_1">{{ $programming->name2 }}</td>
                                         <td>{{ $programming->name3 }}</td>
-                                        <td>
+                                        <td class="text-center">
                                             <span
-                                                class="badge badge-rounded badge-sm {{ $programming->isVerified ? 'badge-success' : 'badge-warning' }}">
+                                                class="badge light badge-rounded badge-sm w-100 {{ $programming->isVerified ? 'badge-success' : 'badge-warning' }}">
                                                 <i
-                                                    class="{{ $programming->isVerified ? 'fas fa-check-circle me-1' : 'fas fa-exclamation-circle me-1' }}"></i>
-                                                {{ $programming->isVerified ? 'Verified' : 'Unverified' }}
+                                                    class="{{ $programming->isVerified ? 'bi bi-cash-stack me-1' : 'bi bi-hourglass-split me-1' }}"></i>
+                                                {{ $programming->isVerified ? 'Paid' : 'Awaiting' }}
                                             </span>
                                         </td>
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{ route('competition.cp.show', $programming->id) }}"
-                                                    class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
-                                                        class="fas fa-eye"></i></a>
-                                                <a href="#"
-                                                    class="btn btn-warning shadow btn-rounded btn-xs sharp me-1"
+                                                    class="btn btn-primary shadow btn-rounded btn-xs sharp"><i
+                                                        class="bi bi-eye-fill"></i></a>
+                                                <button class="btn btn-warning shadow btn-rounded btn-xs sharp mx-1 text-dark"
                                                     data-bs-toggle="modal" data-bs-target="#editModalProgramming"
                                                     data-id="{{ $programming->id }}"
                                                     data-team-name="{{ $programming->team_name }}"
                                                     data-proof="{{ $programming->proof }}"
                                                     data-payment-method="{{ $programming->payment_method }}"
                                                     data-is-verified={{ $programming->isVerified }}><i
-                                                        class="fas fa-pencil-alt"></i></a>
-                                                <a href="#" class="btn btn-danger shadow btn-rounded btn-xs sharp"
+                                                        class="bi bi-pencil-fill"></i></button>
+                                                <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
                                                     data-bs-toggle="modal" data-bs-target="#deleteModalProgramming"
                                                     data-id={{ $programming->id }}
                                                     data-team-name="{{ $programming->team_name }}"><i
-                                                        class="fa fa-trash"></i></a>
+                                                        class="bi bi-trash-fill"></i></button>
                                             </div>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
-
                         </table>
 
-                        <!-- Edit Modal -->
+                       {{-- Edit Modal --}}
                         <div class="modal fade" id="editModalProgramming">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -190,11 +177,8 @@
                                                         style="max-height: 500px">
                                                 </td>
                                             </tr>
-
                                         </table>
-
                                     </div>
-
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger light"
                                             data-bs-dismiss="modal">Close</button>
@@ -208,7 +192,7 @@
                             </div>
                         </div>
 
-                        <!-- Delete Modal -->
+                        {{-- Delete Modal --}}
                         <div class="modal fade" id="deleteModalProgramming">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">

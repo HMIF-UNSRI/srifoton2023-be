@@ -24,6 +24,14 @@ class WebDevelopmentController extends Controller
         return view('dashboard.competition.web_development.index', compact('webdevs'));
     }
 
+    public function show($id)   
+    {
+        $webdev = WebDevelopment::findOrFail($id);
+        $members = ($webdev->id_card3) ? 3 : (($webdev->id_card2) ? 2 : 1);
+        return view('dashboard.competition.web_development.show', compact('webdev', 'members'));
+
+    }
+
     public function update($id)
     {
         $webdev = WebDevelopment::findOrFail($id);

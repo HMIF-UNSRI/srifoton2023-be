@@ -12,7 +12,7 @@ table.dataTable thead th, table.dataTable tfoot th {
 
 table.dataTable thead th, table.dataTable thead td {
     padding: 10px 18px;
-    border-bottom: 1px solid #111
+    border-bottom: 1px solid #e5e9f2
 }
 
 table.dataTable thead th:active, table.dataTable thead td:active {
@@ -21,7 +21,7 @@ table.dataTable thead th:active, table.dataTable thead td:active {
 
 table.dataTable tfoot th, table.dataTable tfoot td {
     padding: 10px 18px 6px 18px;
-    border-top: 1px solid #111
+    border-top: 1px solid #e5e9f2
 }
 
 table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting_asc_disabled, table.dataTable thead .sorting_desc_disabled {
@@ -32,15 +32,24 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 }
 
 table.dataTable thead .sorting {
-    background-image: url("../images/sort_both.png")
+    background-image: url("../images/sort_both.png");
+    color: #364a63;
+    background-color: #F3F0F9;
+    font-size: 13px;
 }
 
 table.dataTable thead .sorting_asc {
-    background-image: url("../images/sort_asc.png")
+    background-image: url("../images/sort_asc.png");
+    color: #364a63;
+    background-color: #F3F0F9;
+    font-size: 13px;
 }
 
 table.dataTable thead .sorting_desc {
-    background-image: url("../images/sort_desc.png")
+    background-image: url("../images/sort_desc.png");
+    color: #364a63;
+    background-color: #F3F0F9;
+    font-size: 13px;
 }
 
 table.dataTable thead .sorting_asc_disabled {
@@ -64,7 +73,7 @@ table.dataTable tbody th, table.dataTable tbody td {
 }
 
 table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
-    border-top: 1px solid #ddd
+    border-top: 1px solid #e5e9f2
 }
 
 table.dataTable.row-border tbody tr:first-child th, table.dataTable.row-border tbody tr:first-child td, table.dataTable.display tbody tr:first-child th, table.dataTable.display tbody tr:first-child td {
@@ -72,16 +81,21 @@ table.dataTable.row-border tbody tr:first-child th, table.dataTable.row-border t
 }
 
 table.dataTable.cell-border tbody th, table.dataTable.cell-border tbody td {
-    border-top: 1px solid #ddd;
-    border-right: 1px solid #ddd
+    border-top: 1px solid #e5e9f2;
+    border-right: 1px solid #e5e9f2;
+    color: #526484;
+    font-size: 12px;
+
 }
 
 table.dataTable.cell-border tbody tr th:first-child, table.dataTable.cell-border tbody tr td:first-child {
-    border-left: 1px solid #ddd
+    border-left: 1px solid #e5e9f2
 }
 
 table.dataTable.cell-border tbody tr:first-child th, table.dataTable.cell-border tbody tr:first-child td {
-    border-top: none
+    border-top: none;
+    color: #526484;
+    font-size: 12px
 }
 
 table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
@@ -93,11 +107,11 @@ table.dataTable.stripe tbody tr.odd.selected, table.dataTable.display tbody tr.o
 }
 
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
-    background-color: #f6f6f6
+    background-color: #000
 }
 
 table.dataTable.hover tbody tr:hover.selected, table.dataTable.display tbody tr:hover.selected {
-    background-color: #aab7d1
+    background-color: #000
 }
 
 table.dataTable.order-column tbody tr>.sorting_1, table.dataTable.order-column tbody tr>.sorting_2, table.dataTable.order-column tbody tr>.sorting_3, table.dataTable.display tbody tr>.sorting_1, table.dataTable.display tbody tr>.sorting_2, table.dataTable.display tbody tr>.sorting_3 {
@@ -181,7 +195,7 @@ table.dataTable.display tbody tr:hover.selected>.sorting_3, table.dataTable.orde
 }
 
 table.dataTable.no-footer {
-    border-bottom: 1px solid #111
+    border-bottom: 1px solid #e5e9f2
 }
 
 table.dataTable.nowrap th, table.dataTable.nowrap td {
@@ -380,7 +394,7 @@ table.dataTable, table.dataTable th, table.dataTable td {
 }
 
 .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
-    color: #333
+    color: #526484
 }
 
 .dataTables_wrapper .dataTables_scroll {

@@ -84,77 +84,70 @@
 
 @section('content')
     <div class="col-12">
-        <div class="card">
+        <div class="card" style="overflow-x: scroll">
             <div class="card-header">
-                <h4 class="card-title text-primary">Competitive seminar Datatable</h4>
+                <h4 class="card-title text-primary">Seminar</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <div id="example3_wrapper" class="dataTables_wrapper no-footer">
-                        <table id="example3" class="display dataTable no-footer mb-3" style="min-width: 845px"
+                        <table id="example3" class="display dataTable cell-border no-footer mb-3" style="min-width: 845px"
                             role="grid" aria-describedby="example3_info">
                             <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc text-center" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 25px;">No</th>
-                                    <th class="sorting text-center" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 180px;">Name</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">
-                                        Email</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        aria-sort="descending" style="width: 160px;">
-                                        Phone Number</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">Type</th>
-                                        <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">Ticket Code</th>
-                                    <th class="text-center sorting" tabindex="0" rowspan="1" colspan="1"
-                                        style="width: 160px;">Status
-                                    </th>
-                                    <th class="text-center sorting_desc" tabindex="0" rowspan="1" colspan="1"
-                                        aria-sort="descending" style="width: 25px;">Action
-                                    </th>
+                                <tr role="row" class="text-center">
+                                    <th class="sorting">No</th>
+                                    <th class="sorting">Name</th>
+                                    <th class="sorting">Email</th>
+                                    <th class="sorting">Phone Number</th>
+                                    <th class="sorting">Type</th>
+                                    <th class="sorting">Ticket Code</th>
+                                    <th class="sorting">Status</th>
+                                    <th class="sorting">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($seminars as $index => $seminar)
-                                    <tr class="text-center" role="row">
-                                        <td class="">{{ $index + 1 }}</td>
-                                        <td class="">{{ $seminar->name }}</td>
+                                    <tr role="row">
+                                        <td class="text-center">{{ $index + 1 }}</td>
+                                        <td>{{ $seminar->name }}</td>
                                         <td>{{ $seminar->email }}</td>
-                                        <td class="sorting_1">{{ $seminar->phone_number }}</td>
-                                        <td>{{ $seminar->type }}</td>
-                                        <td>{{ $seminar->ticket_code ? $seminar->ticket_code : '-'}}</td>
-                                        <td>
+                                        <td>{{ $seminar->phone_number }}</td>
+                                        <td class="text-center">
                                             <span
-                                                class="badge badge-rounded badge-sm {{ $seminar->isVerified ? 'badge-success' : 'badge-warning' }}">
+                                                class="badge light badge-rounded badge-sm w-100 {{ $seminar->type === 'Offline' ? 'badge-primary' : 'badge-warning' }}">
                                                 <i
-                                                    class="{{ $seminar->isVerified ? 'fas fa-check-circle me-1' : 'fas fa-exclamation-circle me-1' }}"></i>
-                                                {{ $seminar->isVerified ? 'Verified' : 'Unverified' }}
+                                                    class="{{ $seminar->type === 'Offline' ? 'bi bi-geo-fill me-1' : 'bi bi-camera-video-fill me-1' }}"></i>
+                                                {{ $seminar->type === 'Offline' ? 'Offline' : 'Online' }}
+                                            </span>
+                                        </td>
+
+
+                                        <td class="text-center">{{ $seminar->ticket_code ? $seminar->ticket_code : '-' }}</td>
+                                        <td class="text-center">
+                                            <span
+                                                class="badge light badge-rounded badge-sm w-100 {{ $seminar->isVerified ? 'badge-success' : 'badge-warning' }}">
+                                                <i
+                                                    class="{{ $seminar->isVerified ? 'bi bi-cash-stack me-1' : 'bi bi-hourglass-split me-1' }}"></i>
+                                                {{ $seminar->isVerified ? 'Paid' : 'Awaiting' }}
                                             </span>
                                         </td>
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{ route('competition.cp.show', $seminar->id) }}"
-                                                    class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
-                                                        class="fas fa-eye"></i></a>
-                                                <a href="#"
-                                                    class="btn btn-warning shadow btn-rounded btn-xs sharp me-1"
+                                                    class="btn btn-rounded btn-primary btn-xs shadow sharp"><i
+                                                        class="bi bi-eye-fill"></i></a>
+                                                <button class="btn btn-rounded btn-warning btn-xs shadow sharp text-dark mx-1"
                                                     data-bs-toggle="modal" data-bs-target="#editModalSeminar"
-                                                    data-id="{{ $seminar->id }}"
-                                                    data-name="{{ $seminar->name }}"
-                                                    data-type="{{ $seminar->type }}"
-                                                    data-proof="{{ $seminar->proof }}"
+                                                    data-id="{{ $seminar->id }}" data-name="{{ $seminar->name }}"
+                                                    data-type="{{ $seminar->type }}" data-proof="{{ $seminar->proof }}"
                                                     data-payment-method="{{ $seminar->payment_method }}"
                                                     data-is-verified={{ $seminar->isVerified }}><i
-                                                        class="fas fa-pencil-alt"></i></a>
-                                                <a href="#" class="btn btn-danger shadow btn-rounded btn-xs sharp"
+                                                        class="bi bi-pencil-fill"></i></button>
+                                                <button class="btn btn-rounded btn-danger btn-xs shadow sharp"
                                                     data-bs-toggle="modal" data-bs-target="#deleteModalSeminar"
-                                                    data-id={{ $seminar->id }}
-                                                    data-name="{{ $seminar->name }}"><i
-                                                        class="fa fa-trash"></i></a>
+                                                    data-id={{ $seminar->id }} data-name="{{ $seminar->name }}"><i
+                                                        class="bi bi-trash-fill"></i></button>
                                             </div>
                                         </td>
                                     </tr>

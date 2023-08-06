@@ -1,5 +1,36 @@
 @extends('layouts.app')
 
+
+
+@push('js')
+<script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
+<script src="{{ asset('vendor/toastr/js/toastr.min.js') }}"></script>
+<script src="{{ asset('js/plugins-init/toastr-init.js') }}"></script>
+<script>
+    @if (session()->has('success'))
+        toastr.success('{{ session('success') }}', 'Success', {
+            timeOut: 5e3,
+            closeButton: !0,
+            debug: !1,
+            newestOnTop: !0,
+            progressBar: !0,
+            positionClass: "toast-top-right",
+            preventDuplicates: !0,
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "1000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut",
+            tapToDismiss: !1
+        })
+    @endif
+</script>
+@endpush
+
 @section('content')
     <div class="col-12">
         <div class="card">
@@ -11,44 +42,50 @@
                         {{ $user->email_verified_at ? 'Verified' : 'Unverified' }}
                     </span></h3>
 
-                <a href="{{ route('users') }}" class="btn btn-sm btn-primary"><i class="fas fa-undo-alt me-1"></i>Back</a>
+                <a href="{{ route('users') }}" class="btn btn-primary"><i class="bi bi-box-arrow-left me-1"></i>Back</a>
 
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12 mb-3">
-                        <div class="p-3 rounded border border-primary border-1">
 
-                            <label for="email">Email</label>
-                            <input class="form-control mb-2" value="{{ $user->email }}" type="text" id="email"
-                                readonly>
-                            <label class="form-label" for="name1">Nama</label>
-                            <input class="form-control mb-3" value="{{ $user->name }}" type="text" id="name1"
-                                readonly>
-
-                            <label for="college1">Gender</label>
-                            <input class="form-control mb-3" value="{{ $user->gender }}" type="text" id="college1"
-                                readonly>
-
-                            <label for="phone_number1">Nomor Telepon</label>
-                            <input class="form-control mb-3" value="{{ $user->phone_number }}" type="text"
-                                id="phone_number1" readonly>
-
-                            <label for="instagram1">Instagram</label>
-                            <input class="form-control mb-3" value="{{ $user->instagram }}" type="text" id="instagram1"
-                                readonly>
-
-                            <label for="instagram1">College</label>
-                            <input class="form-control mb-3" value="{{ $user->college }}" type="text" id="instagram1"
-                                readonly>
-
+                        <div class="p-3 rounded-1 border border-primary border-2 shadow-md">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="email">Email</label>
+                                    <input class="form-control mb-2" value="{{ $user->email }}" type="text"
+                                        id="email" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="name1">Nama</label>
+                                    <input class="form-control mb-3" value="{{ $user->name }}" type="text"
+                                        id="name1" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="gender">Gender</label>
+                                    <input class="form-control mb-3" value="{{ $user->gender }}" type="text"
+                                        id="gender" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone_number1">Nomor Telepon</label>
+                                    <input class="form-control mb-3" value="{{ $user->phone_number }}" type="text"
+                                        id="phone_number1" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="instagram1">Instagram</label>
+                                    <input class="form-control mb-3" value="{{ $user->instagram }}" type="text"
+                                        id="instagram1" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="institusi">Institusi</label>
+                                    <input class="form-control mb-3" value="{{ $user->college }}" type="text"
+                                        id="institusi" readonly>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 @endsection

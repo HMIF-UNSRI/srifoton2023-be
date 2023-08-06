@@ -44,7 +44,7 @@ Route::middleware('auth:admin')->group(function () {
 
         // Web Development
         Route::get('/web-development', [WebDevelopmentController::class, 'index'])->name('competition.webdev');
-        Route::get('/web-development/{id}', [WebDevelopmentController::class, 'show'])->name('competition.webdev.show');
+        Route::get('/web-development/{id}/show', [WebDevelopmentController::class, 'show'])->name('competition.webdev.show');
         Route::post('/web-development/{id}/verification', [WebDevelopmentController::class, 'update'])->name('competition.webdev.verification');
         Route::delete('/web-development/{id}/delete', [WebDevelopmentController::class, 'delete'])->name('competition.webdev.delete');
 

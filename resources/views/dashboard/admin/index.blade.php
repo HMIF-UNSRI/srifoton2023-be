@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="alert alert-primary alert-dismissible alert-alt fade show bg-white">
+    <div class="alert alert-light alert-dismissible alert-alt fade show bg-white">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
         </button>
         <div class="d-flex align-items-center ">
@@ -12,7 +12,7 @@
     <div class="row">
         {{-- Users --}}
         @can('inti')
-            <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
+            <div class="col-md-4">
                 <div class="widget-stat card">
                     <div class="card-body p-4">
                         <div class="media ai-icon">
@@ -31,7 +31,7 @@
 
         @canany(['inti', 'seminar'])
         {{-- Seminar --}}
-        <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
+        <div class="col-md-4">
             <div class="widget-stat card">
                 <div class="card-body p-4">
                     <div class="media ai-icon">
@@ -50,7 +50,7 @@
 
         @canany(['inti', 'competition', 'competitive_programming'])
         {{-- Competitive Programming --}}
-        <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
+        <div class="col-md-4">
             <div class="widget-stat card">
                 <div class="card-body p-4">
                     <div class="media ai-icon">
@@ -69,7 +69,7 @@
 
         @canany(['inti', 'competition', 'uiux_design'])
         {{-- UI/UX --}}
-        <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
+        <div class="col-md-4">
             <div class="widget-stat card">
                 <div class="card-body p-4">
                     <div class="media ai-icon">
@@ -88,11 +88,11 @@
         
         @canany(['inti', 'competition', 'web_development'])
         {{-- Web Development --}}
-        <div class="col-xl-3 col-xxl-6 col-lg-6 col-sm-6">
-            <div class="widget-stat card">
+        <div class="col-md-4">
+            <div class="widget-stat card" >
                 <div class="card-body p-4">
                     <div class="media ai-icon">
-                        <span class="me-3 bgl-dark text-dark">
+                        <span class="me-3 bgl-primary text-primary">
                             <i class="bi bi-code-slash fs-1"></i>
                         </span>
                         <div class="media-body">

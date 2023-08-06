@@ -54,7 +54,6 @@
                     id));
 
                 modal.find('#teamName').val(teamName);
-
             });
         });
     </script>
@@ -83,52 +82,52 @@
 @endpush
 
 @section('content')
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title text-primary">Web Development</h4>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <div id="example3_wrapper" class="dataTables_wrapper no-footer">
-                        <table id="example3" class="display dataTable no-footer mb-3" style="min-width: 845px"
-                            role="grid" aria-describedby="example3_info">
+<div class="col-12">
+    <div class="card" style="overflow-x: scroll">
+        <div class="card-header">
+            <h4 class="card-title text-primary">Web Development</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div id="example3_wrapper" class="dataTables_wrapper no-footer">
+                    <table id="example3" class="display dataTable cell-border no-footer mb-3" style="min-width: 845px"
+                        role="grid" aria-describedby="example3_info">
                             <thead>
-                                <tr role="row">
-                                    <th class="sorting_asc text-center">No</th>
-                                    <th class="sorting text-center">Team Name</th>
-                                    <th class="text-center sorting">Player 1</th>
-                                    <th class="text-center sorting">Player 2</th>
-                                    <th class="text-center sorting">Player 3</th>
-                                    <th class="text-center sorting">Submission</th>
-                                    <th class="text-center sorting">Status</th>
-                                    <th class="text-center sorting_desc">Action</th>
+                                <tr class="text-center" role="row">
+                                    <th class="sorting">No</th>
+                                    <th class="sorting">Team Name</th>
+                                    <th class="sorting">Member 1</th>
+                                    <th class="sorting">Member 2</th>
+                                    <th class="sorting">Member 3</th>
+                                    <th class="sorting">Submission</th>
+                                    <th class="sorting">Status</th>
+                                    <th class="sorting">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($webdevs as $index => $webdev)
-                                    <tr class="text-center" role="row">
-                                        <td class="">{{ $index + 1 }}</td>
+                                    <tr role="row">
+                                        <td class="text-center">{{ $index + 1 }}</td>
                                         <td class="">{{ $webdev->team_name }}</td>
                                         <td>{{ $webdev->name1 }}</td>
-                                        <td class="sorting_1">{{ $webdev->name2 }}</td>
+                                        <td>{{ $webdev->name2 }}</td>
                                         <td>{{ $webdev->name3 }}</td>
                                         <td>{{ $webdev->submission }}</td>
-                                        <td>
+                                        <td class="text-center">
                                             <span
-                                                class="badge badge-rounded badge-sm {{ $webdev->isVerified ? 'bg-success' : 'bg-warning' }}">
+                                                class="badge light badge-rounded badge-sm w-100 {{ $webdev->isVerified ? 'badge-success' : 'badge-warning' }}">
                                                 <i
-                                                    class="{{ $webdev->isVerified ? 'bi bi-check-circle-fill me-1' : 'bi bi-exclamation-circle-fill me-1' }}"></i>
-                                                {{ $webdev->isVerified ? 'Verified' : 'Unverified' }}
+                                                    class="{{ $webdev->isVerified ? 'bi bi-cash-stack me-1' : 'bi bi-hourglass-split me-1' }}"></i>
+                                                {{ $webdev->isVerified ? 'Paid' : 'Awaiting' }}
                                             </span>
                                         </td>
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{ route('competition.mole.show', $webdev->id) }}"
-                                                    class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
+                                                <a href="{{ route('competition.webdev.show', $webdev->id) }}"
+                                                    class="btn btn-primary shadow btn-rounded btn-xs sharp"><i
                                                         class="bi bi-eye-fill"></i></a>
-                                                <button class="btn btn-warning shadow btn-rounded btn-xs sharp me-1"
+                                                <button class="btn btn-warning shadow btn-rounded btn-xs sharp mx-1"
                                                     data-bs-toggle="modal" data-bs-target="#editModalWebdev"
                                                     data-id="{{ $webdev->id }}"
                                                     data-team-name="{{ $webdev->team_name }}"
