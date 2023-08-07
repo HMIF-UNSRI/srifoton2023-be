@@ -53,7 +53,8 @@ class DashboardUserController extends Controller
         User::where('id', $user->id)->update($data);
 
         return response()->json([
-            'message' => 'Data berhasil diupdate'
+            'message' => 'Data berhasil diupdate',
+            'user' => $user
         ]);
     }
 }
