@@ -49,6 +49,7 @@ Route::middleware('auth:api')->group(function () {
         Route::post('competitive-programming/register', [CompetitiveProgrammingController::class, 'register']);
         // Competition (UIUX Design)
         Route::post('uiux-design/register', [UiuxDesignController::class, 'register']);
+        Route::post('uiux-design/submission', [UiuxDesignController::class, 'submitSubmission']);
         // Competition (Web Development)
         Route::post('web-development/register', [WebDevelopmentController::class, 'register']);
     });

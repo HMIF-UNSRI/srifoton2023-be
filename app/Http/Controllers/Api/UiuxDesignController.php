@@ -86,7 +86,7 @@ class UiuxDesignController extends Controller
     {
         $data = $request->validated();
 
-        $proof = "bukti-pembayaran/uiux-designs/$request->payment_method-$request->team_name-" . Str::random(16) . "." . $request->proof->getClientOriginalExtension();
+        $proof = "bukti-pembayaran/uiux-design/$request->payment_method-$request->team_name-" . Str::random(16) . "." . $request->proof->getClientOriginalExtension();
 
         $idCards = [];
 
@@ -96,7 +96,7 @@ class UiuxDesignController extends Controller
             $nim = $request->{"nim$i"};
             $extension = $request->{"id_card$i"}->getClientOriginalExtension();
 
-            $idCard = "id-card/uiux-designs/$request->team_name/anggota$i-$nim-" . Str::random(16) . ".$extension";
+            $idCard = "id-card/uiux-design/$request->team_name/anggota$i-$nim-" . Str::random(16) . ".$extension";
 
             $idCards[$i - 1] = $idCard;
         }
@@ -119,6 +119,53 @@ class UiuxDesignController extends Controller
         return response()->json([
             'message' => 'Berhasil daftar UIUX Design',
             'data' => $data
+        ]);
+    }
+
+    /**
+     * UIUX Design Submission
+     * 
+     * @bodyParam submission file required
+     * <ul>
+     *      <li>Maksimal 100 MB</li>
+     *      <li>Harus berupa ekstensi png, jpg, jpeg, pdf, zip</li>
+     * </ul>
+     * 
+     * @authenticated
+     */
+    public function submitSubmission(Request $request)
+    {
+        $request->validate([
+            'submission' => 'required|file|mimes:png,jpg,jpeg,pdf,zip|max:104800'
+        ]);
+
+        $userId = Auth::user()->id;
+        $uiux = UiuxDesign::where('user_id', $userId)->first();
+
+
+        if (!$uiux->isVerified) {
+            return response()->json([
+                'message' => 'Bukti pembayaran belum diverifikasi'
+            ], 402);
+        }
+
+        if (!$uiux->subimission) {
+            return response()->json([
+                'message' => 'Hanya bisa mengumpulkan submission sekali'
+            ]);
+        }
+
+        $submission = "submission/uiux-design/$uiux->team_name-" . Str::random(16) . "." . $request->submission->getClientOriginalExtension();
+
+        UiuxDesign::where('user_id', $userId)->update([
+            'submission' => $submission
+        ]);
+
+        Storage::disk('public')->put($submission, file_get_contents($request->submission));
+
+        return response()->json([
+            'message' => 'Submission berhasil disimpan',
+            'uiux' => $uiux
         ]);
     }
 }
