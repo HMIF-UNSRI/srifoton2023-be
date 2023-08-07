@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\UIUXDesign;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UiuxDesignRequest;
+use App\Models\UiuxDesign;
 
 class UiuxDesignController extends Controller
 {
@@ -108,7 +108,7 @@ class UiuxDesignController extends Controller
             $data["id_card$i"] = $idCards[$i - 1];
         }
 
-        UIUXDesign::create($data);
+        UiuxDesign::create($data);
 
         Storage::disk('public')->put($proof, file_get_contents($request->proof));
 
