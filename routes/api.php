@@ -30,7 +30,7 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
     // Get data user
-    Route::post('me', [AuthController::class, 'me']);
+    Route::get('me', [AuthController::class, 'me']);
     // Logout
     Route::post('logout', [AuthController::class, 'logout']);
     // Send Email Verification

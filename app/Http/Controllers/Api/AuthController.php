@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
+use App\Models\CompetitiveProgramming;
+use App\Models\Seminar;
+use App\Models\UiuxDesign;
+use App\Models\WebDevelopment;
 
 class AuthController extends Controller
 {
@@ -115,12 +119,34 @@ class AuthController extends Controller
     /**
      * Get Data User
      * 
-     * Endpoint ini digunakan untuk mendapatkan data dari user yang sudah login.
+     * Endpoint ini digunakan untuk mendapatkan data dari user yang sudah login dan data kompetisi/seminar terdaftar.
      * 
      * @authenticated
      */
     public function me()
     {
-        return response()->json(Auth::guard('api')->user());
+        $user = Auth::guard('api')->user();
+        $competitions = $this->getCompetitions($user->id);
+        $seminar = Seminar::where('user_id', $user->id)->first();
+
+        $user['registered'] = [
+            'competitions' => $competitions,
+            'seminar' => $seminar
+        ];
+
+        return response()->json($user);
+    }
+
+    private function getCompetitions($userId)
+    {
+        $programming = CompetitiveProgramming::where('user_id', $userId)->first();
+        $uiux = UiuxDesign::where('user_id', $userId)->first();
+        $webdev = WebDevelopment::where('user_id', $userId)->first();
+
+        return [
+            'competitive_programming' => $programming,
+            'uiux_design' => $uiux,
+            'web_development' => $webdev,
+        ];
     }
 }

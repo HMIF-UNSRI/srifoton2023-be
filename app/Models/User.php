@@ -73,4 +73,24 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
 
         $this->notify(new ResetPasswordNotification($url));
     }
+
+    public function seminar()
+    {
+        return $this->hasOne(Seminar::class);
+    }
+
+    public function competitiveProgramming()
+    {
+        return $this->hasOne(CompetitiveProgramming::class);
+    }
+
+    public function uiuxDesign()
+    {
+        return $this->hasOne(UiuxDesign::class);
+    }
+
+    public function webDevelopment()
+    {
+        return $this->hasOne(WebDevelopment::class);
+    }
 }
