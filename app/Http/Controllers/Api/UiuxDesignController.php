@@ -149,7 +149,7 @@ class UiuxDesignController extends Controller
             ], 402);
         }
 
-        if (!$uiux->subimission) {
+        if ($uiux->submission) {
             return response()->json([
                 'message' => 'Hanya bisa mengumpulkan submission sekali'
             ]);
@@ -165,7 +165,7 @@ class UiuxDesignController extends Controller
 
         return response()->json([
             'message' => 'Submission berhasil disimpan',
-            'uiux' => $uiux
+            'submission' => $uiux->submission
         ]);
     }
 }

@@ -121,4 +121,50 @@ class WebDevelopmentController extends Controller
             'data' => $data
         ]);
     }
+
+    /**
+     * Web Development Submission
+     * 
+     * @bodyParam submission file required
+     * <ul>
+     *      <li>Harus berupa ekstensi zip</li>
+     * </ul>
+     * 
+     * @authenticated
+     */
+    public function submitSubmission(Request $request)
+    {
+        $request->validate([
+            'submission' => 'required|file|mimes:zip'
+        ]);
+
+        $userId = Auth::user()->id;
+        $webdev = WebDevelopment::where('user_id', $userId)->first();
+
+
+        if (!$webdev->isVerified) {
+            return response()->json([
+                'message' => 'Bukti pembayaran belum diverifikasi'
+            ], 402);
+        }
+
+        if ($webdev->submission) {
+            return response()->json([
+                'message' => 'Hanya bisa mengumpulkan submission sekali'
+            ], 409);
+        }
+
+        $submission = "submission/web-development/$webdev->team_name-" . Str::random(16) . "." . $request->submission->getClientOriginalExtension();
+
+        WebDevelopment::where('user_id', $userId)->update([
+            'submission' => $submission
+        ]);
+
+        Storage::disk('public')->put($submission, file_get_contents($request->submission));
+
+        return response()->json([
+            'message' => 'Submission berhasil disimpan',
+            'submission' => $webdev->submission
+        ]);
+    }
 }

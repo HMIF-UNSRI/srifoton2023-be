@@ -56,6 +56,7 @@ Route::middleware('auth:api')->group(function () {
         Route::post('uiux-design/submission', [UiuxDesignController::class, 'submitSubmission']);
         // Competition (Web Development)
         Route::post('web-development/register', [WebDevelopmentController::class, 'register']);
+        Route::post('web-development/submission', [WebDevelopmentController::class, 'submitSubmission']);
     });
 });
 
