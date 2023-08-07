@@ -33,6 +33,10 @@ Route::middleware('auth:api')->group(function () {
     Route::get('me', [AuthController::class, 'me']);
     // Logout
     Route::post('logout', [AuthController::class, 'logout']);
+    // Check Token
+    Route::get('check-token', [AuthController::class, 'checkToken']);
+    // Check Token
+    Route::get('refresh-token', [AuthController::class, 'refreshToken']);
     // Send Email Verification
     Route::post('email/verification-notification', [EmailVerificationController::class, 'sendVerificationEmail']);
 

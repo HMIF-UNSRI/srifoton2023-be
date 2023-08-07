@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\User;
+use App\Models\Seminar;
+use App\Models\UiuxDesign;
 use Illuminate\Http\Request;
+use App\Models\WebDevelopment;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
@@ -11,9 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
 use App\Models\CompetitiveProgramming;
-use App\Models\Seminar;
-use App\Models\UiuxDesign;
-use App\Models\WebDevelopment;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
@@ -98,6 +99,46 @@ class AuthController extends Controller
             'token' => $token,
             'user' => Auth::guard('api')->user()
         ]);
+    }
+
+    /**
+     * Check Token
+     * 
+     * Endpoint ini digunakan untuk mengecek token valid atau tidak.
+     * 
+     * @authenticated
+     */
+    public function checkToken()
+    {
+        try {
+            $user = JWTAuth::parseToken()->authenticate();
+            if (!$user) {
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'Failed to authenticate'], 500);
+        }
+
+        return response()->json(['message' => 'Token valid']);
+    }
+
+    /**
+     * Refresh Token
+     * 
+     * Endpoint ini digunakan untuk refresh token.
+     * 
+     * @authenticated
+     */
+    public function refreshToken()
+    {
+        try {
+            $token = JWTAuth::getToken();
+            $newToken = JWTAuth::refresh($token);
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'Failed to refresh token'], 500);
+        }
+
+        return response()->json(['token' => $newToken]);
     }
 
     /**
