@@ -3,7 +3,14 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+use App\Models\Admin;
+use App\Models\CompetitiveProgramming;
+use App\Models\MobileLegend;
+use App\Models\Seminar;
+use App\Models\WebDevelopment;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +19,53 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(5)->create();
+        MobileLegend::factory(50)->create();
+        CompetitiveProgramming::factory(50)->create();
+        Seminar::factory(50)->create();
+        WebDevelopment::factory(50)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Admin::create([
+            'name' => 'Admin Inti',
+            'username' => 'inti',
+            'password' => Hash::make('12345678'),
+            'role' => 'inti',
+        ]);
+        Admin::create([
+            'name' => 'Admin Competition',
+            'username' => 'competition',
+            'password' => Hash::make('12345678'),
+            'role' => 'competition',
+        ]);
+        Admin::create([
+            'name' => 'Admin Competitive Programming',
+            'username' => 'competitive_programming',
+            'password' => Hash::make('12345678'),
+            'role' => 'competitive_programming',
+        ]);
+        Admin::create([
+            'name' => 'Admin UI/UX Design',
+            'username' => 'uiux_design',
+            'password' => Hash::make('12345678'),
+            'role' => 'uiux_design',
+        ]);
+        Admin::create([
+            'name' => 'Admin Web Development',
+            'username' => 'web_development',
+            'password' => Hash::make('12345678'),
+            'role' => 'web_development',
+        ]);
+        Admin::create([
+            'name' => 'Admin Mobile Legends',
+            'username' => 'mobile_legends',
+            'password' => Hash::make('12345678'),
+            'role' => 'mobile_legends',
+        ]);
+        Admin::create([
+            'name' => 'Admin Seminar',
+            'username' => 'seminar',
+            'password' => Hash::make('12345678'),
+            'role' => 'seminar',
+        ]);
     }
 }
