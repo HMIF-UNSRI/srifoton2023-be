@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Seminar;
 use App\Models\UiuxDesign;
@@ -60,12 +61,16 @@ class AuthController extends Controller
         ]);
 
         $token = JWTAuth::fromUser($user);
+        $payload = JWTAuth::manager()->getPayloadFactory()->buildClaimsCollection()->toPlainArray();
+        $validUntil = date('Y-m-d H:i:s', $payload['exp']);
+
         $user = User::find($user->id);
 
         if ($user) {
             return response()->json([
                 'messages' => 'Berhasil daftar',
                 'token' => $token,
+                'valid_until' => $validUntil,
                 'user' => $user
             ]);
         }
@@ -94,10 +99,14 @@ class AuthController extends Controller
         $request->authenticate();
         $token = JWTAuth::fromUser(Auth::guard('api')->user());
 
+        $payload = JWTAuth::manager()->getPayloadFactory()->buildClaimsCollection()->toPlainArray();
+        $validUntil = date('Y-m-d H:i:s', $payload['exp']);
+
         return response()->json([
             'message' => 'Berhasil login',
             'token' => $token,
-            'user' => Auth::guard('api')->user()
+            'valid_until' => $validUntil,
+            'user' => Auth::guard('api')->user(),
         ]);
     }
 
@@ -134,11 +143,18 @@ class AuthController extends Controller
         try {
             $token = JWTAuth::getToken();
             $newToken = JWTAuth::refresh($token);
+
+            $payload = JWTAuth::manager()->getPayloadFactory()->buildClaimsCollection()->toPlainArray();
+            $validUntil = date('Y-m-d H:i:s', $payload['exp']);
         } catch (JWTException $e) {
             return response()->json(['error' => 'Failed to refresh token'], 500);
         }
 
-        return response()->json(['token' => $newToken]);
+        return response()->json([
+            'message' => 'Refresh token berhasil',
+            'token' => $newToken,
+            'valid_until' => $validUntil
+        ]);
     }
 
     /**
