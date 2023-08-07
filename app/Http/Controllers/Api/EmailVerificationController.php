@@ -59,13 +59,15 @@ class EmailVerificationController extends Controller
         auth()->loginUsingId($request->route('id'));
 
         if ($request->user()->hasVerifiedEmail()) {
-            return redirect('http://localhost:3000/?message=' . urlencode('Email sudah diverifikasi'));
+            $frontendUrl = env('FRONTEND_URL');
+            return redirect($frontendUrl . '/?message=' . urlencode('Email sudah diverifikasi'));
         }
 
         if ($request->user()->markEmailAsVerified()) {
             event(new Verified($request->user()));
         }
 
-        return redirect('http://localhost:3000/?message=' . urlencode('Email berhasil diverifikasi'));
+        $frontendUrl = env('FRONTEND_URL');
+        return redirect($frontendUrl . '/?message=' . urlencode('Email berhasil diverifikasi'));
     }
 }
