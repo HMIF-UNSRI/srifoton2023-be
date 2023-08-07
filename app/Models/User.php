@@ -8,7 +8,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Notifications\ResetPasswordNotification;
+use App\Notifications\CustomVerifyEmailNotification;
+use App\Notifications\CustomResetPasswordNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -21,11 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -66,12 +63,14 @@ class User extends Authenticatable implements MustVerifyEmail, JWTSubject
         return [];
     }
 
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new CustomVerifyEmailNotification());
+    }
+
     public function sendPasswordResetNotification($token)
     {
-        $email = $this->email;
-        $url = env('FRONTEND_URL') . '/reset-password?email=' . urlencode($email) . '&token=' . $token;
-
-        $this->notify(new ResetPasswordNotification($url));
+        $this->notify(new CustomResetPasswordNotification($token));
     }
 
     public function seminar()
