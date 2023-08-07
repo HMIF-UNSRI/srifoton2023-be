@@ -33,11 +33,11 @@
 
                 if (isVerified) {
                     editForm.hide();
-                    editModalTitle.html(name + ' telah diverifikasi')
+                    editModalTitle.html(name + ' has been verified')
                 } else {
                     editForm.show();
                     editForm.attr('action', `/dashboard/admin/seminar/${id}/verification`)
-                    editModalTitle.html('Verifikasi Pembayaran');
+                    editModalTitle.html('Payment Verification');
                 }
             });
 
@@ -50,7 +50,7 @@
                 const deleteForm = $('#deleteFormSeminar');
                 const deleteModalBody = $('#deleteModalBody');
 
-                deleteModalBody.html(`Apakah anda yakin ingin menghapus ${name}`);
+                deleteModalBody.html(`Are you sure want to delete ${name} ?`);
                 deleteForm.attr('action', `/dashboard/admin/seminar/${id}/delete`);
 
                 modal.find('#name').val(name);
@@ -86,7 +86,7 @@
     <div class="col-12">
         <div class="card" style="overflow-x: scroll">
             <div class="card-header">
-                <h4 class="card-title text-primary">Seminar</h4>
+                <h4 class="card-title text-primary fw-medium">Seminar</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -161,7 +161,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title text-primary" id="editModalTitle"></h5>
+                                        <h5 class="modal-title fs-18" id="editModalTitle"></h5>
 
                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                         </button>
@@ -219,7 +219,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Hapus Data</h5>
+                                        <h5 class="modal-title fs-18">Delete Data</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                         </button>
                                     </div>

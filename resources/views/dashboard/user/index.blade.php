@@ -11,9 +11,9 @@
 
 @section('content')
     <div class="col-12">
-        <div class="card" style="overflow-x: scroll">
+        <div class="card shadow-sm" style="overflow-x: scroll">
             <div class="card-header">
-                <h4 class="card-title text-primary">Users</h4>
+                <h4 class="card-title text-primary fw-medium">Users</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -42,7 +42,7 @@
                                             <span
                                                 class="badge light badge-rounded badge-sm w-75 {{ $user->email_verified_at ? 'badge-success' : 'badge-warning' }}">
                                                 <i
-                                                    class="{{ $user->email_verified_at ? 'fas fa-check-circle me-1' : 'fas fa-exclamation-circle me-1' }}"></i>
+                                                    class="{{ $user->email_verified_at ? 'bi bi-check-circle-fill me-1' : 'bi bi-exclamation-circle-fill me-1' }}"></i>
                                                 {{ $user->email_verified_at ? 'Verified' : 'Unverified' }}
                                             </span>
                                         </td>

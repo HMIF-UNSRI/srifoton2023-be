@@ -31,11 +31,11 @@
 
                 if (isVerified) {
                     editForm.hide();
-                    editModalTitle.html(teamName + ' telah diverifikasi')
+                    editModalTitle.html(teamName + ' has been verified')
                 } else {
                     editForm.show();
                     editForm.attr('action', `/dashboard/admin/competitive-programming/${id}/verification`)
-                    editModalTitle.html('Verifikasi Pembayaran');
+                    editModalTitle.html('Payment Verification');
                 }
             });
 
@@ -48,7 +48,7 @@
                 const deleteForm = $('#deleteFormProgramming');
                 const deleteModalBody = $('#deleteModalBody');
 
-                deleteModalBody.html(`Apakah anda yakin ingin menghapus tim ${teamName}`);
+                deleteModalBody.html(`Are you sure want to delete ${teamName} team ?`);
                 deleteForm.attr('action', `/dashboard/admin/competitive-programming/${id}/delete`);
 
                 modal.find('#teamName').val(teamName);
@@ -82,9 +82,9 @@
 
 @section('content')
     <div class="col-12">
-        <div class="card" style="overflow-x: scroll">
+        <div class="card shadow-sm" style="overflow-x: scroll">
             <div class="card-header">
-                <h4 class="card-title text-primary">Competitive Programming</h4>
+                <h4 class="card-title text-primary fw-medium">Competitive Programming</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -124,7 +124,8 @@
                                                 <a href="{{ route('competition.cp.show', $programming->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp"><i
                                                         class="bi bi-eye-fill"></i></a>
-                                                <button class="btn btn-warning shadow btn-rounded btn-xs sharp mx-1 text-dark"
+                                                <button title="Edit"
+                                                    class="btn btn-warning shadow btn-rounded btn-xs sharp mx-1 text-dark"
                                                     data-bs-toggle="modal" data-bs-target="#editModalProgramming"
                                                     data-id="{{ $programming->id }}"
                                                     data-team-name="{{ $programming->team_name }}"
@@ -144,12 +145,12 @@
                             </tbody>
                         </table>
 
-                       {{-- Edit Modal --}}
+                        {{-- Edit Modal --}}
                         <div class="modal fade" id="editModalProgramming">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title text-primary" id="editModalTitle"></h5>
+                                        <h5 class="modal-title fs-18" id="editModalTitle"></h5>
 
                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                         </button>
@@ -157,21 +158,21 @@
                                     <div class="modal-body">
                                         <table class="table table-borderless">
                                             <tr>
-                                                <td>Nama Tim</td>
+                                                <td>Team Name</td>
                                                 <td>
                                                     <input type="text" class="form-control w-100 mb-3" id="teamName"
                                                         readonly>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Metode Pembayaran</td>
+                                                <td>Payment Method</td>
                                                 <td>
                                                     <input type="text" class="form-control w-100" id="paymentMethod"
                                                         readonly>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Bukti Pembayaran</td>
+                                                <td>Payment Proof</td>
                                                 <td>
                                                     <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
@@ -197,7 +198,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Hapus Data</h5>
+                                        <h5 class="modal-title fs-18">Delete Data</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                         </button>
                                     </div>

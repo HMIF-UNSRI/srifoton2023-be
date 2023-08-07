@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title text-primary fw-bold">Data Tim {{ $webdev->team_name }}
+                <h3 class="card-title text-primary fw-bold">Detail {{ $webdev->team_name }}
                     <span
                         class="badge badge-rounded badge-lg ms-2 {{ $webdev->isVerified ? 'badge-success' : 'badge-warning' }}">
                         <i
