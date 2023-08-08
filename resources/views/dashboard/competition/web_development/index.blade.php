@@ -82,16 +82,17 @@
 @endpush
 
 @section('content')
-<div class="col-12">
-    <div class="card" style="overflow-x: scroll">
-        <div class="card-header">
-            <h4 class="card-title text-primary">Web Development</h4>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <div id="example3_wrapper" class="dataTables_wrapper no-footer">
-                    <table id="example3" class="display dataTable cell-border no-footer mb-3" style="min-width: 845px"
-                        role="grid" aria-describedby="example3_info">
+    <div class="col-12">
+        <div class="card" style="overflow-x: scroll">
+            <div class="card-header">
+                <h4 class="card-title text-primary fw-medium">Web Development
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <div id="example3_wrapper" class="dataTables_wrapper no-footer">
+                        <table id="example3" class="display dataTable cell-border no-footer mb-3" style="min-width: 845px"
+                            role="grid" aria-describedby="example3_info">
                             <thead>
                                 <tr class="text-center" role="row">
                                     <th class="sorting">No</th>
@@ -112,7 +113,12 @@
                                         <td>{{ $webdev->name1 }}</td>
                                         <td>{{ $webdev->name2 }}</td>
                                         <td>{{ $webdev->name3 }}</td>
-                                        <td>{{ $webdev->submission }}</td>
+                                        <td><span
+                                                class="badge light badge-rounded badge-sm w-100 {{ $webdev->submission ? 'badge-success' : 'badge-warning' }}">
+                                                <i
+                                                    class="bi bi-file-earmark{{ $webdev->submission ? '-check' : '-x' }} me-1"></i>
+                                                {{ $webdev->submission ? 'Submitted' : 'Unsubmitted' }}
+                                            </span></td>
                                         <td class="text-center">
                                             <span
                                                 class="badge light badge-rounded badge-sm w-100 {{ $webdev->isVerified ? 'badge-success' : 'badge-warning' }}">
@@ -124,10 +130,13 @@
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
+                                                <a href="{{ route('competition.webdev.download', $webdev->id) }}"
+                                                    class="btn btn-success shadow btn-rounded btn-xs sharp me-1"> <i
+                                                        class="bi bi-file-earmark-arrow-down-fill"></i></a>
                                                 <a href="{{ route('competition.webdev.show', $webdev->id) }}"
-                                                    class="btn btn-primary shadow btn-rounded btn-xs sharp"><i
+                                                    class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
                                                         class="bi bi-eye-fill"></i></a>
-                                                <button class="btn btn-warning shadow btn-rounded btn-xs sharp mx-1"
+                                                <button class="btn btn-warning shadow btn-rounded btn-xs sharp me-1"
                                                     data-bs-toggle="modal" data-bs-target="#editModalWebdev"
                                                     data-id="{{ $webdev->id }}"
                                                     data-team-name="{{ $webdev->team_name }}"
