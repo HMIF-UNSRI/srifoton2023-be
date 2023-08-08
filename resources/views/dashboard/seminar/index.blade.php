@@ -134,7 +134,7 @@
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{ route('competition.cp.show', $seminar->id) }}"
+                                                <a href="{{ route('seminar.show', $seminar->id) }}"
                                                     class="btn btn-rounded btn-primary btn-xs shadow sharp"><i
                                                         class="bi bi-eye-fill"></i></a>
                                                 <button class="btn btn-rounded btn-warning btn-xs shadow sharp text-dark mx-1"

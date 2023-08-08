@@ -23,6 +23,13 @@ class SeminarController extends Controller
         return view('dashboard.seminar.index', compact('seminars'));
     }
 
+    public function show($id)
+    {
+        $seminar = Seminar::findOrFail($id);
+        return view('dashboard.seminar.show', compact('seminar'));
+
+    }
+
     public function update($id)
     {
         $seminar = Seminar::findOrFail($id);
