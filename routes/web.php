@@ -47,6 +47,7 @@ Route::middleware('auth:admin')->group(function () {
         Route::get('/web-development/{id}/show', [WebDevelopmentController::class, 'show'])->name('competition.webdev.show');
         Route::post('/web-development/{id}/verification', [WebDevelopmentController::class, 'update'])->name('competition.webdev.verification');
         Route::delete('/web-development/{id}/delete', [WebDevelopmentController::class, 'delete'])->name('competition.webdev.delete');
+        Route::get('/web-development/{id}/download', [WebDevelopmentController::class, 'downloadSubmission'])->name('competition.webdev.download');
 
         // MobileLegends
         Route::get('/mobile-legends', [MobileLegendController::class, 'index'])->name('competition.mole');
