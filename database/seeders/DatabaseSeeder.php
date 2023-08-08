@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(5)->create();
-        MobileLegend::factory(50)->create();
         CompetitiveProgramming::factory(50)->create();
         Seminar::factory(50)->create();
         WebDevelopment::factory(50)->create();

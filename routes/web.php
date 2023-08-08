@@ -41,7 +41,6 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('/competitive-programming/{id}/verification', [CompetitiveProgrammingController::class, 'update'])->name('competition.cp.verification');
         Route::delete('/competitive-programming/{id}/delete', [CompetitiveProgrammingController::class, 'delete'])->name('competition.cp.delete');
 
-
         // Web Development
         Route::get('/web-development', [WebDevelopmentController::class, 'index'])->name('competition.webdev');
         Route::get('/web-development/{id}/show', [WebDevelopmentController::class, 'show'])->name('competition.webdev.show');
@@ -49,20 +48,12 @@ Route::middleware('auth:admin')->group(function () {
         Route::delete('/web-development/{id}/delete', [WebDevelopmentController::class, 'delete'])->name('competition.webdev.delete');
         Route::get('/web-development/{id}/download', [WebDevelopmentController::class, 'downloadSubmission'])->name('competition.webdev.download');
 
-        // MobileLegends
-        Route::get('/mobile-legends', [MobileLegendController::class, 'index'])->name('competition.mole');
-        Route::get('/mobile-legends/{id}', [MobileLegendController::class, 'show'])->name('competition.mole.show');
-        Route::post('/mobile-legends/{id}/verification', [MobileLegendController::class, 'update'])->name('competition.mole.verification');
-        Route::delete('/mobile-legends/{id}/delete', [MobileLegendController::class, 'delete'])->name('competition.mole.delete');
-
+    
         //Seminar
         Route::get('/seminar', [SeminarController::class, 'index'])->name('seminar');
         Route::get('/seminar/{id}/show', [SeminarController::class, 'show'])->name('seminar.show');
         Route::post('/seminar/{id}/verification', [SeminarController::class, 'update'])->name('seminar.verification');
         Route::delete('/seminar/{id}/delete', [SeminarController::class, 'delete'])->name('seminar.delete');
-
-
-
 
     });
 
