@@ -37,7 +37,7 @@ Route::middleware('auth:admin')->group(function () {
 
         // Competitive Programming
         Route::get('/competitive-programming', [CompetitiveProgrammingController::class, 'index'])->name('competition.cp');
-        Route::get('/competitive-programming/{id}', [CompetitiveProgrammingController::class, 'show'])->name('competition.cp.show');
+        Route::get('/competitive-programming/{id}/show', [CompetitiveProgrammingController::class, 'show'])->name('competition.cp.show');
         Route::post('/competitive-programming/{id}/verification', [CompetitiveProgrammingController::class, 'update'])->name('competition.cp.verification');
         Route::delete('/competitive-programming/{id}/delete', [CompetitiveProgrammingController::class, 'delete'])->name('competition.cp.delete');
 
@@ -57,6 +57,7 @@ Route::middleware('auth:admin')->group(function () {
 
         //Seminar
         Route::get('/seminar', [SeminarController::class, 'index'])->name('seminar');
+        Route::get('/seminar/{id}/show', [SeminarController::class, 'show'])->name('seminar.show');
         Route::post('/seminar/{id}/verification', [SeminarController::class, 'update'])->name('seminar.verification');
         Route::delete('/seminar/{id}/delete', [SeminarController::class, 'delete'])->name('seminar.delete');
 
