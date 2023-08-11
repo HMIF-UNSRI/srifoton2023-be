@@ -5,8 +5,42 @@
 @endpush
 
 @push('js')
-    <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
+<script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+<script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        const wrapperDiv = $('<div>').addClass('w-100').css("overflow-x", "scroll");
+        const table = $('#example3');
+        table.wrap(wrapperDiv);
+    });
+    $(document).ready(function() {
+        const buttons = $(
+            ".buttons-excel, .buttons-csv, .buttons-pdf, .buttons-copy, .buttons-print");
+
+        buttons.each(function() {
+            const $thisButton = $(this);
+            if ($thisButton.length) {
+                if ($thisButton.hasClass("buttons-excel")) {
+                    $thisButton.html('<i class="ni ni-file-xls"></i>');
+                } else if ($thisButton.hasClass("buttons-copy")) {
+                    $thisButton.html('<i class="ni ni-copy"></i>');
+                } else if ($thisButton.hasClass("buttons-pdf")) {
+                    $thisButton.html('<i class="ni ni-file-pdf"></i>');
+                } else if ($thisButton.hasClass("buttons-print")) {
+                    $thisButton.html('<i class="ni ni-printer"></i>');
+                } else if ($thisButton.hasClass("buttons-csv")) {
+                    $thisButton.html('<i class="ni ni-file-csv"></i>');
+                }
+            }
+        });
+    });
+</script>
 @endpush
 
 @section('content')
@@ -29,7 +63,7 @@
                                     <th class="sorting">Gender</th>
                                     <th class="sorting">Phone</th>
                                     <th class="sorting">Instagram</th>
-                                    <th class="sorting">Action</th>
+                                    <th class="sorting no-export">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
