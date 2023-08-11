@@ -416,7 +416,7 @@ let dataSet = [
         },
     });
 
-	var table = $("#example9").DataTable({
+    var table = $("#example9").DataTable({
         searching: false,
         paging: true,
         select: false,
@@ -431,7 +431,7 @@ let dataSet = [
         },
     });
 
-	var table = $("#example10").DataTable({
+    var table = $("#example10").DataTable({
         searching: false,
         paging: true,
         select: false,
@@ -472,6 +472,40 @@ let dataSet = [
                     '<i class="fa fa-angle-double-left" aria-hidden="true"></i>',
             },
         },
+        dom: '<"top"lfB>rt<"bottom"ip><"clear">',
+        buttons: [
+            {
+                extend: "copy",
+                exportOptions: {
+                    columns: ":not(.no-export)",
+                },
+                dom: "Bfrtip<'text-center'>"
+            },
+            {
+                extend: "excel",
+                exportOptions: {
+                    columns: ":not(.no-export)",
+                },
+            },
+            {
+                extend: "pdf",
+                exportOptions: {
+                    columns: ":not(.no-export)",
+                },
+            },
+            {
+                extend: "csv",
+                exportOptions: {
+                    columns: ":not(.no-export)",
+                },
+            },
+            {
+                extend: "print",
+                exportOptions: {
+                    columns: ":not(.no-export)",
+                },
+            },
+        ],
     });
     $("#example tbody").on("click", "tr", function () {
         var data = table.row(this).data();
