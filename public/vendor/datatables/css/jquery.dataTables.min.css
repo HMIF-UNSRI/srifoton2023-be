@@ -305,6 +305,7 @@ table.dataTable, table.dataTable th, table.dataTable td {
 }
 
 .dataTables_wrapper .dataTables_paginate {
+    margin-top: 10px;
     float: right;
     text-align: right;
     border: 1px solid #dbdfea;

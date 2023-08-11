@@ -7,11 +7,43 @@
 
 @push('js')
     <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
     <script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
     <script src="{{ asset('vendor/toastr/js/toastr.min.js') }}"></script>
-
     <script src="{{ asset('js/plugins-init/toastr-init.js') }}"></script>
     <script>
+        $(document).ready(function() {
+            const wrapperDiv = $('<div>').addClass('w-100').css("overflow-x", "scroll");
+            const table = $('#example3');
+            table.wrap(wrapperDiv);
+        });
+        $(document).ready(function() {
+            const buttons = $(
+            ".buttons-excel, .buttons-csv, .buttons-pdf, .buttons-copy, .buttons-print");
+
+            buttons.each(function() {
+                const $thisButton = $(this);
+                if ($thisButton.length) {
+                    if ($thisButton.hasClass("buttons-excel")) {
+                        $thisButton.html('<i class="ni ni-file-xls"></i>');
+                    } else if ($thisButton.hasClass("buttons-copy")) {
+                        $thisButton.html('<i class="ni ni-copy"></i>');
+                    } else if ($thisButton.hasClass("buttons-pdf")) {
+                        $thisButton.html('<i class="ni ni-file-pdf"></i>');
+                    } else if ($thisButton.hasClass("buttons-print")) {
+                        $thisButton.html('<i class="ni ni-printer"></i>');
+                    } else if ($thisButton.hasClass("buttons-csv")) {
+                        $thisButton.html('<i class="ni ni-file-csv"></i>');
+                    }
+                }
+            });
+        });
+
         $(document).ready(function() {
             // edit modal
             $(document).on('show.bs.modal', '#editModalProgramming', function(event) {
@@ -82,14 +114,14 @@
 
 @section('content')
     <div class="col-12">
-        <div class="card shadow-sm" style="overflow-x: scroll">
+        <div class="card shadow-sm">
             <div class="card-header">
                 <h4 class="card-title text-primary fw-medium">Competitive Programming</h4>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <div id="example3_wrapper" class="dataTables_wrapper no-footer">
-                        <table id="example3" class="display dataTable cell-border no-footer mb-3" style="min-width: 845px"
+                        <table id="example3" class="display dataTable cell-border no-footer mt-1 mb-2" style="min-width: 845px"
                             role="grid" aria-describedby="example3_info">
                             <thead>
                                 <tr class="text-center" role="row">
@@ -99,7 +131,7 @@
                                     <th class="sorting">Member 2</th>
                                     <th class="sorting">Member 3</th>
                                     <th class="sorting">Status</th>
-                                    <th class="sorting">Action</th>
+                                    <th class="sorting no-export">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -144,6 +176,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+
 
                         {{-- Edit Modal --}}
                         <div class="modal fade" id="editModalProgramming">

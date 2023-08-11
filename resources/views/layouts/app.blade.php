@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    @include('partials.load')
     <div id="main-wrapper">
         @include('partials.navbar')
         @include('partials.sidebar')
