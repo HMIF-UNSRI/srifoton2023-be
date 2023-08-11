@@ -314,6 +314,7 @@ table.dataTable, table.dataTable th, table.dataTable td {
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {

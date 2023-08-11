@@ -1,15 +1,14 @@
 <?php
 
-use App\Http\Controllers\Admin\AuthAdminController;
-use App\Http\Controllers\Admin\CompetitiveProgrammingController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardAdminController;
-use App\Http\Controllers\Admin\MobileLegendController;
-use App\Http\Controllers\Admin\SeminarController;
-use App\Http\Controllers\Admin\UIUXDesignController;
-use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\SeminarController;
+use App\Http\Controllers\Admin\AuthAdminController;
+use App\Http\Controllers\Admin\UserAdminController;
+use App\Http\Controllers\Admin\UiuxDesignController;
+use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\WebDevelopmentController;
+use App\Http\Controllers\Admin\CompetitiveProgrammingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +46,13 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('/web-development/{id}/verification', [WebDevelopmentController::class, 'update'])->name('competition.webdev.verification');
         Route::delete('/web-development/{id}/delete', [WebDevelopmentController::class, 'delete'])->name('competition.webdev.delete');
         Route::get('/web-development/{id}/download', [WebDevelopmentController::class, 'downloadSubmission'])->name('competition.webdev.download');
+
+        // Uiux Design
+        Route::get('/uiux-design', [UiuxDesignController::class, 'index'])->name('competition.uiux');
+        Route::get('/uiux-design/{id}/show', [UiuxDesignController::class, 'show'])->name('competition.uiux.show');
+        Route::post('/uiux-design/{id}/verification', [UiuxDesignController::class, 'update'])->name('competition.uiux.verification');
+        Route::delete('/uiux-design/{id}/delete', [UiuxDesignController::class, 'delete'])->name('competition.uiux.delete');
+        Route::get('/uiux-design/{id}/download', [UiuxDesignController::class, 'downloadSubmission'])->name('competition.uiux.download');
 
     
         //Seminar

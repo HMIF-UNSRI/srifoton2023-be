@@ -36124,8 +36124,8 @@ table.dataTable tfoot th {
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.previous.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.previous.previous:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.previous.next:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.next.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.next.previous:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.next.next:hover {
-  background: #ebeef2 !important;
-  color: var(--primary) !important;
+  color: #fff !important;
+  background: #F3F0F9 !important;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.previous.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.next.disabled {
@@ -36173,7 +36173,7 @@ table.dataTable tfoot th {
 }
 
 .dataTables_wrapper .dataTables_paginate span .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate span .paginate_button:hover:hover {
-  background: #ebeef2 !important;
+  background: #f3f0f9 !important;
   color: var(--primary) !important;
 }
 
@@ -36251,7 +36251,7 @@ table.dataTable.no-footer {
 }
 
 .paging_simple_numbers.dataTables_paginate {
-  background: #f3f0f9;
+  background: #fff;
   padding: 4px 4px;
 }
 
