@@ -53,6 +53,8 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('/uiux-design/{id}/verification', [UiuxDesignController::class, 'update'])->name('competition.uiux.verification');
         Route::delete('/uiux-design/{id}/delete', [UiuxDesignController::class, 'delete'])->name('competition.uiux.delete');
         Route::get('/uiux-design/{id}/download', [UiuxDesignController::class, 'downloadSubmission'])->name('competition.uiux.download');
+        Route::get('/uiux-design/download-all', [UiuxDesignController::class, 'downloadAllSubmission'])->name('competition.uiux.all.download');
+
 
     
         //Seminar

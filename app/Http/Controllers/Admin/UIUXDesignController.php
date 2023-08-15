@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Models\UiuxDesign;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 
 class UiuxDesignController extends Controller
 {
@@ -66,6 +67,30 @@ class UiuxDesignController extends Controller
             return redirect()->back()->with('error', 'Submission file not found.');
         }
         
+    }
+
+    public function downloadAllSubmission()
+    {
+        $folderPath = public_path('storage/submission/uiux-design');
+        $zipFileName = 'uiux-all-submission.zip';
+
+        if (!File::isDirectory($folderPath) || count(File::files($folderPath)) === 0) {
+            return redirect()->back()->with('error', 'Submission file not found.');
+        }
+
+        $zip = new \ZipArchive();
+
+        if ($zip->open(public_path($zipFileName), \ZipArchive::CREATE | \ZipArchive::OVERWRITE)) {
+            $files = File::files($folderPath);
+
+            foreach ($files as $file) {
+                $zip->addFile($file, pathinfo($file)['basename']);
+            }
+
+            $zip->close();
+        }
+
+        return Response::download(public_path($zipFileName))->deleteFileAfterSend(true);
     }
 
 
