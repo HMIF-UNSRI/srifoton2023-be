@@ -42852,4 +42852,9 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   color: var(--bs-primary);
 }
 
+.ni-file-zip:before {
+  content: "\ea52";
+  font-size: medium;
+}
+
 /*# sourceMappingURL=style.css.map */

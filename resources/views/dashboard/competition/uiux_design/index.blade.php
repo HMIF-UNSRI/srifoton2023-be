@@ -137,6 +137,7 @@
         <div class="card shadow-sm">
             <div class="card-header">
                 <h4 class="card-title text-primary fw-medium">UIUX Design</h4>
+                <a href="{{ route('competition.uiux.all.download')}}" class="btn btn-xs btn-primary"><i class="ni ni-file-zip me-1"></i>Download All Submission</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
