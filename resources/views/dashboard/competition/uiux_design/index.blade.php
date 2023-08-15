@@ -24,7 +24,7 @@
         });
         $(document).ready(function() {
             const buttons = $(
-            ".buttons-excel, .buttons-csv, .buttons-pdf, .buttons-copy, .buttons-print");
+                ".buttons-excel, .buttons-csv, .buttons-pdf, .buttons-copy, .buttons-print");
 
             buttons.each(function() {
                 const $thisButton = $(this);
@@ -141,8 +141,8 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div id="example3_wrapper" class="dataTables_wrapper no-footer">
-                        <table id="example3" class="display dataTable cell-border no-footer mt-1 mb-2" style="min-width: 845px"
-                            role="grid" aria-describedby="example3_info">
+                        <table id="example3" class="display dataTable cell-border no-footer mt-1 mb-2"
+                            style="min-width: 845px" role="grid" aria-describedby="example3_info">
                             <thead>
                                 <tr class="text-center" role="row">
                                     <th class="sorting">No</th>
@@ -164,11 +164,11 @@
                                         <td class="sorting_1">{{ $uiux->name2 }}</td>
                                         <td>{{ $uiux->name3 }}</td>
                                         <td><span
-                                            class="badge light badge-rounded badge-sm w-100 {{ $uiux->submission ? 'badge-success' : 'badge-warning' }}">
-                                            <i
-                                                class="bi bi-file-earmark{{ $uiux->submission ? '-check' : '-x' }} me-1"></i>
-                                            {{ $uiux->submission ? 'Submitted' : 'Unsubmitted' }}
-                                        </span></td>
+                                                class="badge light badge-rounded badge-sm w-100 {{ $uiux->submission ? 'badge-success' : 'badge-warning' }}">
+                                                <i
+                                                    class="bi bi-file-earmark{{ $uiux->submission ? '-check' : '-x' }} me-1"></i>
+                                                {{ $uiux->submission ? 'Submitted' : 'Unsubmitted' }}
+                                            </span></td>
                                         <td class="text-center">
                                             <span
                                                 class="badge light badge-rounded badge-sm w-100 {{ $uiux->isVerified ? 'badge-success' : 'badge-warning' }}">
@@ -189,16 +189,14 @@
                                                 <button title="Edit"
                                                     class="btn btn-warning shadow btn-rounded btn-xs sharp me-1 text-dark"
                                                     data-bs-toggle="modal" data-bs-target="#editModalUiux"
-                                                    data-id="{{ $uiux->id }}"
-                                                    data-team-name="{{ $uiux->team_name }}"
+                                                    data-id="{{ $uiux->id }}" data-team-name="{{ $uiux->team_name }}"
                                                     data-proof="{{ $uiux->proof }}"
                                                     data-payment-method="{{ $uiux->payment_method }}"
                                                     data-is-verified={{ $uiux->isVerified }}><i
                                                         class="bi bi-pencil-fill"></i></button>
                                                 <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
                                                     data-bs-toggle="modal" data-bs-target="#deleteModalUiux"
-                                                    data-id={{ $uiux->id }}
-                                                    data-team-name="{{ $uiux->team_name }}"><i
+                                                    data-id={{ $uiux->id }} data-team-name="{{ $uiux->team_name }}"><i
                                                         class="bi bi-trash-fill"></i></button>
                                             </div>
                                         </td>
@@ -239,6 +237,10 @@
                                                 <td>
                                                     <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
+                                                    <a href="{{ asset('storage/' . $uiux->proof) }}"
+                                                        class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
+                                                        target="blank">
+                                                        <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                                                 </td>
                                             </tr>
                                         </table>
