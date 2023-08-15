@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SeminarController;
 use App\Http\Controllers\Admin\AuthAdminController;
-use App\Http\Controllers\Admin\UserAdminController;
 use App\Http\Controllers\Admin\UiuxDesignController;
 use App\Http\Controllers\Admin\DashboardAdminController;
 use App\Http\Controllers\Admin\WebDevelopmentController;
@@ -46,6 +45,8 @@ Route::middleware('auth:admin')->group(function () {
         Route::post('/web-development/{id}/verification', [WebDevelopmentController::class, 'update'])->name('competition.webdev.verification');
         Route::delete('/web-development/{id}/delete', [WebDevelopmentController::class, 'delete'])->name('competition.webdev.delete');
         Route::get('/web-development/{id}/download', [WebDevelopmentController::class, 'downloadSubmission'])->name('competition.webdev.download');
+        Route::get('/web-development/download-all', [WebDevelopmentController::class, 'downloadAllSubmission'])->name('competition.webdev.all.download');
+
 
         // Uiux Design
         Route::get('/uiux-design', [UiuxDesignController::class, 'index'])->name('competition.uiux');

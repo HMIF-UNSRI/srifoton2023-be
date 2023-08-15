@@ -140,6 +140,8 @@
             <div class="card-header">
                 <h4 class="card-title text-primary fw-medium">Web Development
                 </h4>
+                <a href="{{ route('competition.webdev.all.download') }}" class="btn btn-xs btn-primary"><i
+                        class="ni ni-file-zip me-1"></i>Download All Submission</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -239,9 +241,10 @@
                                                 <td>
                                                     <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
-                                                        <a href="{{ asset('storage/'.$webdev->proof) }}" class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
-                                                            target="blank">
-                                                            <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
+                                                    <a href="{{ asset('storage/' . $webdev->proof) }}"
+                                                        class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
+                                                        target="blank">
+                                                        <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                                                 </td>
                                             </tr>
 

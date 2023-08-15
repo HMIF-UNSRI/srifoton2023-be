@@ -39,9 +39,11 @@
                             <a href="{{ asset('storage/' . $uiux->proof) }}"
                                 class="btn btn-sm btn-primary light mt-2 w-100 fw-medium" target="blank">
                                 <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
-                            <a href="{{ route('competition.uiux.download', $uiux->id) }}"
-                                class="btn btn-success shadow mt-3 w-100 fw-medium"> <i
-                                    class="fas fa-file-download fs-4 me-2"></i>Download Submission</a>
+                            @if ($uiux->submission && !empty($uiux->submission))
+                                <a href="{{ route('competition.uiux.download', $uiux->id) }}"
+                                    class="btn btn-success shadow mt-3 w-100 fw-medium"> <i
+                                        class="fas fa-file-download fs-4 me-2"></i>Download Submission</a>
+                            @endif
                         </div>
                     </div>
                 </div>
