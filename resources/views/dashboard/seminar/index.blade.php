@@ -202,7 +202,7 @@
                                     <div class="modal-body">
                                         <table class="table table-borderless">
                                             <tr>
-                                                <td>Nama</td>
+                                                <td>Name</td>
                                                 <td>
                                                     <input type="text" class="form-control w-100 mb-3" id="name"
                                                         readonly>
@@ -216,17 +216,20 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Metode Pembayaran</td>
+                                                <td>Payment Method</td>
                                                 <td>
                                                     <input type="text" class="form-control w-100" id="paymentMethod"
                                                         readonly>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Bukti Pembayaran</td>
+                                                <td>Payment Proof</td>
                                                 <td>
                                                     <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
+                                                        <a href="{{ asset('storage/'.$seminar->proof) }}" class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
+                                                            target="blank">
+                                                            <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                                                 </td>
                                             </tr>
 

@@ -64,12 +64,12 @@
 
                 if (isVerified) {
                     editForm.hide();
-                    editModalTitle.html(teamName + ' telah diverifikasi');
+                    editModalTitle.html(teamName + ' has been verified');
                 } else {
                     editForm.show();
                     editForm.attr('action', '{{ route('competition.webdev.verification', ':id') }}'.replace(
                         ':id', id));
-                    editModalTitle.html('Verifikasi Pembayaran');
+                    editModalTitle.html('Payment Verification');
                 }
             });
 
@@ -82,7 +82,7 @@
                 const deleteForm = $('#deleteFormWebdev');
                 const deleteModalBody = $('#deleteModalBody');
 
-                deleteModalBody.html(`Apakah anda yakin ingin menghapus tim ${teamName}`);
+                deleteModalBody.html(`Are you sure want to delete ${teamName} team ?`);
                 deleteForm.attr('action', '{{ route('competition.webdev.delete', ':id') }}'.replace(':id',
                     id));
 
@@ -221,24 +221,27 @@
                                     <div class="modal-body">
                                         <table class="table table-borderless">
                                             <tr>
-                                                <td>Nama Tim</td>
+                                                <td>Team Name</td>
                                                 <td>
                                                     <input type="text" class="form-control w-100 mb-3" id="teamName"
                                                         readonly>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Metode Pembayaran</td>
+                                                <td>Payment Method</td>
                                                 <td>
                                                     <input type="text" class="form-control w-100" id="paymentMethod"
                                                         readonly>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Bukti Pembayaran</td>
+                                                <td>Payment Proof</td>
                                                 <td>
                                                     <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
+                                                        <a href="{{ asset('storage/'.$webdev->proof) }}" class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
+                                                            target="blank">
+                                                            <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                                                 </td>
                                             </tr>
 
@@ -264,7 +267,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Hapus Data</h5>
+                                        <h5 class="modal-title">Delete Data</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                         </button>
                                     </div>

@@ -209,6 +209,9 @@
                                                 <td>
                                                     <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
+                                                        <a href="{{ asset('storage/'.$programming->proof) }}" class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
+                                                            target="blank">
+                                                            <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                                                 </td>
                                             </tr>
                                         </table>
