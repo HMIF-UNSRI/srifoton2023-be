@@ -23,7 +23,7 @@ class CompetitiveProgrammingRequest extends FormRequest
     {
         return [
             'team_name' => 'required',
-            'email' => 'required|email|unique:mobile_legends',
+            'email' => 'required|email|unique:competitive_programmings,email',
             'college' => 'required',
 
             // Anggota 1

@@ -23,7 +23,7 @@ class WebDevelopmentRequest extends FormRequest
     {
         return [
             'team_name' => 'required',
-            'email' => 'required|email|unique:uiux_designs',
+            'email' => 'required|email|unique:web_developments,email',
             'college' => 'required',
 
             // Anggota 1
