@@ -62,6 +62,7 @@
                 modal.find('#name').val(name);
                 modal.find('#paymentMethod').val(paymentMethod);
                 modal.find('#type').val(type);
+                modal.find('#showProof').attr('href', '{{ asset('storage') }}/' + proof);
                 modal.find('#proof').attr('src', '{{ asset('storage') }}/' + proof);
 
                 if (isVerified) {
@@ -227,7 +228,7 @@
                                                 <td>
                                                     <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
-                                                        <a href="{{ asset('storage/'.$seminar->proof) }}" class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
+                                                        <a id="showProof" class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
                                                             target="blank">
                                                             <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                                                 </td>

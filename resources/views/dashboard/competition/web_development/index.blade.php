@@ -60,6 +60,7 @@
 
                 modal.find('#teamName').val(teamName);
                 modal.find('#paymentMethod').val(paymentMethod);
+                modal.find('#showProof').attr('href', '{{ asset('storage') }}/' + proof);
                 modal.find('#proof').attr('src', '{{ asset('storage') }}/' + proof);
 
                 if (isVerified) {
@@ -187,7 +188,7 @@
                                             <div class="d-flex justify-content-center">
                                                 <a href="{{ route('competition.webdev.download', $webdev->id) }}"
                                                     class="btn btn-success shadow btn-rounded btn-xs sharp me-1"> <i
-                                                        class="bi bi-file-earmark-arrow-down-fill"></i></a>
+                                                        class="bi bi-download"></i></a>
                                                 <a href="{{ route('competition.webdev.show', $webdev->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
                                                         class="bi bi-eye-fill"></i></a>
@@ -241,7 +242,7 @@
                                                 <td>
                                                     <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
-                                                    <a href="{{ asset('storage/' . $webdev->proof) }}"
+                                                    <a id="showProof"
                                                         class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
                                                         target="blank">
                                                         <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
