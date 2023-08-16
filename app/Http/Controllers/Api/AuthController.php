@@ -65,6 +65,13 @@ class AuthController extends Controller
         $validUntil = date('Y-m-d H:i:s', $payload['exp']);
 
         $user = User::find($user->id);
+        $competitions = $this->getCompetitions($user->id);
+        $seminar = Seminar::where('user_id', $user->id)->first();
+
+        $user['registered'] = [
+            'competitions' => $competitions,
+            'seminar' => $seminar
+        ];
 
         if ($user) {
             return response()->json([
@@ -102,11 +109,20 @@ class AuthController extends Controller
         $payload = JWTAuth::manager()->getPayloadFactory()->buildClaimsCollection()->toPlainArray();
         $validUntil = date('Y-m-d H:i:s', $payload['exp']);
 
+        $user = Auth::guard('api')->user();
+        $competitions = $this->getCompetitions($user->id);
+        $seminar = Seminar::where('user_id', $user->id)->first();
+
+        $user['registered'] = [
+            'competitions' => $competitions,
+            'seminar' => $seminar
+        ];
+
         return response()->json([
             'message' => 'Berhasil login',
             'token' => $token,
             'valid_until' => $validUntil,
-            'user' => Auth::guard('api')->user(),
+            'user' => $user,
         ]);
     }
 

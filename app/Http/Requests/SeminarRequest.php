@@ -23,7 +23,7 @@ class SeminarRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email',
+            'email' => 'required|string|email|unique:seminars,email',
             'nim' => 'required|string',
             'college' => 'required|string',
             'phone_number' => 'required|string',
