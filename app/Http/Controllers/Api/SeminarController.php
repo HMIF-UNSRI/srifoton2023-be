@@ -50,7 +50,7 @@ class SeminarController extends Controller
         $proof = "bukti-pembayaran/seminar/$request->payment_method-$request->phone_number-" . Str::random(16) . "." . $request->proof->getClientOriginalExtension();
 
         $data['user_id'] = Auth::guard('api')->user()->id;
-        $data['proof'] = $proof;
+        $data['proof'] = env('APP_URL') . Storage::url($proof);
 
         Seminar::create($data);
 
