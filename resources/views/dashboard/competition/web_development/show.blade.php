@@ -11,7 +11,7 @@
                         {{ $webdev->isVerified ? 'Paid' : 'Awaiting' }}
                     </span>
                 </h3>
-                <a href="{{ route('competition.cp') }}" class="d-flex btn light btn-sm btn-primary">
+                <a href="{{ route('competition.webdev') }}" class="d-flex btn light btn-sm btn-primary">
                     <i class="bi bi-box-arrow-left me-2"></i>Back</a>
             </div>
             <div class="card-body">

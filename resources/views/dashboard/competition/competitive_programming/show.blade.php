@@ -11,7 +11,7 @@
                             class="{{ $programming->isVerified ? 'bi bi-cash-stack me-1' : 'bi bi-hourglass-split me-1' }}"></i>
                         {{ $programming->isVerified ? 'Paid' : 'Awaiting' }}
                     </span>
-                </h3>
+                </h3>   
                 <a href="{{ route('competition.cp') }}" class="d-flex btn light btn-sm btn-primary">
                     <i class="bi bi-box-arrow-left me-2"></i>Back</a>
             </div>
