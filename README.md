@@ -38,6 +38,10 @@ Run the database migrations (**Set the database connection in .env before migrat
 
     php artisan migrate
 
+Create symbolic link
+
+    php artisan storage:link
+
 Generate api documentation with scribe
 
     php artisan scribe:generate
