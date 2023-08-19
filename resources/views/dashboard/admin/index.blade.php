@@ -13,7 +13,7 @@
         {{-- Users --}}
         @can('inti')
             <div class="col-md-4">
-                <div class="widget-stat card">
+                <a href="{{ route('users') }}" class="widget-stat card">
                     <div class="card-body p-4">
                         <div class="media ai-icon">
                             <span class="me-3 bgl-success text-success">
@@ -21,88 +21,88 @@
                             </span>
                             <div class="media-body">
                                 <p class="mb-1">Users</p>
-                                <h4 class="mb-0">3280</h4>
+                                <h4 class="mb-0">{{ $totalUsers }}</h4>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         @endcan
 
         @canany(['inti', 'seminar'])
-        {{-- Seminar --}}
-        <div class="col-md-4">
-            <div class="widget-stat card">
-                <div class="card-body p-4">
-                    <div class="media ai-icon">
-                        <span class="me-3 bgl-warning text-warning">
-                            <i class="bi bi-easel fs-1"></i>
-                        </span>
-                        <div class="media-body">
-                            <p class="mb-1">Seminar</p>
-                            <h4 class="mb-0">3280</h4>
+            {{-- Seminar --}}
+            <div class="col-md-4">
+                <a href="{{ route('seminar') }}" class="widget-stat card">
+                    <div class="card-body p-4">
+                        <div class="media ai-icon">
+                            <span class="me-3 bgl-warning text-warning">
+                                <i class="bi bi-easel fs-1"></i>
+                            </span>
+                            <div class="media-body">
+                                <p class="mb-1">Seminar</p>
+                                <h4 class="mb-0">{{ $totalSeminars }}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
         @endcanany
 
         @canany(['inti', 'competition', 'competitive_programming'])
-        {{-- Competitive Programming --}}
-        <div class="col-md-4">
-            <div class="widget-stat card">
-                <div class="card-body p-4">
-                    <div class="media ai-icon">
-                        <span class="me-3 bgl-danger text-danger">
-                            <i class="bi bi-laptop fs-1"></i>
-                        </span>
-                        <div class="media-body">
-                            <p class="mb-1">Competitive Programming</p>
-                            <h4 class="mb-0">3280</h4>
+            {{-- Competitive Programming --}}
+            <div class="col-md-4">
+                <a href="{{ route('competition.cp') }}" class="widget-stat card">
+                    <div class="card-body p-4">
+                        <div class="media ai-icon">
+                            <span class="me-3 bgl-danger text-danger">
+                                <i class="bi bi-laptop fs-1"></i>
+                            </span>
+                            <div class="media-body">
+                                <p class="mb-1">Competitive Programming</p>
+                                <h4 class="mb-0">{{ $totalCP }}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
         @endcanany
 
         @canany(['inti', 'competition', 'uiux_design'])
-        {{-- UI/UX --}}
-        <div class="col-md-4">
-            <div class="widget-stat card">
-                <div class="card-body p-4">
-                    <div class="media ai-icon">
-                        <span class="me-3 bgl-info text-info">
-                            <i class="bi bi-palette fs-1"></i>
-                        </span>
-                        <div class="media-body">
-                            <p class="mb-1">UI/UX Design</p>
-                            <h4 class="mb-0">3280</h4>
+            {{-- UI/UX --}}
+            <div class="col-md-4">
+                <a href="{{ route('competition.uiux') }}" class="widget-stat card">
+                    <div class="card-body p-4">
+                        <div class="media ai-icon">
+                            <span class="me-3 bgl-info text-info">
+                                <i class="bi bi-palette fs-1"></i>
+                            </span>
+                            <div class="media-body">
+                                <p class="mb-1">UI/UX Design</p>
+                                <h4 class="mb-0">{{ $totalUiuxs }}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
         @endcanany
-        
+
         @canany(['inti', 'competition', 'web_development'])
-        {{-- Web Development --}}
-        <div class="col-md-4">
-            <div class="widget-stat card" >
-                <div class="card-body p-4">
-                    <div class="media ai-icon">
-                        <span class="me-3 bgl-primary text-primary">
-                            <i class="bi bi-code-slash fs-1"></i>
-                        </span>
-                        <div class="media-body">
-                            <p class="mb-1">Web Development</p>
-                            <h4 class="mb-0">3280</h4>
+            {{-- Web Development --}}
+            <div class="col-md-4">
+                <a href="{{ route('competition.webdev') }}" class="widget-stat card">
+                    <div class="card-body p-4">
+                        <div class="media ai-icon">
+                            <span class="me-3 bgl-primary text-primary">
+                                <i class="bi bi-code-slash fs-1"></i>
+                            </span>
+                            <div class="media-body">
+                                <p class="mb-1">Web Development</p>
+                                <h4 class="mb-0">{{ $totalWebdevs }}</h4>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
         @endcanany
     </div>
 @endsection

@@ -23,7 +23,7 @@ class AuthAdminController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('dashboard/admin');
+            return redirect()->intended('dashboard/admin');
         }
 
         return back()->with('loginError', 'Email dan password tidak sesuai');
