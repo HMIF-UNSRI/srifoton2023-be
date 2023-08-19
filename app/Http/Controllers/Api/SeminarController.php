@@ -47,6 +47,11 @@ class SeminarController extends Controller
     {
         $data = $request->validated();
 
+        $existingUser = Seminar::where('email', $request->email)->first();
+        if ($existingUser) {
+            return response()->json(['error' => 'Email ini telah terdaftar pada seminar.'], 409);
+        }
+
         $proof = "bukti-pembayaran/seminar/$request->payment_method-$request->phone_number-" . Str::random(16) . "." . $request->proof->getClientOriginalExtension();
 
         $data['user_id'] = Auth::guard('api')->user()->id;

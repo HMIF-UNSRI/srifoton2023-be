@@ -23,7 +23,7 @@ class UiuxDesignRequest extends FormRequest
     {
         return [
             'team_name' => 'required',
-            'email' => 'required|email|unique:uiux_designs,email',
+            'email' => 'required|email',
             'college' => 'required',
 
             // Anggota 1

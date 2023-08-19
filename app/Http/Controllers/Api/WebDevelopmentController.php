@@ -83,8 +83,12 @@ class WebDevelopmentController extends Controller
      */
     public function Register(WebDevelopmentRequest $request)
     {
-
         $data = $request->validated();
+
+        $existingUser = WebDevelopment::where('email', $request->email)->first();
+        if ($existingUser) {
+            return response()->json(['error' => 'Email ini telah terdaftar di kompetisi Web Development.'], 409);
+        }
 
         $proof = "bukti-pembayaran/web-development/$request->payment_method-$request->team_name-" . Str::random(16) . "." . $request->proof->getClientOriginalExtension();
 

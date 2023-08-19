@@ -85,6 +85,11 @@ class CompetitiveProgrammingController extends Controller
     {
         $data = $request->validated();
 
+        $existingUser = CompetitiveProgramming::where('email', $request->email)->first();
+        if ($existingUser) {
+            return response()->json(['error' => 'Email ini telah terdaftar di kompetisi Competitive Programming.'], 409);
+        }
+
         $proof = "bukti-pembayaran/competitive-programming/$request->payment_method-$request->team_name-" . Str::random(16) . "." . $request->proof->getClientOriginalExtension();
 
         $idCards = [];
