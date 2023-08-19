@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
+use App\Helper\Helper;
 
 class UiuxDesignController extends Controller
 {
@@ -29,7 +30,6 @@ class UiuxDesignController extends Controller
         $uiux = UiuxDesign::findOrFail($id);
         $members = ($uiux->id_card3) ? 3 : (($uiux->id_card2) ? 2 : 1);
         return view('dashboard.competition.uiux_design.show', compact('uiux', 'members'));
-
     }
 
     public function update($id)
@@ -37,6 +37,8 @@ class UiuxDesignController extends Controller
         $uiux = UiuxDesign::findOrFail($id);
         $uiux->update(['isVerified' => true]);
 
+        Helper::sendWhatsappGroupInvitationEmail($uiux->email, $uiux->name1, $uiux->teamName, 'UIUX Design', 'https://chat.whatsapp.com/KMfV1b9VpTODBOG0l7VdOZ');
+        
         return redirect()->route('competition.uiux')->with('success', 'Verification Successfull');
     }
 

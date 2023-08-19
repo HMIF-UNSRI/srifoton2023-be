@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helper\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\CompetitiveProgramming;
 use Illuminate\Support\Facades\Storage;
@@ -21,18 +22,19 @@ class CompetitiveProgrammingController extends Controller
         return view('dashboard.competition.competitive_programming.index', compact('programmings'));
     }
 
-    public function show($id)   
+    public function show($id)
     {
         $programming = CompetitiveProgramming::findOrFail($id);
         $members = 3;
         return view('dashboard.competition.competitive_programming.show', compact('programming', 'members'));
-
     }
 
     public function update($id)
     {
         $programming = CompetitiveProgramming::findOrFail($id);
         $programming->update(['isVerified' => true]);
+
+        Helper::sendWhatsappGroupInvitationEmail($programming->email, $programming->name1, $programming->teamName, 'Competitive Programming', 'https://chat.whatsapp.com/DJ3lizydOVmBF3nJItlyre');
 
         return redirect()->route('competition.cp')->with('success', 'Verification Successfull');
     }
@@ -41,7 +43,7 @@ class CompetitiveProgrammingController extends Controller
     {
         $programming = CompetitiveProgramming::findOrFail($id);
         $members = ($programming->id_card3) ? 3 : (($programming->id_card2) ? 2 : 1);
-        for($i = 1; $i <= $members; $i++){
+        for ($i = 1; $i <= $members; $i++) {
             Storage::disk('public')->delete($programming->{"id_card$i"});
         }
         Storage::disk('public')->delete($programming->proof);
@@ -50,5 +52,4 @@ class CompetitiveProgrammingController extends Controller
 
         return redirect()->route('competition.cp')->with('success', 'Delete Successfull');
     }
-
 }

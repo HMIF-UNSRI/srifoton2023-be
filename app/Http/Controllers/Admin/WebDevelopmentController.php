@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helper\Helper;
 use App\Models\WebDevelopment;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
@@ -36,6 +37,8 @@ class WebDevelopmentController extends Controller
     {
         $webdev = WebDevelopment::findOrFail($id);
         $webdev->update(['isVerified' => true]);
+
+        Helper::sendWhatsappGroupInvitationEmail($webdev->email, $webdev->name1, $webdev->teamName, 'Web Development', 'https://chat.whatsapp.com/Hwp4lBgCudvH5rkALiolES');
 
         return redirect()->route('competition.webdev')->with('success', 'Verification Successfull');
     }
