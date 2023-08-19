@@ -59,7 +59,7 @@ class WebDevelopmentController extends Controller
     public function downloadSubmission($id)
     {
         $webdev = WebDevelopment::findOrFail($id);
-        $submission = public_path().'/storage/'.$webdev->submission;
+        $submission = $webdev->submission;
 
         if (file_exists($submission)) {
             return Response::download($submission); // Change 'submission_file.pdf' to the desired file name

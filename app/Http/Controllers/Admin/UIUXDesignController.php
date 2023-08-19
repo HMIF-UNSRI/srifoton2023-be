@@ -59,7 +59,7 @@ class UiuxDesignController extends Controller
     public function downloadSubmission($id)
     {
         $uiux = UiuxDesign::findOrFail($id);
-        $submission = public_path().'/storage/'.$uiux->submission;
+        $submission = $uiux->submission;
 
         if (file_exists($submission)) {
             return Response::download($submission); // Change 'submission_file.pdf' to the desired file name
