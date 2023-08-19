@@ -60,8 +60,8 @@
 
                 modal.find('#teamName').val(teamName);
                 modal.find('#paymentMethod').val(paymentMethod);
-                modal.find('#showProof').attr('href', '{{ asset('storage') }}/' + proof);
-                modal.find('#proof').attr('src', '{{ asset('storage') }}/' + proof);
+                modal.find('#showProof').attr('href', proof);
+                modal.find('#proof').attr('src', proof);
 
                 if (isVerified) {
                     editForm.hide();

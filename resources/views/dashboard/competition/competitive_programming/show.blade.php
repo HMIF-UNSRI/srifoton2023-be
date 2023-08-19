@@ -20,7 +20,7 @@
                     <div class="col-md-5 d-flex align-items-center align-middle justify-content-center">
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade show active" id="first">
-                                <img src="{{ asset('storage/'.$programming->proof) }}"
+                                <img src="{{ $programming->proof }}"
                                     class="img-fluid rounded-1 d-inline-block mx-auto shadow-sm" style="max-height: 300px"
                                     id="proof" alt="">
                             </div>
@@ -37,7 +37,7 @@
                             <label for="payment_method">Payment Method</label>
                             <input class="form-control mb-3" value="{{ $programming->payment_method }}" type="text"
                                 id="payment_method" readonly>
-                            <a href="{{ asset('storage/'.$programming->proof) }}" class="btn btn-sm btn-primary light mt-2 w-100 fw-medium"
+                            <a href="{{ $programming->proof }}" class="btn btn-sm btn-primary light mt-2 w-100 fw-medium"
                                 target="blank">
                                 <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                         </div>
@@ -58,7 +58,7 @@
                         <div class="col-md-5 d-flex align-items-center align-middle justify-content-center">
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="first">
-                                    <img src="{{ asset('storage/'.$programming->{"id_card$i"}) }}"
+                                    <img src="{{ $programming->{"id_card$i"} }}"
                                         class="img-fluid rounded-1 d-block shadow-sm" style="max-height: 300px"
                                         id="id_card1" alt="">
                                 </div>
@@ -93,7 +93,7 @@
                                     </div>
                                 </div>
 
-                                <a href="{{ asset('storage/'.$programming->{"id_card$i"}) }}"
+                                <a href="{{ $programming->{"id_card$i"} }}"
                                     class="btn btn-sm btn-primary light mt-2 w-100 fw-medium" target="blank"><i
                                         class="fas fa-expand me-2"></i>Show Identity Card</a>
                             </div>

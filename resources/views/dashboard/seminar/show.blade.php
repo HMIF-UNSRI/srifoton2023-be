@@ -19,12 +19,12 @@
                     <div class="col-md-4 d-flex align-items-center align-middle justify-content-center">
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade show active" id="first">
-                                <img src="{{ asset('storage/' . $seminar->proof) }}"
+                                <img src="{{ $seminar->proof }}"
                                     class="img-fluid rounded-1 d-inline-block mx-auto shadow-sm" style="max-height: 300px"
                                     id="proof" alt="">
                             </div>
                             <div class="mt-3">
-                                <a href="{{ asset('storage/' . $seminar->proof) }}"
+                                <a href="{{ $seminar->proof }}"
                                     class="btn btn-sm btn-primary light mt-2 w-100 fw-medium" target="blank">
                                     <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                             </div>

@@ -62,8 +62,8 @@
                 modal.find('#name').val(name);
                 modal.find('#paymentMethod').val(paymentMethod);
                 modal.find('#type').val(type);
-                modal.find('#showProof').attr('href', '{{ asset('storage') }}/' + proof);
-                modal.find('#proof').attr('src', '{{ asset('storage') }}/' + proof);
+                modal.find('#showProof').attr('href', proof);
+                modal.find('#proof').attr('src', proof);
 
                 if (isVerified) {
                     editForm.hide();

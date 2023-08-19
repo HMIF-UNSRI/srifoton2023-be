@@ -19,7 +19,7 @@
                     <div class="col-md-5 d-flex align-items-center align-middle justify-content-center">
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade show active" id="first">
-                                <img src="{{ asset('storage/' . $webdev->proof) }}"
+                                <img src="{{ $webdev->proof }}"
                                     class="img-fluid rounded-1 d-inline-block mx-auto shadow-sm" style="max-height: 300px"
                                     id="proof" alt="">
                             </div>
@@ -36,7 +36,7 @@
                             <label for="payment_method">Payment Method</label>
                             <input class="form-control mb-3" value="{{ $webdev->payment_method }}" type="text"
                                 id="payment_method" readonly>
-                            <a href="{{ asset('storage/' . $webdev->proof) }}"
+                            <a href="{{ $webdev->proof }}"
                                 class="btn btn-sm btn-primary light mt-2 w-100 fw-medium" target="blank">
                                 <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                             @if ($webdev->submission && !empty($webdev->submission))
@@ -62,7 +62,7 @@
                         <div class="col-md-5 d-flex align-items-center align-middle justify-content-center">
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="first">
-                                    <img src="{{ asset('storage/' . $webdev->{"id_card$i"}) }}"
+                                    <img src="{{ $webdev->{"id_card$i"} }}"
                                         class="img-fluid rounded-1 d-block shadow-sm" style="max-height: 300px"
                                         id="id_card1" alt="">
                                 </div>
@@ -97,7 +97,7 @@
                                     </div>
                                 </div>
 
-                                <a href="{{ asset('storage/' . $webdev->{"id_card$i"}) }}"
+                                <a href="{{ $webdev->{"id_card$i"} }}"
                                     class="btn btn-sm btn-primary light mt-2 w-100 fw-medium" target="blank"><i
                                         class="fas fa-expand me-2"></i>Show Identity Card</a>
                             </div>
