@@ -106,10 +106,10 @@ class WebDevelopmentController extends Controller
         }
 
         $data['user_id'] = Auth::guard('api')->user()->id;
-        $data['proof'] = $proof;
+        $data['proof'] = env('APP_URL') . Storage::url($proof);
 
         for ($i = 1; $i <= $members; $i++) {
-            $data["id_card$i"] = $idCards[$i - 1];
+            $data["id_card$i"] = env('APP_URL') . Storage::url($idCards[$i - 1]);
         }
 
         WebDevelopment::create($data);
