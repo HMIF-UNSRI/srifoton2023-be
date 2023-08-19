@@ -161,14 +161,14 @@ class WebDevelopmentController extends Controller
         $submission = "submission/web-development/$webdev->team_name-" . Str::random(16) . "." . $request->submission->getClientOriginalExtension();
 
         WebDevelopment::where('user_id', $userId)->update([
-            'submission' => $submission
+            'submission' => env('APP_URL') . Storage::url($submission)
         ]);
 
         Storage::disk('public')->put($submission, file_get_contents($request->submission));
 
         return response()->json([
             'message' => 'Submission berhasil disimpan',
-            'submission' => $webdev->submission
+            'submission' => env('APP_URL') . Storage::url($submission)
         ]);
     }
 }
