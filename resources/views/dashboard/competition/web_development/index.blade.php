@@ -192,21 +192,23 @@
                                                 <a href="{{ route('competition.webdev.show', $webdev->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
                                                         class="bi bi-eye-fill"></i></a>
-                                                <button class="btn btn-warning shadow btn-rounded btn-xs sharp me-1"
-                                                    data-bs-toggle="modal" data-bs-target="#editModalWebdev"
-                                                    data-id="{{ $webdev->id }}"
-                                                    data-team-name="{{ $webdev->team_name }}"
-                                                    data-proof="{{ $webdev->proof }}"
-                                                    data-payment-method="{{ $webdev->payment_method }}"
-                                                    data-is-verified={{ $webdev->isVerified }}><i
-                                                        class="bi bi-pencil-fill text-dark"></i></button>
-                                                        @cannot('finance')
-                                                <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModalWebdev"
-                                                    data-id={{ $webdev->id }}
-                                                    data-team-name="{{ $webdev->team_name }}"><i
-                                                        class="bi bi-trash-fill"></i></button>
-                                                        @endcannot
+                                                @canany(['inti', 'finance'])
+                                                    <button class="btn btn-warning shadow btn-rounded btn-xs sharp me-1"
+                                                        data-bs-toggle="modal" data-bs-target="#editModalWebdev"
+                                                        data-id="{{ $webdev->id }}"
+                                                        data-team-name="{{ $webdev->team_name }}"
+                                                        data-proof="{{ $webdev->proof }}"
+                                                        data-payment-method="{{ $webdev->payment_method }}"
+                                                        data-is-verified={{ $webdev->isVerified }}><i
+                                                            class="bi bi-pencil-fill text-dark"></i></button>
+                                                @endcanany
+                                                @can('inti')
+                                                    <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
+                                                        data-bs-toggle="modal" data-bs-target="#deleteModalWebdev"
+                                                        data-id={{ $webdev->id }}
+                                                        data-team-name="{{ $webdev->team_name }}"><i
+                                                            class="bi bi-trash-fill"></i></button>
+                                                @endcan
                                             </div>
                                         </td>
                                     </tr>

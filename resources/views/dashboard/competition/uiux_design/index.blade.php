@@ -138,7 +138,8 @@
         <div class="card shadow-sm">
             <div class="card-header">
                 <h4 class="card-title text-primary fw-medium">UIUX Design</h4>
-                <a href="{{ route('competition.uiux.all.download')}}" class="btn btn-xs btn-primary"><i class="ni ni-file-zip me-1"></i>Download All Submission</a>
+                <a href="{{ route('competition.uiux.all.download') }}" class="btn btn-xs btn-primary"><i
+                        class="ni ni-file-zip me-1"></i>Download All Submission</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -188,20 +189,22 @@
                                                 <a href="{{ route('competition.uiux.show', $uiux->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
                                                         class="bi bi-eye-fill"></i></a>
-                                                <button title="Edit"
-                                                    class="btn btn-warning shadow btn-rounded btn-xs sharp me-1 text-dark"
-                                                    data-bs-toggle="modal" data-bs-target="#editModalUiux"
-                                                    data-id="{{ $uiux->id }}" data-team-name="{{ $uiux->team_name }}"
-                                                    data-proof="{{ $uiux->proof }}"
-                                                    data-payment-method="{{ $uiux->payment_method }}"
-                                                    data-is-verified={{ $uiux->isVerified }}><i
-                                                        class="bi bi-pencil-fill"></i></button>
-                                                        @cannot('finance')
-                                                <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModalUiux"
-                                                    data-id={{ $uiux->id }} data-team-name="{{ $uiux->team_name }}"><i
-                                                        class="bi bi-trash-fill"></i></button>
-                                                        @endcannot
+                                                @canany(['inti', 'finance'])
+                                                    <button title="Edit"
+                                                        class="btn btn-warning shadow btn-rounded btn-xs sharp me-1 text-dark"
+                                                        data-bs-toggle="modal" data-bs-target="#editModalUiux"
+                                                        data-id="{{ $uiux->id }}" data-team-name="{{ $uiux->team_name }}"
+                                                        data-proof="{{ $uiux->proof }}"
+                                                        data-payment-method="{{ $uiux->payment_method }}"
+                                                        data-is-verified={{ $uiux->isVerified }}><i
+                                                            class="bi bi-pencil-fill"></i></button>
+                                                @endcanany
+                                                @can('inti')
+                                                    <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
+                                                        data-bs-toggle="modal" data-bs-target="#deleteModalUiux"
+                                                        data-id={{ $uiux->id }} data-team-name="{{ $uiux->team_name }}"><i
+                                                            class="bi bi-trash-fill"></i></button>
+                                                @endcan
                                             </div>
                                         </td>
                                     </tr>

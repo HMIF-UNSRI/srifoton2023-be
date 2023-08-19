@@ -172,20 +172,22 @@
                                                 <a href="{{ route('seminar.show', $seminar->id) }}"
                                                     class="btn btn-rounded btn-primary btn-xs shadow sharp"><i
                                                         class="bi bi-eye-fill"></i></a>
-                                                <button
-                                                    class="btn btn-rounded btn-warning btn-xs shadow sharp text-dark mx-1"
-                                                    data-bs-toggle="modal" data-bs-target="#editModalSeminar"
-                                                    data-id="{{ $seminar->id }}" data-name="{{ $seminar->name }}"
-                                                    data-type="{{ $seminar->type }}" data-proof="{{ $seminar->proof }}"
-                                                    data-payment-method="{{ $seminar->payment_method }}"
-                                                    data-is-verified={{ $seminar->isVerified }}><i
-                                                        class="bi bi-pencil-fill"></i></button>
-                                                @cannot('finance')
+                                                @canany(['inti', 'finance'])
+                                                    <button
+                                                        class="btn btn-rounded btn-warning btn-xs shadow sharp text-dark mx-1"
+                                                        data-bs-toggle="modal" data-bs-target="#editModalSeminar"
+                                                        data-id="{{ $seminar->id }}" data-name="{{ $seminar->name }}"
+                                                        data-type="{{ $seminar->type }}" data-proof="{{ $seminar->proof }}"
+                                                        data-payment-method="{{ $seminar->payment_method }}"
+                                                        data-is-verified={{ $seminar->isVerified }}><i
+                                                            class="bi bi-pencil-fill"></i></button>
+                                                @endcanany
+                                                @can('inti')
                                                     <button class="btn btn-rounded btn-danger btn-xs shadow sharp"
                                                         data-bs-toggle="modal" data-bs-target="#deleteModalSeminar"
                                                         data-id={{ $seminar->id }} data-name="{{ $seminar->name }}"><i
                                                             class="bi bi-trash-fill"></i></button>
-                                                @endcannot
+                                                @endcan
                                             </div>
                                         </td>
                                     </tr>

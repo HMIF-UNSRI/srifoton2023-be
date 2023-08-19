@@ -157,22 +157,24 @@
                                                 <a href="{{ route('competition.cp.show', $programming->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp"><i
                                                         class="bi bi-eye-fill"></i></a>
-                                                <button title="Edit"
-                                                    class="btn btn-warning shadow btn-rounded btn-xs sharp mx-1 text-dark"
-                                                    data-bs-toggle="modal" data-bs-target="#editModalProgramming"
-                                                    data-id="{{ $programming->id }}"
-                                                    data-team-name="{{ $programming->team_name }}"
-                                                    data-proof="{{ $programming->proof }}"
-                                                    data-payment-method="{{ $programming->payment_method }}"
-                                                    data-is-verified={{ $programming->isVerified }}><i
-                                                        class="bi bi-pencil-fill"></i></button>
-                                                @cannot('finance')
+                                                @canany(['inti', 'finance'])
+                                                    <button title="Edit"
+                                                        class="btn btn-warning shadow btn-rounded btn-xs sharp mx-1 text-dark"
+                                                        data-bs-toggle="modal" data-bs-target="#editModalProgramming"
+                                                        data-id="{{ $programming->id }}"
+                                                        data-team-name="{{ $programming->team_name }}"
+                                                        data-proof="{{ $programming->proof }}"
+                                                        data-payment-method="{{ $programming->payment_method }}"
+                                                        data-is-verified={{ $programming->isVerified }}><i
+                                                            class="bi bi-pencil-fill"></i></button>
+                                                @endcanany
+                                                @can('inti')
                                                     <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
                                                         data-bs-toggle="modal" data-bs-target="#deleteModalProgramming"
                                                         data-id={{ $programming->id }}
                                                         data-team-name="{{ $programming->team_name }}"><i
                                                             class="bi bi-trash-fill"></i></button>
-                                                @endcannot
+                                                @endcan
                                             </div>
                                         </td>
                                     </tr>
