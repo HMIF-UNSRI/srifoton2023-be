@@ -60,7 +60,7 @@ class EmailVerificationController extends Controller
 
         if ($request->user()->hasVerifiedEmail()) {
             $frontendUrl = env('FRONTEND_URL');
-            return redirect($frontendUrl . '/?message=' . urlencode('Email sudah diverifikasi'));
+            return redirect($frontendUrl . '/dashboard?message=' . urlencode('Email sudah diverifikasi'));
         }
 
         if ($request->user()->markEmailAsVerified()) {
@@ -68,6 +68,6 @@ class EmailVerificationController extends Controller
         }
 
         $frontendUrl = env('FRONTEND_URL');
-        return redirect($frontendUrl . '/?message=' . urlencode('Email berhasil diverifikasi'));
+        return redirect($frontendUrl . '/dashboard?message=' . urlencode('Email berhasil diverifikasi'));
     }
 }
