@@ -15,7 +15,7 @@
                     </a>
                 </li>
             @endcan
-            @canany(['inti', 'seminar'])
+            @canany(['inti', 'seminar', 'finance'])
                 <li>
                     <a href="{{ route('seminar') }}" aria-expanded="false">
                         <i class="bi bi-easel fs-2"></i>
@@ -23,7 +23,7 @@
                     </a>
                 </li>
             @endcanany
-            @canany(['inti', 'competition', 'competitive_programming'])
+            @canany(['inti', 'competition', 'competitive_programming', 'finance'])
                 <li>
                     <a href="{{ route('competition.cp') }}" aria-expanded="false">
                         <i class="bi bi-laptop fs-2"></i>
@@ -31,7 +31,7 @@
                     </a>
                 </li>
             @endcanany
-            @canany(['inti', 'competition', 'uiux_design'])
+            @canany(['inti', 'competition', 'uiux_design', 'finance'])
                 <li>
                     <a href="{{ route('competition.uiux') }}" aria-expanded="false">
                         <i class="bi bi-palette fs-2"></i>
@@ -39,7 +39,7 @@
                     </a>
                 </li>
             @endcanany
-            @canany(['inti', 'competition', 'web_development'])
+            @canany(['inti', 'competition', 'web_development', 'finance'])
                 <li>
                     <a href="{{ route('competition.webdev') }}" aria-expanded="false">
                         <i class="bi bi-code-slash fs-2"></i>

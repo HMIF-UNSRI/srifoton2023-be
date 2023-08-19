@@ -42857,4 +42857,37 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   font-size: medium;
 }
 
+.ni-signout:before {
+  content: "\ebb2";
+  color: var(--bs-danger);
+  font-size: large;
+}
+
+.ni-user-fill:before {
+  content: "\ec2d";
+  font-size: large;
+  color: var(--bs-primary);
+}
+
+.ni-user:before {
+  content: "\ec33";
+  font-size: large;
+  color: var(--bs-primary);
+}
+
+.ni-account-setting:before {
+  content: "\e902";
+  font-size: large;
+  color: var(--bs-orange);
+}
+
+.ni-users-fill:before {
+  content: "\ec34";
+  font-size: large;
+}
+
+.ni-users:before {
+  content: "\ec35";
+  font-size: 24px;
+}
 /*# sourceMappingURL=style.css.map */

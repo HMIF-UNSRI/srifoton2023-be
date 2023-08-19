@@ -68,5 +68,11 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'role' => 'seminar',
         ]);
+        Admin::create([
+            'name' => 'Admin Finance',
+            'username' => 'finance',
+            'password' => Hash::make('12345678'),
+            'role' => 'finance',
+        ]);
     }
 }

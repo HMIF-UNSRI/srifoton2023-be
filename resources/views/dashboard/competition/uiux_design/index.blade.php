@@ -196,10 +196,12 @@
                                                     data-payment-method="{{ $uiux->payment_method }}"
                                                     data-is-verified={{ $uiux->isVerified }}><i
                                                         class="bi bi-pencil-fill"></i></button>
+                                                        @cannot('finance')
                                                 <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
                                                     data-bs-toggle="modal" data-bs-target="#deleteModalUiux"
                                                     data-id={{ $uiux->id }} data-team-name="{{ $uiux->team_name }}"><i
                                                         class="bi bi-trash-fill"></i></button>
+                                                        @endcannot
                                             </div>
                                         </td>
                                     </tr>

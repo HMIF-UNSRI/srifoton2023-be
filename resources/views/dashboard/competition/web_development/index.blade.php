@@ -200,11 +200,13 @@
                                                     data-payment-method="{{ $webdev->payment_method }}"
                                                     data-is-verified={{ $webdev->isVerified }}><i
                                                         class="bi bi-pencil-fill text-dark"></i></button>
+                                                        @cannot('finance')
                                                 <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
                                                     data-bs-toggle="modal" data-bs-target="#deleteModalWebdev"
                                                     data-id={{ $webdev->id }}
                                                     data-team-name="{{ $webdev->team_name }}"><i
                                                         class="bi bi-trash-fill"></i></button>
+                                                        @endcannot
                                             </div>
                                         </td>
                                     </tr>

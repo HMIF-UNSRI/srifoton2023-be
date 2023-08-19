@@ -24,7 +24,7 @@
         });
         $(document).ready(function() {
             const buttons = $(
-            ".buttons-excel, .buttons-csv, .buttons-pdf, .buttons-copy, .buttons-print");
+                ".buttons-excel, .buttons-csv, .buttons-pdf, .buttons-copy, .buttons-print");
 
             buttons.each(function() {
                 const $thisButton = $(this);
@@ -122,8 +122,8 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div id="example3_wrapper" class="dataTables_wrapper no-footer">
-                        <table id="example3" class="display dataTable cell-border no-footer mt-1 mb-2" style="min-width: 845px"
-                            role="grid" aria-describedby="example3_info">
+                        <table id="example3" class="display dataTable cell-border no-footer mt-1 mb-2"
+                            style="min-width: 845px" role="grid" aria-describedby="example3_info">
                             <thead>
                                 <tr class="text-center" role="row">
                                     <th class="sorting">No</th>
@@ -166,11 +166,13 @@
                                                     data-payment-method="{{ $programming->payment_method }}"
                                                     data-is-verified={{ $programming->isVerified }}><i
                                                         class="bi bi-pencil-fill"></i></button>
-                                                <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModalProgramming"
-                                                    data-id={{ $programming->id }}
-                                                    data-team-name="{{ $programming->team_name }}"><i
-                                                        class="bi bi-trash-fill"></i></button>
+                                                @cannot('finance')
+                                                    <button class="btn btn-danger shadow btn-rounded btn-xs sharp"
+                                                        data-bs-toggle="modal" data-bs-target="#deleteModalProgramming"
+                                                        data-id={{ $programming->id }}
+                                                        data-team-name="{{ $programming->team_name }}"><i
+                                                            class="bi bi-trash-fill"></i></button>
+                                                @endcannot
                                             </div>
                                         </td>
                                     </tr>
@@ -210,9 +212,10 @@
                                                 <td>
                                                     <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
-                                                        <a id="showProof" class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
-                                                            target="blank">
-                                                            <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
+                                                    <a id="showProof"
+                                                        class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
+                                                        target="blank">
+                                                        <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                                                 </td>
                                             </tr>
                                         </table>

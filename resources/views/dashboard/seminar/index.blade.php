@@ -6,44 +6,44 @@
 @endpush
 
 @push('js')
-<script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
-<script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
-<script src="{{ asset('vendor/toastr/js/toastr.min.js') }}"></script>
-<script src="{{ asset('js/plugins-init/toastr-init.js') }}"></script>
-<script>
-    $(document).ready(function() {
-        const wrapperDiv = $('<div>').addClass('w-100').css("overflow-x", "scroll");
-        const table = $('#example3');
-        table.wrap(wrapperDiv);
-    });
-    $(document).ready(function() {
-        const buttons = $(
-            ".buttons-excel, .buttons-csv, .buttons-pdf, .buttons-copy, .buttons-print");
-
-        buttons.each(function() {
-            const $thisButton = $(this);
-            if ($thisButton.length) {
-                if ($thisButton.hasClass("buttons-excel")) {
-                    $thisButton.html('<i class="ni ni-file-xls"></i>');
-                } else if ($thisButton.hasClass("buttons-copy")) {
-                    $thisButton.html('<i class="ni ni-copy"></i>');
-                } else if ($thisButton.hasClass("buttons-pdf")) {
-                    $thisButton.html('<i class="ni ni-file-pdf"></i>');
-                } else if ($thisButton.hasClass("buttons-print")) {
-                    $thisButton.html('<i class="ni ni-printer"></i>');
-                } else if ($thisButton.hasClass("buttons-csv")) {
-                    $thisButton.html('<i class="ni ni-file-csv"></i>');
-                }
-            }
+    <script src="{{ asset('vendor/datatables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <script src="{{ asset('js/plugins-init/datatables.init.js') }}"></script>
+    <script src="{{ asset('vendor/toastr/js/toastr.min.js') }}"></script>
+    <script src="{{ asset('js/plugins-init/toastr-init.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            const wrapperDiv = $('<div>').addClass('w-100').css("overflow-x", "scroll");
+            const table = $('#example3');
+            table.wrap(wrapperDiv);
         });
-    });
-</script>
+        $(document).ready(function() {
+            const buttons = $(
+                ".buttons-excel, .buttons-csv, .buttons-pdf, .buttons-copy, .buttons-print");
+
+            buttons.each(function() {
+                const $thisButton = $(this);
+                if ($thisButton.length) {
+                    if ($thisButton.hasClass("buttons-excel")) {
+                        $thisButton.html('<i class="ni ni-file-xls"></i>');
+                    } else if ($thisButton.hasClass("buttons-copy")) {
+                        $thisButton.html('<i class="ni ni-copy"></i>');
+                    } else if ($thisButton.hasClass("buttons-pdf")) {
+                        $thisButton.html('<i class="ni ni-file-pdf"></i>');
+                    } else if ($thisButton.hasClass("buttons-print")) {
+                        $thisButton.html('<i class="ni ni-printer"></i>');
+                    } else if ($thisButton.hasClass("buttons-csv")) {
+                        $thisButton.html('<i class="ni ni-file-csv"></i>');
+                    }
+                }
+            });
+        });
+    </script>
     <script>
         $(document).ready(function() {
             // edit modal
@@ -156,7 +156,8 @@
                                         </td>
 
 
-                                        <td class="text-center">{{ $seminar->ticket_code ? $seminar->ticket_code : '-' }}</td>
+                                        <td class="text-center">{{ $seminar->ticket_code ? $seminar->ticket_code : '-' }}
+                                        </td>
                                         <td class="text-center">
                                             <span
                                                 class="badge light badge-rounded badge-sm w-100 {{ $seminar->isVerified ? 'badge-success' : 'badge-warning' }}">
@@ -171,17 +172,20 @@
                                                 <a href="{{ route('seminar.show', $seminar->id) }}"
                                                     class="btn btn-rounded btn-primary btn-xs shadow sharp"><i
                                                         class="bi bi-eye-fill"></i></a>
-                                                <button class="btn btn-rounded btn-warning btn-xs shadow sharp text-dark mx-1"
+                                                <button
+                                                    class="btn btn-rounded btn-warning btn-xs shadow sharp text-dark mx-1"
                                                     data-bs-toggle="modal" data-bs-target="#editModalSeminar"
                                                     data-id="{{ $seminar->id }}" data-name="{{ $seminar->name }}"
                                                     data-type="{{ $seminar->type }}" data-proof="{{ $seminar->proof }}"
                                                     data-payment-method="{{ $seminar->payment_method }}"
                                                     data-is-verified={{ $seminar->isVerified }}><i
                                                         class="bi bi-pencil-fill"></i></button>
-                                                <button class="btn btn-rounded btn-danger btn-xs shadow sharp"
-                                                    data-bs-toggle="modal" data-bs-target="#deleteModalSeminar"
-                                                    data-id={{ $seminar->id }} data-name="{{ $seminar->name }}"><i
-                                                        class="bi bi-trash-fill"></i></button>
+                                                @cannot('finance')
+                                                    <button class="btn btn-rounded btn-danger btn-xs shadow sharp"
+                                                        data-bs-toggle="modal" data-bs-target="#deleteModalSeminar"
+                                                        data-id={{ $seminar->id }} data-name="{{ $seminar->name }}"><i
+                                                            class="bi bi-trash-fill"></i></button>
+                                                @endcannot
                                             </div>
                                         </td>
                                     </tr>
@@ -228,9 +232,10 @@
                                                 <td>
                                                     <img class="img-fluid rounded-1 mb-3" alt="" id="proof"
                                                         style="max-height: 500px">
-                                                        <a id="showProof" class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
-                                                            target="blank">
-                                                            <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
+                                                    <a id="showProof"
+                                                        class="btn btn-xs btn-primary light mt-2 w-100 fw-medium"
+                                                        target="blank">
+                                                        <i class="fas fa-expand me-2"></i>Show Payment Proof</a>
                                                 </td>
                                             </tr>
 

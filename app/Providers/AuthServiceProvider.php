@@ -38,19 +38,22 @@ class AuthServiceProvider extends ServiceProvider
             return $admin->role == 'inti';
         });
         Gate::define('competitive_programming', function (Admin $admin) {
-            return $admin->role == 'competitive_programming' || $admin->role == 'competition' || $admin->role == 'inti';
+            return $admin->role == 'competitive_programming' || $admin->role == 'competition' || $admin->role == 'inti' || $admin->role == 'finance';
         });
         Gate::define('uiux_design', function (Admin $admin) {
-            return $admin->role == 'uiux_design' || $admin->role == 'competition' || $admin->role == 'inti';
+            return $admin->role == 'uiux_design' || $admin->role == 'competition' || $admin->role == 'inti' || $admin->role == 'finance';
         });
         Gate::define('web_development', function (Admin $admin) {
-            return $admin->role == 'web_development' || $admin->role == 'competition' || $admin->role == 'inti';
+            return $admin->role == 'web_development' || $admin->role == 'competition' || $admin->role == 'inti' || $admin->role == 'finance';
         });
         Gate::define('mobile_legends', function (Admin $admin) {
-            return $admin->role == 'mobile_legends' || $admin->role == 'competition' || $admin->role == 'inti';
+            return $admin->role == 'mobile_legends' || $admin->role == 'competition' || $admin->role == 'inti' || $admin->role == 'finance';
         });
         Gate::define('seminar', function (Admin $admin) {
-            return $admin->role == 'seminar' || $admin->role == 'inti' ;
+            return $admin->role == 'seminar' || $admin->role == 'inti' || $admin->role == 'finance';
+        });
+        Gate::define('finance', function (Admin $admin) {
+            return $admin->role == 'finance';
         });
     }
 }
