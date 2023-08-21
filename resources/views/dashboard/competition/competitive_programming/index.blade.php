@@ -21,6 +21,13 @@
             const wrapperDiv = $('<div>').addClass('w-100').css("overflow-x", "scroll");
             const table = $('#example3');
             table.wrap(wrapperDiv);
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchKeyword = urlParams.get('search');
+
+            if (searchKeyword) {
+                $('#example3').DataTable().search(searchKeyword).draw();
+            }
         });
         $(document).ready(function() {
             const buttons = $(
