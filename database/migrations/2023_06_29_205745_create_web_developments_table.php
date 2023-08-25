@@ -35,8 +35,11 @@ return new class extends Migration
             $table->string('phone_number3')->nullable();
             $table->string('instagram3')->nullable();
             $table->string('id_card3')->nullable();
-            // Payment Method
+            // Submission
             $table->string('submission')->nullable();
+            $table->string('project_title')->nullable();
+            $table->text('project_description')->nullable();
+            // Payment Method
             $table->string('proof');
             $table->string('payment_method');
             $table->boolean('isVerified')->default(false);
