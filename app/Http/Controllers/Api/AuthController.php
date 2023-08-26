@@ -162,6 +162,8 @@ class AuthController extends Controller
 
             $payload = JWTAuth::manager()->getPayloadFactory()->buildClaimsCollection()->toPlainArray();
             $validUntil = date('Y-m-d H:i:s', $payload['exp']);
+
+            $user = JWTAuth::user();
         } catch (JWTException $e) {
             return response()->json(['error' => 'Failed to refresh token'], 500);
         }
@@ -169,7 +171,8 @@ class AuthController extends Controller
         return response()->json([
             'message' => 'Refresh token berhasil',
             'token' => $newToken,
-            'valid_until' => $validUntil
+            'valid_until' => $validUntil,
+            'user' => $user
         ]);
     }
 
