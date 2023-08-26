@@ -25,7 +25,7 @@ class CompetitiveProgrammingController extends Controller
     public function show($id)
     {
         $programming = CompetitiveProgramming::findOrFail($id);
-        $members = 3;
+        $members = ($programming->id_card3) ? 3 : (($programming->id_card2) ? 2 : 1);
         return view('dashboard.competition.competitive_programming.show', compact('programming', 'members'));
     }
 
