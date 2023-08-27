@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -35,9 +36,8 @@ return new class extends Migration {
             $table->string('instagram3')->nullable();
             $table->string('id_card3')->nullable();
             // Submission
+            $table->string('title')->nullable();
             $table->string('submission')->nullable();
-            $table->string('project_title')->nullable();
-            $table->text('project_description')->nullable();
             // Payment Method
             $table->string('proof');
             $table->string('payment_method');

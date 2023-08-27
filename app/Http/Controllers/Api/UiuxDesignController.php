@@ -130,6 +130,10 @@ class UiuxDesignController extends Controller
     /**
      * UIUX Design Submission
      * 
+     * @bodyParam title string
+     * Example: Monocode
+     * @bodyParam description string
+     * Example: Monocode adalah sebuah project uiux design tentang kursus online
      * @bodyParam submission file required
      * <ul>
      *      <li>Maksimal 100 MB</li>
@@ -141,7 +145,8 @@ class UiuxDesignController extends Controller
     public function submitSubmission(Request $request)
     {
         $request->validate([
-            'submission' => 'required|file|mimes:png,jpg,jpeg,pdf,zip|max:104800'
+            'title' => 'required',
+            'description' => 'required',
         ]);
 
         $userId = Auth::user()->id;
@@ -156,14 +161,15 @@ class UiuxDesignController extends Controller
 
         if ($uiux->submission) {
             return response()->json([
-                'message' => 'Hanya bisa mengumpulkan submission sekali'
+                'message' => 'Hanya bisa mengumpulkan submission sekali, jika ingin mengubah silahkan hubungi narahubung.'
             ]);
         }
 
-        $submission = "submission/uiux-design/$uiux->team_name-" . Str::random(16) . "." . $request->submission->getClientOriginalExtension();
+        $submission = "submission/uiux-design/$uiux->team_name - " . $request->title . "." . $request->submission->getClientOriginalExtension();
 
         UiuxDesign::where('user_id', $userId)->update([
-            'submission' => env('APP_URL') . Storage::url($submission)
+            'title' => $request->title,
+            'submission' => env('APP_URL') . Storage::url($submission),
         ]);
 
         Storage::disk('public')->put($submission, file_get_contents($request->submission));

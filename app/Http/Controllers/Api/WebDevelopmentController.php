@@ -129,6 +129,10 @@ class WebDevelopmentController extends Controller
     /**
      * Web Development Submission
      * 
+     * @bodyParam title string required
+     * Example: Monocode
+     * @bodyParam description string required
+     * Example: Monocode adalah sebuah project website berupa kursus online
      * @bodyParam submission file required
      * <ul>
      *      <li>Harus berupa ekstensi zip</li>
@@ -139,7 +143,8 @@ class WebDevelopmentController extends Controller
     public function submitSubmission(Request $request)
     {
         $request->validate([
-            'submission' => 'required|file|mimes:zip'
+            'title' => 'required',
+            'submission' => 'required|file|mimes:rar,zip'
         ]);
 
         $userId = Auth::user()->id;
@@ -154,14 +159,15 @@ class WebDevelopmentController extends Controller
 
         if ($webdev->submission) {
             return response()->json([
-                'message' => 'Hanya bisa mengumpulkan submission sekali'
+                'message' => 'Hanya bisa mengumpulkan submission sekali, jika ingin mengubah silahkan hubungi narahubung.'
             ], 409);
         }
 
-        $submission = "submission/web-development/$webdev->team_name-" . Str::random(16) . "." . $request->submission->getClientOriginalExtension();
+        $submission = "submission/web-development/$webdev->team_name - " . $request->title . "." . $request->submission->getClientOriginalExtension();
 
         WebDevelopment::where('user_id', $userId)->update([
-            'submission' => env('APP_URL') . Storage::url($submission)
+            'title' => $request->title,
+            'submission' => env('APP_URL') . Storage::url($submission),
         ]);
 
         Storage::disk('public')->put($submission, file_get_contents($request->submission));
