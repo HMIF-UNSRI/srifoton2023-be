@@ -147,9 +147,9 @@
                                     <tr role="row">
                                         <td class="text-center">{{ $index + 1 }}</td>
                                         <td>{{ $programming->team_name }}</td>
-                                        <td>{{ $programming->name1 }}</td>
-                                        <td class="sorting_1">{{ $programming->name2 }}</td>
-                                        <td>{{ $programming->name3 }}</td>
+                                        <td>{{ $programming->name1 ? $programming->name1 : '-' }}</td>
+                                        <td>{{ $programming->name2 ? $programming->name2 : '-' }}</td>
+                                        <td>{{ $programming->name3 ? $programming->name3 : '-' }}</td>
                                         <td class="text-center">
                                             <span
                                                 class="badge light badge-rounded badge-sm w-100 {{ $programming->isVerified ? 'badge-success' : 'badge-warning' }}">

@@ -173,9 +173,9 @@
                                     <tr role="row">
                                         <td class="text-center">{{ $index + 1 }}</td>
                                         <td class="">{{ $webdev->team_name }}</td>
-                                        <td>{{ $webdev->name1 }}</td>
-                                        <td>{{ $webdev->name2 }}</td>
-                                        <td>{{ $webdev->name3 }}</td>
+                                        <td>{{ $webdev->name1 ? $webdev->name1 : '-' }}</td>
+                                        <td>{{ $webdev->name2 ? $webdev->name2 : '-' }}</td>
+                                        <td>{{ $webdev->name3 ? $webdev->name3 : '-' }}</td>
                                         <td><span
                                                 class="badge light badge-rounded badge-sm w-100 {{ $webdev->submission ? 'badge-success' : 'badge-warning' }}">
                                                 <i
