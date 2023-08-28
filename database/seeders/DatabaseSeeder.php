@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(5)->create();
-        CompetitiveProgramming::factory(50)->create();
-        Seminar::factory(50)->create();
-        WebDevelopment::factory(50)->create();
-        UiuxDesign::factory(50)->create();
+        // User::factory(5)->create();
+        // CompetitiveProgramming::factory(50)->create();
+        // Seminar::factory(50)->create();
+        // WebDevelopment::factory(50)->create();
+        // UiuxDesign::factory(50)->create();
 
         Admin::create([
             'name' => 'Admin Inti',
