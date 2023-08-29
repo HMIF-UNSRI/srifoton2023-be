@@ -131,8 +131,6 @@ class WebDevelopmentController extends Controller
      * 
      * @bodyParam title string required
      * Example: Monocode
-     * @bodyParam description string required
-     * Example: Monocode adalah sebuah project website berupa kursus online
      * @bodyParam submission file required
      * <ul>
      *      <li>Harus berupa ekstensi zip</li>

@@ -132,8 +132,6 @@ class UiuxDesignController extends Controller
      * 
      * @bodyParam title string
      * Example: Monocode
-     * @bodyParam description string
-     * Example: Monocode adalah sebuah project uiux design tentang kursus online
      * @bodyParam submission file required
      * <ul>
      *      <li>Maksimal 100 MB</li>
