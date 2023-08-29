@@ -34,7 +34,7 @@ class CompetitiveProgrammingController extends Controller
         $programming = CompetitiveProgramming::findOrFail($id);
         $programming->update(['isVerified' => true]);
 
-        Helper::sendWhatsappGroupInvitationEmail($programming->email, $programming->name1, $programming->teamName, 'Competitive Programming', 'https://chat.whatsapp.com/DJ3lizydOVmBF3nJItlyre');
+        Helper::sendWhatsappGroupInvitationEmail($programming->email, $programming->name1, $programming->team_name, 'Competitive Programming', 'https://chat.whatsapp.com/DJ3lizydOVmBF3nJItlyre');
 
         return redirect()->route('competition.cp')->with('success', 'Verification Successfull');
     }

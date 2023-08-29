@@ -38,7 +38,7 @@ class UiuxDesignController extends Controller
         $uiux = UiuxDesign::findOrFail($id);
         $uiux->update(['isVerified' => true]);
 
-        Helper::sendWhatsappGroupInvitationEmail($uiux->email, $uiux->name1, $uiux->teamName, 'UIUX Design', 'https://chat.whatsapp.com/KMfV1b9VpTODBOG0l7VdOZ');
+        Helper::sendWhatsappGroupInvitationEmail($uiux->email, $uiux->name1, $uiux->team_name, 'UIUX Design', 'https://chat.whatsapp.com/KMfV1b9VpTODBOG0l7VdOZ');
 
         return redirect()->route('competition.uiux')->with('success', 'Verification Successfull');
     }
