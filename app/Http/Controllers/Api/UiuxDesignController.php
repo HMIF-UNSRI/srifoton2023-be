@@ -134,7 +134,6 @@ class UiuxDesignController extends Controller
      * Example: Monocode
      * @bodyParam submission file required
      * <ul>
-     *      <li>Maksimal 100 MB</li>
      *      <li>Harus berupa ekstensi png, jpg, jpeg, pdf, zip</li>
      * </ul>
      * 
@@ -144,7 +143,7 @@ class UiuxDesignController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'description' => 'required',
+            'submission' => 'required|file|mimes:png,jpg,jpeg,pdf,zip'
         ]);
 
         $userId = Auth::user()->id;

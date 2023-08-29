@@ -133,7 +133,7 @@ class WebDevelopmentController extends Controller
      * Example: Monocode
      * @bodyParam submission file required
      * <ul>
-     *      <li>Harus berupa ekstensi zip</li>
+     *      <li>Harus berupa ekstensi rar, zip</li>
      * </ul>
      * 
      * @authenticated
