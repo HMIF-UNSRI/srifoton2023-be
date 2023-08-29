@@ -61,11 +61,9 @@ class UiuxDesignController extends Controller
     {
         $uiux = UiuxDesign::findOrFail($id);
         $submission = $uiux->submission;
-        $appUrl = env('APP_URL');
-        $submission = public_path(str_replace($appUrl, '', $submission));
 
-        if (file_exists($submission)) {
-            return Response::download($submission); // Change 'submission_file.pdf' to the desired file name
+        if ($submission) {
+            return Response::download($submission);
         } else {
             return redirect()->back()->with('error', 'Submission file not found.');
         }

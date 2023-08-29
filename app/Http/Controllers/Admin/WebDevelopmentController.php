@@ -60,13 +60,10 @@ class WebDevelopmentController extends Controller
 
     public function downloadSubmission($id)
     {
-
         $webdev = WebDevelopment::findOrFail($id);
         $submission = $webdev->submission;
-        $appUrl = env('APP_URL');
-        $submission = public_path(str_replace($appUrl, '', $submission));
 
-        if (file_exists($submission)) {
+        if ($submission) {
             return Response::download($submission);
         } else {
             return redirect()->back()->with('error', 'Submission file not found.');
