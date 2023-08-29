@@ -155,7 +155,7 @@
                                                 class="badge light badge-rounded badge-sm w-100 {{ $programming->isVerified ? 'badge-success' : 'badge-warning' }}">
                                                 <i
                                                     class="{{ $programming->isVerified ? 'bi bi-cash-stack me-1' : 'bi bi-hourglass-split me-1' }}"></i>
-                                                {{ $programming->isVerified ? 'Paid' : 'Awaiting' }}
+                                                {{ $programming->isVerified ? 'Paid' : 'Waiting' }}
                                             </span>
                                         </td>
 

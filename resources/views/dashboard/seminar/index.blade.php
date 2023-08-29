@@ -163,7 +163,7 @@
                                                 class="badge light badge-rounded badge-sm w-100 {{ $seminar->isVerified ? 'badge-success' : 'badge-warning' }}">
                                                 <i
                                                     class="{{ $seminar->isVerified ? 'bi bi-cash-stack me-1' : 'bi bi-hourglass-split me-1' }}"></i>
-                                                {{ $seminar->isVerified ? 'Paid' : 'Awaiting' }}
+                                                {{ $seminar->isVerified ? 'Paid' : 'Waiting' }}
                                             </span>
                                         </td>
 

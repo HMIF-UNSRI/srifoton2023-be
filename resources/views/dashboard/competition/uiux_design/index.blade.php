@@ -188,7 +188,7 @@
                                                 class="badge light badge-rounded badge-sm w-100 {{ $uiux->isVerified ? 'badge-success' : 'badge-warning' }}">
                                                 <i
                                                     class="{{ $uiux->isVerified ? 'bi bi-cash-stack me-1' : 'bi bi-hourglass-split me-1' }}"></i>
-                                                {{ $uiux->isVerified ? 'Paid' : 'Awaiting' }}
+                                                {{ $uiux->isVerified ? 'Paid' : 'Waiting' }}
                                             </span>
                                         </td>
 

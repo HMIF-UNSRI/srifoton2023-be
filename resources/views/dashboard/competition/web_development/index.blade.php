@@ -163,7 +163,9 @@
                                     <th class="sorting">Member 1</th>
                                     <th class="sorting">Member 2</th>
                                     <th class="sorting">Member 3</th>
-                                    <th class="sorting">Submission</th>
+                                    @if (Auth::guard('admin')->user()->role == 'competition' || Auth::guard('admin')->user()->role == 'web_development')
+                                        <th class="sorting">Submission</th>
+                                    @endif
                                     <th class="sorting">Status</th>
                                     <th class="sorting no-export">Action</th>
                                 </tr>
@@ -187,15 +189,17 @@
                                                 class="badge light badge-rounded badge-sm w-100 {{ $webdev->isVerified ? 'badge-success' : 'badge-warning' }}">
                                                 <i
                                                     class="{{ $webdev->isVerified ? 'bi bi-cash-stack me-1' : 'bi bi-hourglass-split me-1' }}"></i>
-                                                {{ $webdev->isVerified ? 'Paid' : 'Awaiting' }}
+                                                {{ $webdev->isVerified ? 'Paid' : 'Waiting' }}
                                             </span>
                                         </td>
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{ route('competition.webdev.download', $webdev->id) }}"
-                                                    class="btn btn-success shadow btn-rounded btn-xs sharp me-1"> <i
-                                                        class="bi bi-download"></i></a>
+                                                @if (Auth::guard('admin')->user()->role == 'competition' || Auth::guard('admin')->user()->role == 'web_development')
+                                                    <a href="{{ route('competition.webdev.download', $webdev->id) }}"
+                                                        class="btn btn-success shadow btn-rounded btn-xs sharp me-1"> <i
+                                                            class="bi bi-download"></i></a>
+                                                @endif
                                                 <a href="{{ route('competition.webdev.show', $webdev->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
                                                         class="bi bi-eye-fill"></i></a>
