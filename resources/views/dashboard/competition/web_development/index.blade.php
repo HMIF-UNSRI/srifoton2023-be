@@ -178,12 +178,14 @@
                                         <td>{{ $webdev->name1 ? $webdev->name1 : '-' }}</td>
                                         <td>{{ $webdev->name2 ? $webdev->name2 : '-' }}</td>
                                         <td>{{ $webdev->name3 ? $webdev->name3 : '-' }}</td>
-                                        <td><span
-                                                class="badge light badge-rounded badge-sm w-100 {{ $webdev->submission ? 'badge-success' : 'badge-warning' }}">
-                                                <i
-                                                    class="bi bi-file-earmark{{ $webdev->submission ? '-check' : '-x' }} me-1"></i>
-                                                {{ $webdev->submission ? 'Submitted' : 'Unsubmitted' }}
-                                            </span></td>
+                                        @if (Auth::guard('admin')->user()->role == 'competition' || Auth::guard('admin')->user()->role == 'web_development')
+                                            <td><span
+                                                    class="badge light badge-rounded badge-sm w-100 {{ $webdev->submission ? 'badge-success' : 'badge-warning' }}">
+                                                    <i
+                                                        class="bi bi-file-earmark{{ $webdev->submission ? '-check' : '-x' }} me-1"></i>
+                                                    {{ $webdev->submission ? 'Submitted' : 'Unsubmitted' }}
+                                                </span></td>
+                                        @endif
                                         <td class="text-center">
                                             <span
                                                 class="badge light badge-rounded badge-sm w-100 {{ $webdev->isVerified ? 'badge-success' : 'badge-warning' }}">
