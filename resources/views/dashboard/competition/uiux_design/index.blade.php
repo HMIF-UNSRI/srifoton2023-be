@@ -160,7 +160,9 @@
                                     <th class="sorting">Member 1</th>
                                     <th class="sorting">Member 2</th>
                                     <th class="sorting">Member 3</th>
-                                    <th class="sorting">Submission</th>
+                                    @if (Auth::guard('admin')->user()->role == 'competition' || Auth::guard('admin')->user()->role == 'uiux_design')
+                                        <th class="sorting">Submission</th>
+                                    @endif
                                     <th class="sorting">Status</th>
                                     <th class="sorting no-export">Action</th>
                                 </tr>
@@ -173,12 +175,14 @@
                                         <td>{{ $uiux->name1 ? $uiux->name1 : '-' }}</td>
                                         <td>{{ $uiux->name2 ? $uiux->name2 : '-' }}</td>
                                         <td>{{ $uiux->name3 ? $uiux->name3 : '-' }}</td>
-                                        <td><span
-                                                class="badge light badge-rounded badge-sm w-100 {{ $uiux->submission ? 'badge-success' : 'badge-warning' }}">
-                                                <i
-                                                    class="bi bi-file-earmark{{ $uiux->submission ? '-check' : '-x' }} me-1"></i>
-                                                {{ $uiux->submission ? 'Submitted' : 'Unsubmitted' }}
-                                            </span></td>
+                                        @if (Auth::guard('admin')->user()->role == 'competition' || Auth::guard('admin')->user()->role == 'uiux_design')
+                                            <td><span
+                                                    class="badge light badge-rounded badge-sm w-100 {{ $uiux->submission ? 'badge-success' : 'badge-warning' }}">
+                                                    <i
+                                                        class="bi bi-file-earmark{{ $uiux->submission ? '-check' : '-x' }} me-1"></i>
+                                                    {{ $uiux->submission ? 'Submitted' : 'Unsubmitted' }}
+                                                </span></td>
+                                        @endif
                                         <td class="text-center">
                                             <span
                                                 class="badge light badge-rounded badge-sm w-100 {{ $uiux->isVerified ? 'badge-success' : 'badge-warning' }}">
@@ -190,9 +194,11 @@
 
                                         <td class="text-center">
                                             <div class="d-flex justify-content-center">
-                                                <a href="{{ route('competition.uiux.download', $uiux->id) }}"
-                                                    class="btn btn-success shadow btn-rounded btn-xs sharp me-1"> <i
-                                                        class="bi bi-download"></i></a>
+                                                @if (Auth::guard('admin')->user()->role == 'competition' || Auth::guard('admin')->user()->role == 'uiux_design')
+                                                    <a href="{{ route('competition.uiux.download', $uiux->id) }}"
+                                                        class="btn btn-success shadow btn-rounded btn-xs sharp me-1"> <i
+                                                            class="bi bi-download"></i></a>
+                                                @endif
                                                 <a href="{{ route('competition.uiux.show', $uiux->id) }}"
                                                     class="btn btn-primary shadow btn-rounded btn-xs sharp me-1"><i
                                                         class="bi bi-eye-fill"></i></a>
