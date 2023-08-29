@@ -42759,16 +42759,17 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px
 }
 
-.dataTables_wrapper .dt-buttons .dt-button{
+.dataTables_wrapper .dt-buttons .dt-button {
   display: inline-block;
   line-height: 1.25rem;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
-  margin:1px;
+  margin: 1px;
   background-color: transparent;
   border: 1px solid #DBDFEA;
   padding: 0.6rem 0.4rem 0.4rem;
@@ -42780,7 +42781,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   -o-border-radius: 3px;
 }
 
-.dataTables_wrapper .dt-buttons .dt-button:hover{
+.dataTables_wrapper .dt-buttons .dt-button:hover {
   display: inline-block;
   line-height: 1.25rem;
   color: #526484;
@@ -42788,7 +42789,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
-  margin:1px;
+  margin: 1px;
   background-color: #F3F0F9;
   border: 1px solid #DBDFEA;
   padding: 0.7rem 0.5rem 0.6rem;
@@ -42806,7 +42807,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 }
 
 .dt-button span {
-  display:none;
+  display: none;
 }
 
 @font-face {
@@ -42817,6 +42818,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   font-style: normal;
   font-display: block;
 }
+
 .ni {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "Nioicon" !important;
@@ -42835,18 +42837,22 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   content: "\e9fb";
   color: var(--bs-dark);
 }
+
 .ni-file-pdf:before {
   content: "\ea4a";
   color: var(--bs-danger);
 }
-.ni-file-xls:before{
+
+.ni-file-xls:before {
   content: "\ea51";
   color: var(--bs-success);
 }
+
 .ni-file-csv:before {
   content: "\ea50";
   color: var(--bs-teal);
 }
+
 .ni-printer:before {
   content: "\eb31";
   color: var(--bs-primary);
@@ -42890,4 +42896,5 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   content: "\ec35";
   font-size: 24px;
 }
+
 /*# sourceMappingURL=style.css.map */
