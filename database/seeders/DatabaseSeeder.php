@@ -29,49 +29,43 @@ class DatabaseSeeder extends Seeder
         Admin::create([
             'name' => 'Admin Inti',
             'username' => 'inti',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make('salambooyah'),
             'role' => 'inti',
         ]);
         Admin::create([
             'name' => 'Admin Competition',
             'username' => 'competition',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make('mainnyahebat'),
             'role' => 'competition',
         ]);
         Admin::create([
             'name' => 'Admin Competitive Programming',
             'username' => 'competitive_programming',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make('akubutuhpeluru'),
             'role' => 'competitive_programming',
         ]);
         Admin::create([
             'name' => 'Admin UI/UX Design',
             'username' => 'uiux_design',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make('seranglord'),
             'role' => 'uiux_design',
         ]);
         Admin::create([
             'name' => 'Admin Web Development',
             'username' => 'web_development',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make('majumajumaju'),
             'role' => 'web_development',
-        ]);
-        Admin::create([
-            'name' => 'Admin Mobile Legends',
-            'username' => 'mobile_legends',
-            'password' => Hash::make('12345678'),
-            'role' => 'mobile_legends',
         ]);
         Admin::create([
             'name' => 'Admin Seminar',
             'username' => 'seminar',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make('kerjabagus'),
             'role' => 'seminar',
         ]);
         Admin::create([
             'name' => 'Admin Finance',
             'username' => 'finance',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make('akupunyaini'),
             'role' => 'finance',
         ]);
     }
