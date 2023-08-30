@@ -149,6 +149,11 @@ class UiuxDesignController extends Controller
         $userId = Auth::user()->id;
         $uiux = UiuxDesign::where('user_id', $userId)->first();
 
+        if (!$uiux) {
+            return response()->json([
+                'message' => 'Anda belum terdaftar pada kompetisi Web Development.'
+            ], 404);
+        }
 
         if (!$uiux->isVerified) {
             return response()->json([

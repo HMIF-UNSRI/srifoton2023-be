@@ -148,6 +148,11 @@ class WebDevelopmentController extends Controller
         $userId = Auth::user()->id;
         $webdev = WebDevelopment::where('user_id', $userId)->first();
 
+        if (!$webdev) {
+            return response()->json([
+                'message' => 'Anda belum terdaftar pada kompetisi Web Development.'
+            ], 404);
+        }
 
         if (!$webdev->isVerified) {
             return response()->json([
