@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helper\Helper;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\WebDevelopment;
@@ -114,6 +115,7 @@ class WebDevelopmentController extends Controller
         }
 
         WebDevelopment::create($data);
+        Helper::sendAlertToFinance('Web Development', $data['team_name'], $data['payment_method'], env('APP_URL') . '/dashboard/admin/web-development?search=' . urlencode($data['team_name']));
 
         Storage::disk('public')->put($proof, file_get_contents($request->proof));
 

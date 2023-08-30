@@ -31,10 +31,8 @@ class Helper
         $options = [
             'json' => [
                 'device_id' => env('DEVICE_ID'),
-                'group' => 'CP Srifoton 2022',
-                'message' => "Pemberitahuan!\n" .
-                    "Terdapat pendaftar baru di kompetisi *$competitionName* dengan nama tim *$teamName* dengan metode pembayaran *$paymentMethod*. Segera lakukan verifikasi pembayaran di link berikut: $link\n" .
-                    "Terima Kasih"
+                'group' => 'FINANCE & SECRETARY SRIFOTON 2023',
+                'message' => "Ada pendaftar baru di kompetisi *$competitionName* dengan nama tim *$teamName* dengan metode pembayaran *$paymentMethod*. Segera lakukan verifikasi pembayaran di link berikut: $link"
             ]
         ];
         $request = new Request('POST', 'https://app.whacenter.com/api/sendGroup');

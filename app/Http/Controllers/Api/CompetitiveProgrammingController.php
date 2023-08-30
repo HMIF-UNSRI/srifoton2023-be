@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helper\Helper;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -113,6 +114,7 @@ class CompetitiveProgrammingController extends Controller
         }
 
         CompetitiveProgramming::create($data);
+        Helper::sendAlertToFinance('Competitive Programming', $data['team_name'], $data['payment_method'], env('APP_URL') . '/dashboard/admin/competitive-programming?search=' . urlencode($data['team_name']));
 
         Storage::disk('public')->put($proof, file_get_contents($request->proof));
 
