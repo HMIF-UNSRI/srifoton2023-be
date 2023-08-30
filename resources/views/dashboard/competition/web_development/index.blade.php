@@ -148,8 +148,10 @@
             <div class="card-header">
                 <h4 class="card-title text-primary fw-medium">Web Development
                 </h4>
-                <a href="{{ route('competition.webdev.all.download') }}" class="btn btn-xs btn-primary"><i
-                        class="ni ni-file-zip me-1"></i>Download All Submission</a>
+                @if (Auth::guard('admin')->user()->role == 'competition' || Auth::guard('admin')->user()->role == 'web_development')
+                    <a href="{{ route('competition.webdev.all.download') }}" class="btn btn-xs btn-primary"><i
+                            class="ni ni-file-zip me-1"></i>Download All Submission</a>
+                @endif
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -275,8 +277,7 @@
                                             data-bs-dismiss="modal">Close</button>
                                         <form method="post" id="editFormWebdev">
                                             @csrf
-                                            <button type="submit" name="isVerified"
-                                                class="btn btn-primary">Verify</button>
+                                            <button type="submit" name="isVerified" class="btn btn-primary">Verify</button>
                                         </form>
                                     </div>
                                 </div>
