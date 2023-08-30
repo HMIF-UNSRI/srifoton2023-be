@@ -271,7 +271,7 @@
                                         <form method="post" id="editFormUiux">
                                             @csrf
                                             <button type="submit" name="isVerified"
-                                                class="btn btn-primary">Verified</button>
+                                                class="btn btn-primary">Verify</button>
                                         </form>
                                     </div>
                                 </div>
