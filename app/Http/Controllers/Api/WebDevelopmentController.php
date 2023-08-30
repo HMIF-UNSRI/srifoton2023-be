@@ -85,9 +85,10 @@ class WebDevelopmentController extends Controller
     {
         $data = $request->validated();
 
-        $existingUser = WebDevelopment::where('email', $request->email)->first();
+        $userId = Auth::guard('api')->user()->id;
+        $existingUser = WebDevelopment::where('user_id', $userId)->first();
         if ($existingUser) {
-            return response()->json(['error' => 'Email ini telah terdaftar di kompetisi Web Development.'], 409);
+            return response()->json(['error' => 'Anda telah terdaftar di kompetisi Web Development.'], 409);
         }
 
         $proof = "bukti-pembayaran/web-development/$request->payment_method-$request->team_name-" . Str::random(16) . "." . $request->proof->getClientOriginalExtension();
@@ -145,7 +146,7 @@ class WebDevelopmentController extends Controller
             'submission' => 'required|file|mimes:rar,zip'
         ]);
 
-        $userId = Auth::user()->id;
+        $userId = Auth::guard('api')->user()->id;
         $webdev = WebDevelopment::where('user_id', $userId)->first();
 
         if (!$webdev) {

@@ -86,9 +86,10 @@ class UiuxDesignController extends Controller
     {
         $data = $request->validated();
 
-        $existingUser = UiuxDesign::where('email', $request->email)->first();
+        $userId = Auth::guard('api')->user()->id;
+        $existingUser = UiuxDesign::where('user_id', $userId)->first();
         if ($existingUser) {
-            return response()->json(['error' => 'Email ini telah terdaftar di kompetisi UIUX Design.'], 409);
+            return response()->json(['error' => 'Anda telah terdaftar di kompetisi UIUX Design.'], 409);
         }
 
         $proof = "bukti-pembayaran/uiux-design/$request->payment_method-$request->team_name-" . Str::random(16) . "." . $request->proof->getClientOriginalExtension();
@@ -146,7 +147,7 @@ class UiuxDesignController extends Controller
             'submission' => 'required|file|mimes:png,jpg,jpeg,pdf,zip'
         ]);
 
-        $userId = Auth::user()->id;
+        $userId = Auth::guard('api')->user()->id;
         $uiux = UiuxDesign::where('user_id', $userId)->first();
 
         if (!$uiux) {
