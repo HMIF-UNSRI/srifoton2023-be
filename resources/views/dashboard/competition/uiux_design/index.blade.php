@@ -159,6 +159,7 @@
                                 <tr class="text-center" role="row">
                                     <th class="sorting">No</th>
                                     <th class="sorting">Team Name</th>
+                                    <th class="sorting">Institution</th>
                                     <th class="sorting">Member 1</th>
                                     <th class="sorting">Member 2</th>
                                     <th class="sorting">Member 3</th>
@@ -174,6 +175,7 @@
                                     <tr role="row">
                                         <td class="text-center">{{ $index + 1 }}</td>
                                         <td>{{ $uiux->team_name }}</td>
+                                        <td>{{ $uiux->college }}</td>
                                         <td>{{ $uiux->name1 ? $uiux->name1 : '-' }}</td>
                                         <td>{{ $uiux->name2 ? $uiux->name2 : '-' }}</td>
                                         <td>{{ $uiux->name3 ? $uiux->name3 : '-' }}</td>
