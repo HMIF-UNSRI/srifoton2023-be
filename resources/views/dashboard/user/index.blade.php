@@ -49,6 +49,7 @@
                 const name = button.data('name');
                 const email = button.data('email');
                 const email_verified_at = button.data('email-verified-at');
+                const institution = button.data('institution');
                 const gender = button.data('gender');
                 const instagram = button.data('instagram');
                 const phone_number = button.data('phone-number');
@@ -56,6 +57,7 @@
 
                 modal.find('#name').val(name);
                 modal.find('#email').val(email);
+                modal.find('#institution').val(institution);
                 modal.find('#gender').val(gender);
                 modal.find('#instagram').val(instagram);
                 modal.find('#phone_number').val(phone_number);
@@ -92,6 +94,7 @@
                                     <th class="sorting">Name</th>
                                     <th class="sorting">Email</th>
                                     <th class="sorting">Email Verification</th>
+                                    <th class="sorting">Institution</th>
                                     <th class="sorting">Gender</th>
                                     <th class="sorting">Phone</th>
                                     <th class="sorting">Instagram</th>
@@ -112,6 +115,7 @@
                                                 {{ $user->email_verified_at ? 'Verified' : 'Unverified' }}
                                             </span>
                                         </td>
+                                        <td class="text-center">{{ $user->college ? $user->college : '-' }}</td>
                                         <td class="text-center">{{ $user->gender ? $user->gender : '-' }}</td>
                                         <td class="text-center">{{ $user->phone_number ? $user->phone_number : '-' }}</td>
                                         <td class="text-center">{{ $user->instagram ? $user->instagram : '-' }}</td>
@@ -120,6 +124,7 @@
                                                 data-bs-target="#detailUserModal" data-id="{{ $user->id }}"
                                                 data-name="{{ $user->name }}" data-email="{{ $user->email }}"
                                                 data-email-verified-at="{{ $user->email_verified_at }}"
+                                                data-college="{{ $user->college }}"
                                                 data-gender="{{ $user->gender }}"
                                                 data-phone-number="{{ $user->phone_number }}"
                                                 data-instagram="{{ $user->instagram }}">
@@ -165,6 +170,12 @@
                                     <i id="icon"></i>
                                     <span class="verification-status"></span>
                                 </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Institution</td>
+                            <td>
+                                <input type="text" class="form-control w-100 mb-3" id="institution" readonly>
                             </td>
                         </tr>
                         <tr>
