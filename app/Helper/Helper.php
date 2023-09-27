@@ -38,4 +38,18 @@ class Helper
         $request = new Request('POST', 'https://app.whacenter.com/api/sendGroup');
         $client->sendAsync($request, $options)->wait();
     }
+
+    public static function sendAlertToExibhition($name, $type, $paymentMethod)
+    {
+        $client = new Client();
+        $options = [
+            'json' => [
+                'device_id' => env('DEVICE_ID'),
+                'group' => 'FINANCE & SECRETARY SRIFOTON 2023',
+                'message' => "Ada pendaftar baru seminar, $name dengan tipe $type menggunakan metode pembayaran $paymentMethod"
+            ]
+        ];
+        $request = new Request('POST', 'https://app.whacenter.com/api/sendGroup');
+        $client->sendAsync($request, $options)->wait();
+    }
 }

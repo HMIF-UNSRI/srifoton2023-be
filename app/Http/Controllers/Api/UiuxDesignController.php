@@ -144,11 +144,6 @@ class UiuxDesignController extends Controller
      */
     public function submitSubmission(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'submission' => 'required|file|mimes:png,jpg,jpeg,pdf,zip'
-        ]);
-
         $userId = Auth::guard('api')->user()->id;
         $uiux = UiuxDesign::where('user_id', $userId)->first();
 
@@ -169,6 +164,11 @@ class UiuxDesignController extends Controller
                 'message' => 'Hanya bisa mengumpulkan submission sekali, jika ingin mengubah silahkan hubungi narahubung.'
             ]);
         }
+        
+        $request->validate([
+            'title' => 'required',
+            'submission' => 'required|file|mimes:png,jpg,jpeg,pdf,zip'
+        ]);
 
         $submission = "submission/uiux-design/$uiux->team_name - " . $request->title . "." . $request->submission->getClientOriginalExtension();
 

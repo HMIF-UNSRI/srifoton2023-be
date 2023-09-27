@@ -143,11 +143,6 @@ class WebDevelopmentController extends Controller
      */
     public function submitSubmission(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'submission' => 'required|file|mimes:rar,zip'
-        ]);
-
         $userId = Auth::guard('api')->user()->id;
         $webdev = WebDevelopment::where('user_id', $userId)->first();
 
@@ -168,6 +163,11 @@ class WebDevelopmentController extends Controller
                 'message' => 'Hanya bisa mengumpulkan submission sekali, jika ingin mengubah silahkan hubungi narahubung.'
             ], 409);
         }
+        
+        $request->validate([
+            'title' => 'required',
+            'submission' => 'required|file|mimes:rar,zip'
+        ]);
 
         $submission = "submission/web-development/$webdev->team_name - " . $request->title . "." . $request->submission->getClientOriginalExtension();
 
