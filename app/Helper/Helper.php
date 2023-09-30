@@ -39,14 +39,14 @@ class Helper
         $client->sendAsync($request, $options)->wait();
     }
 
-    public static function sendAlertToExhibition($name, $type, $paymentMethod)
+    public static function sendAlertToExhibition($name, $type, $paymentMethod, $link)
     {
         $client = new Client();
         $options = [
             'json' => [
                 'device_id' => env('DEVICE_ID'),
                 'group' => 'Si Paling Exhibition',
-                'message' => "Ada pendaftar baru seminar, $name dengan tipe $type menggunakan metode pembayaran $paymentMethod"
+                'message' => "Ada pendaftar baru seminar, $name dengan tipe $type menggunakan metode pembayaran $paymentMethod. Segera lakukan verifikasi pembayaran di link berikut: $link"
             ]
         ];
         $request = new Request('POST', 'https://app.whacenter.com/api/sendGroup');

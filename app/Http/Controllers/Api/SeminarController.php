@@ -62,7 +62,7 @@ class SeminarController extends Controller
 
         Storage::disk('public')->put($proof, file_get_contents($request->proof));
 
-        Helper::sendAlertToExhibition($data['name'], $data['type'], $data['payment_method']);
+        Helper::sendAlertToExhibition($data['name'], $data['type'], $data['payment_method'], env('APP_URL') . '/dashboard/admin/seminar?search=' . urlencode($data['name']));
 
         return response()->json([
             'message' => 'Berhasil daftar seminar',
