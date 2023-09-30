@@ -138,6 +138,7 @@
                                 <tr role="row" class="text-center">
                                     <th class="sorting">No</th>
                                     <th class="sorting">Name</th>
+                                    <th class="sorting">Institution</th>
                                     <th class="sorting">Email</th>
                                     <th class="sorting">Phone Number</th>
                                     <th class="sorting">Type</th>
@@ -151,14 +152,15 @@
                                     <tr role="row">
                                         <td class="text-center">{{ $index + 1 }}</td>
                                         <td>{{ $seminar->name }}</td>
+                                        <td>{{ $seminar->college }}</td>
                                         <td>{{ $seminar->email }}</td>
                                         <td>{{ $seminar->phone_number }}</td>
                                         <td class="text-center">
                                             <span
-                                                class="badge light badge-rounded badge-sm w-100 {{ $seminar->type === 'Offline' ? 'badge-primary' : 'badge-warning' }}">
+                                                class="badge light badge-rounded badge-sm w-100 {{ $seminar->type === 'offline' ? 'badge-primary' : 'badge-warning' }}">
                                                 <i
-                                                    class="{{ $seminar->type === 'Offline' ? 'bi bi-geo-fill me-1' : 'bi bi-camera-video-fill me-1' }}"></i>
-                                                {{ $seminar->type === 'Offline' ? 'Offline' : 'Online' }}
+                                                    class="{{ $seminar->type === 'offline' ? 'bi bi-geo-fill me-1' : 'bi bi-camera-video-fill me-1' }}"></i>
+                                                {{ $seminar->type === 'offline' ? 'offline' : 'online' }}
                                             </span>
                                         </td>
 
@@ -179,7 +181,7 @@
                                                 <a href="{{ route('seminar.show', $seminar->id) }}"
                                                     class="btn btn-rounded btn-primary btn-xs shadow sharp"><i
                                                         class="bi bi-eye-fill"></i></a>
-                                                @canany(['inti', 'finance'])
+                                                @canany(['inti', 'finance', 'seminar'])
                                                     <button
                                                         class="btn btn-rounded btn-warning btn-xs shadow sharp text-dark mx-1"
                                                         data-bs-toggle="modal" data-bs-target="#editModalSeminar"

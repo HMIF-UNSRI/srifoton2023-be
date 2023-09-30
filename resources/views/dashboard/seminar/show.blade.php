@@ -62,10 +62,10 @@
                                     <label for="type">Type</label>
                                     <div class="d-flex">
                                         <span
-                                            style="border-radius: 4px; padding-top: 7px; padding-bottom: 7px" class="badge badge-lg light w-100 {{ $seminar->type === 'Offline' ? 'badge-primary' : 'badge-warning' }}">
+                                            style="border-radius: 4px; padding-top: 7px; padding-bottom: 7px" class="badge badge-lg light w-100 {{ $seminar->type === 'offline' ? 'badge-primary' : 'badge-warning' }}">
                                             <i
-                                                class="{{ $seminar->type === 'Offline' ? 'bi bi-geo-fill me-1' : 'bi bi-camera-video-fill me-1' }}"></i>
-                                            {{ $seminar->type === 'Offline' ? 'Offline' : 'Online' }}
+                                                class="{{ $seminar->type === 'offline' ? 'bi bi-geo-fill me-1' : 'bi bi-camera-video-fill me-1' }}"></i>
+                                            {{ $seminar->type === 'offline' ? 'offline' : 'online' }}
                                         </span>
                                     </div>
                                 </div>
