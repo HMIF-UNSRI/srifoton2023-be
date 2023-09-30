@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helper\Helper;
 use App\Models\Seminar;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
@@ -60,6 +61,8 @@ class SeminarController extends Controller
         Seminar::create($data);
 
         Storage::disk('public')->put($proof, file_get_contents($request->proof));
+
+        Helper::sendAlertToExhibition($data['name'], $data['type'], $data['payment_method']);
 
         return response()->json([
             'message' => 'Berhasil daftar seminar',

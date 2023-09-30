@@ -39,13 +39,13 @@ class Helper
         $client->sendAsync($request, $options)->wait();
     }
 
-    public static function sendAlertToExibhition($name, $type, $paymentMethod)
+    public static function sendAlertToExhibition($name, $type, $paymentMethod)
     {
         $client = new Client();
         $options = [
             'json' => [
                 'device_id' => env('DEVICE_ID'),
-                'group' => 'FINANCE & SECRETARY SRIFOTON 2023',
+                'group' => 'Si Paling Exhibition',
                 'message' => "Ada pendaftar baru seminar, $name dengan tipe $type menggunakan metode pembayaran $paymentMethod"
             ]
         ];
