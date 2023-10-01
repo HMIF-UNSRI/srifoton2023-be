@@ -74,13 +74,9 @@ class SeminarController extends Controller
             $font->valign('top');
         });
 
-        $directoryPath = 'public/tiket-seminar';
-        if (!Storage::exists($directoryPath)) {
-            Storage::makeDirectory($directoryPath);
-        }
+        $path = "tiket-seminar/$fileName";
+        Storage::disk('public')->put($path, $img->stream('jpg')->__toString());
         
-        $img->save(storage_path("app/public/tiket-seminar/$fileName"));
-
-        return env('APP_URL') . Storage::url("tiket-seminar/$fileName");
+        return env('APP_URL') . Storage::url($path);
     }
 }
