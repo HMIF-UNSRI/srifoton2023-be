@@ -53,7 +53,7 @@ class SeminarController extends Controller
             return response()->json(['error' => 'Email ini telah terdaftar pada seminar.'], 409);
         }
 
-        $proof = "bukti-pembayaran/seminar/$request->payment_method-$request->phone_number-" . Str::random(16) . "." . $request->proof->getClientOriginalExtension();
+        $proof = "bukti-pembayaran/seminar/$request->type/$request->payment_method-$request->phone_number-" . Str::random(16) . "." . $request->proof->getClientOriginalExtension();
 
         $data['user_id'] = Auth::guard('api')->user()->id;
         $data['proof'] = env('APP_URL') . Storage::url($proof);
