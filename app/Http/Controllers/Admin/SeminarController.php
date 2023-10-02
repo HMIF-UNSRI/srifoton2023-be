@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helper\Helper;
 use App\Models\Seminar;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
@@ -43,6 +44,11 @@ class SeminarController extends Controller
             'ticket_file' => $ticketFile,
             'isVerified' => true,
         ]);
+
+        $groupLink = 'https://chat.whatsapp.com/IvBdyVLsfCN2rgvToJVwUh';
+        $ticketPath = str_replace(env('APP_URL') . '/', '', $ticketFile);
+
+        Helper::sendSeminarGroupInvitationEmail($seminar->email, $seminar->name, $groupLink, $ticketPath, strtolower($seminar->type));
 
         return redirect()->route('seminar')->with('success', 'Verification Successful');
     }

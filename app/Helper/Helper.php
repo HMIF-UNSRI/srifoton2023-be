@@ -2,6 +2,7 @@
 
 namespace App\Helper;
 
+use App\Mail\SeminarGroupInvitationEmail;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Mail;
@@ -19,10 +20,18 @@ class Helper
         ];
 
         Mail::to($destination)->send(new WhatsappGroupInvitationEmail($data));
+    }
 
-        return response()->json([
-            'message' => 'Email berhasil dikirim',
-        ]);
+    public static function sendSeminarGroupInvitationEmail($destination, $name, $link, $ticket, $type)
+    {
+        $data = [
+            'name' => $name,
+            'link' => $link,
+            'ticket' => $ticket,
+            'type' => $type
+        ];
+
+        Mail::to($destination)->send(new SeminarGroupInvitationEmail(($data)));
     }
 
     public static function sendAlertToFinance($competitionName, $teamName, $paymentMethod, $link)
