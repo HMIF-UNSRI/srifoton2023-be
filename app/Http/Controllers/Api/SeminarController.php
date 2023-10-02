@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Helper\Helper;
 use App\Models\Seminar;
 use Illuminate\Support\Str;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\SeminarRequest;
 use Illuminate\Support\Facades\Storage;
 
@@ -68,5 +70,42 @@ class SeminarController extends Controller
             'message' => 'Berhasil daftar seminar',
             'data' => $data
         ]);
+    }
+
+    /**
+     * Donwload Seminar Ticket
+     * 
+     * Endpoint ini digunakan untuk mendowonload tiket seminar berdasarkan ticket code.
+     * 
+     * @urlParam ticket_code string required
+     * Example: SRFTN005
+     * 
+     */
+    public function download($ticket)
+    {
+        $seminar = Seminar::where('ticket_code', $ticket)->first();
+
+        if ($seminar) {
+            $ticketPath = str_replace(env('APP_URL'), '', $seminar->ticket_file);
+
+            $path = public_path($ticketPath);
+
+            if (File::exists($path)) {
+                $file = File::get($path);
+                $response = new Response($file);
+                $response->header('Content-Type', 'image/jpg');
+                $response->header('Content-Disposition', 'attachment; filename="' . basename($path) . '"');
+
+                return $response;
+            } else {
+                return response()->json([
+                    'message' => 'Tiket seminar tidak ditemukan'
+                ], 404);
+            }
+        } else {
+            return response()->json([
+                'message' => 'Anda belum terdaftar pada seminar'
+            ], 404);
+        }
     }
 }

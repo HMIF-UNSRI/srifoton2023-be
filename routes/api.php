@@ -66,3 +66,6 @@ Route::get('verify-email/{id}/{hash}', [EmailVerificationController::class, 'ver
 Route::post('forgot-password', [NewPasswordController::class, 'forgotPassword']);
 // Reset password
 Route::post('reset-password', [NewPasswordController::class, 'resetPassword']);
+
+// Download seminar ticket
+Route::get('ticket/{ticket_code}', [SeminarController::class, 'download']);
