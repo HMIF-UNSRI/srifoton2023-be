@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\UiuxDesignRequest;
+use Carbon\Carbon;
 
 class UiuxDesignController extends Controller
 {
@@ -144,6 +145,15 @@ class UiuxDesignController extends Controller
      */
     public function submitSubmission(Request $request)
     {
+        $now = Carbon::now();
+        $deadline = Carbon::create(2023, 10, 3);
+
+        if($now->gte($deadline)) {
+            return response()->json([
+                'message' => 'Batas waktu pengumpulan karya telah habis.'
+            ], 400);
+        }
+
         $userId = Auth::guard('api')->user()->id;
         $uiux = UiuxDesign::where('user_id', $userId)->first();
 
