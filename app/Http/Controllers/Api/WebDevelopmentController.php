@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
 use App\Helper\Helper;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -143,6 +144,15 @@ class WebDevelopmentController extends Controller
      */
     public function submitSubmission(Request $request)
     {
+        $now = Carbon::now();
+        $deadline = Carbon::create(2023, 10, 18);
+
+        if ($now->gte($deadline)) {
+            return response()->json([
+                'message' => 'Batas waktu pengumpulan karya telah habis.'
+            ], 400);
+        }
+        
         $userId = Auth::guard('api')->user()->id;
         $webdev = WebDevelopment::where('user_id', $userId)->first();
 
