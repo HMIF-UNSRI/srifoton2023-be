@@ -85,6 +85,15 @@ class WebDevelopmentController extends Controller
      */
     public function Register(WebDevelopmentRequest $request)
     {
+        $now = Carbon::now();
+        $deadline = Carbon::create(2023, 10, 19);
+
+        if ($now->gte($deadline)) {
+            return response()->json([
+                'message' => 'Batas waktu pendaftaran telah habis.'
+            ], 400);
+        }
+        
         $data = $request->validated();
 
         $userId = Auth::guard('api')->user()->id;
@@ -145,7 +154,7 @@ class WebDevelopmentController extends Controller
     public function submitSubmission(Request $request)
     {
         $now = Carbon::now();
-        $deadline = Carbon::create(2023, 10, 18);
+        $deadline = Carbon::create(2023, 10, 19);
 
         if ($now->gte($deadline)) {
             return response()->json([

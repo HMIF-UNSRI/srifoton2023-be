@@ -86,6 +86,15 @@ class UiuxDesignController extends Controller
 
     public function register(UiuxDesignRequest $request)
     {
+        $now = Carbon::now();
+        $deadline = Carbon::create(2023, 10, 3);
+
+        if ($now->gte($deadline)) {
+            return response()->json([
+                'message' => 'Batas waktu pendaftaran telah habis.'
+            ], 400);
+        }
+
         $data = $request->validated();
 
         $userId = Auth::guard('api')->user()->id;

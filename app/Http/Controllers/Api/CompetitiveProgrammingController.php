@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
 use App\Helper\Helper;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -84,6 +85,15 @@ class CompetitiveProgrammingController extends Controller
      */
     public function register(CompetitiveProgrammingRequest $request)
     {
+        $now = Carbon::now();
+        $deadline = Carbon::create(2023, 10, 13);
+
+        if ($now->gte($deadline)) {
+            return response()->json([
+                'message' => 'Batas waktu pendaftaran telah habis.'
+            ], 400);
+        }
+        
         $data = $request->validated();
 
         $userId = Auth::guard('api')->user()->id;
