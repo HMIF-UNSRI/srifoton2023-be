@@ -1,0 +1,486 @@
+* {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  text-decoration: none;
+}
+
+/* header */
+header {
+  width: 100%;
+  height: 111%;
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* logo */
+header .logo {
+  width: 20vw;
+  height: 3vw;
+  font-family: "Ethnocentric";
+  display: flex;
+  position: absolute;
+  top: 4%;
+  left: 11.5%;
+  z-index: 1;
+}
+
+header .logo .logo-text {
+  font-size: 1.7vw;
+  background: -webkit-linear-gradient(left, #fc39fc, #337ef0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: auto 0.9%;
+}
+
+/* end logo */
+
+/* vektor header */
+header .header-background-pc {
+  width: 58%;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+}
+
+header .header-button-wrap a {
+  color: #2a89f8;
+}
+
+header .header-background-hp-1 {
+  display: none;
+}
+
+header .header-background-hp-2 {
+  display: none;
+}
+
+header .header-background-hp-3 {
+  display: none;
+}
+
+/* end vektor header */
+
+/* buttom header */
+header .header-button-wrap {
+  background: -webkit-linear-gradient(45deg, #337ef0, #fc39fc);
+  width: 8.5vmax;
+  height: 2.8vmax;
+  padding: 0.3%;
+  text-align: center;
+  border-radius: 50px;
+  position: absolute;
+  box-shadow: 2px 2px 5px #333;
+  top: 4%;
+  right: 10%;
+  cursor: pointer;
+}
+
+header .header-button-wrap .header-button {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: 0 solid transparent;
+  font-family: "Poppins";
+  font-size: 100%;
+  font-weight: 600;
+  background-color: #fcf2ff;
+  color: #2a89f8;
+}
+
+header .header-button-wrap:hover {
+  box-shadow: 0 0 0 black;
+}
+
+header .header-button-wrap:hover .header-button {
+  background-color: #e5eeff;
+}
+
+/* end button header */
+
+/* orang 1 */
+header .orang1 {
+  width: 23%;
+  position: relative;
+  top: 17%;
+  left: 57%;
+}
+/* end orang 1 */
+
+/* orang 2 */
+header .orang2-pc {
+  width: 35%;
+  position: absolute;
+  left: 66%;
+  top: 10%;
+}
+
+header .orang2-hp {
+  display: none;
+}
+/* end orang 2 */
+
+/* Orang Tua header */
+.Orang-Tua {
+  position: relative;
+  left: 11.5%;
+  width: 100%;
+  height: 100%;
+  bottom: 40%;
+}
+
+.container .SRIFOTON-2023 {
+  font-size: 250%;
+  font-family: "ethnocentric";
+  background: -webkit-linear-gradient(left, #fc39fc 0%, #337ef0 30%, #337ef0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Hallo-Semua {
+  color: #2278d4;
+  font-family: "Poppins";
+  font-size: 112.5%;
+  margin: 0 0 1% 0;
+}
+.div-selamat-datang {
+  width: 40%;
+  font-size: 300%;
+  color: #6e6e6e;
+  font-family: "Poppins";
+  font-weight: 600;
+  box-sizing: border-box;
+}
+.Selamat-Datang {
+  /* font-size: 300%;
+  color: #6e6e6e;
+  font-family: "Poppins";
+  margin: 0 auto;
+  font-weight: 600; */
+  display: inline-block;
+  padding: 0;
+}
+.Quotes-Windah {
+  font-size: 93.75%;
+  color: #6e6e6e;
+  font-family: "Poppins";
+  margin: 3% 0 0;
+  font-weight: 200;
+}
+.div-quotes-windah {
+  width: 35%;
+  text-align: justify;
+}
+
+.Orang-Tua-button a {
+  color: white;
+}
+
+.Orang-Tua-button {
+  width: 10vmax;
+  height: 3.5vmax;
+  border-radius: 50px;
+  border: 0;
+  background-color: #2a89f8;
+  color: white;
+  position: relative;
+  margin-top: 2%;
+  left: 1%;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 120%;
+}
+/* end Orang Tua Header */
+
+/* end header */
+
+/* content */
+.content {
+  width: 100%;
+  height: 120%;
+  /* background-color: aqua; */
+  position: absolute;
+  top: 110%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.content img {
+  width: 44%;
+  margin-bottom: 0;
+}
+
+/* burung merah */
+
+.orang-tua {
+  /* border: 5px solid black; */
+  display: flex;
+  flex-direction: row-reverse;
+  position: absolute;
+  z-index: 1;
+  top: 230%;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../supply/Vector-burung-merah.png);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 10%;
+  overflow: hidden;
+}
+.kumpulan-text {
+  /* border: 2px solid black; */
+  width: 40%;
+}
+.head {
+  font-family: "Poppins";
+  /* color: #F7F5F9; */
+  font-weight: 600;
+  font-size: 300%;
+  padding-bottom: 2%;
+  color: white;
+  /* background-color: aquamarine; */
+}
+.text1 {
+  font-family: "Poppins";
+  font-size: 100%;
+  padding-bottom: 1.65%;
+  text-align: justify;
+  /* background-color: beige; */
+}
+.text2 {
+  /* background-color: antiquewhite; */
+  font-family: "Poppins";
+  font-size: 100%;
+  text-align: justify;
+}
+/*.burung{
+      border: 2px solid black;
+      width: 20%;
+      osition: relative;
+      bottom: 321px;
+  } */
+
+/* end burung merah */
+/* end content */
+
+/* footer */
+.Footer_Light {
+  /* background-color: gray; */
+  background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("../supply/2.png"); /*masih salah tampilan gambarnya */
+  background-position: center;
+  background-size: cover;
+  /* background-blend-mode: overlay; */
+  border: 0.5pt solid transparent;
+  background-color: transparent;
+  /* width: 1440pt; */
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  top: 330%;
+  z-index: 10;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.2);
+}
+.Horizontal {
+  border: 1.5px solid #cdcdcd;
+  width: 90%;
+  position: relative;
+  margin: auto;
+}
+.Columns {
+  display: flex;
+  border: 1px solid transparent;
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(50% 50%);
+  margin: auto;
+  margin-top: 5%;
+  align-items: center;
+  justify-content: center;
+}
+.Logo_Columns {
+  margin-right: 5%;
+  width: 25%;
+}
+.Menus {
+  display: flex;
+  /* border: 1px solid black; */
+  font-size: 90%;
+}
+.Alamat {
+  border: 1px solid transparent;
+  width: 30%;
+  margin-right: 3%;
+}
+.Alamat .Head_Alamat {
+  font-family: "Poppins";
+  background: -webkit-linear-gradient(left, #fc39fc 0%, #337ef0 40%, #337ef0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  border: 1px solid transparent;
+  margin-bottom: 1vw;
+}
+.Alamat .Text_Alamat {
+  font-family: "Poppins";
+  color: #52525b;
+  border: 1px solid transparent;
+}
+.Kontak {
+  border: 1px solid transparent;
+  margin-right: 4%;
+}
+.Kontak .Head_Kontak {
+  font-family: "Poppins";
+  background: -webkit-linear-gradient(left, #fc39fc 0%, #337ef0 40%, #337ef0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  border: 1px solid transparent;
+  margin-bottom: 1vw;
+}
+.Text_Kontak {
+  font-family: "Poppins";
+  font-weight: 400;
+  color: #52525b;
+}
+.Text_Kontak_Whatsapp {
+  background: -webkit-linear-gradient(left, #fc39fc 0%, #337ef0 80%, #337ef0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  border: 1px solid transparent;
+  display: flex;
+  margin-bottom: 1pt;
+}
+.Text_Kontak_Email {
+  background: -webkit-linear-gradient(left, #fc39fc 0%, #337ef0 50%, #337ef0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  border: 1px solid transparent;
+  display: flex;
+  margin-bottom: 1pt;
+}
+.Navigasi {
+  width: 20%;
+  border: 1px solid transparent;
+  margin-right: 5%;
+}
+.Head_Navigasi {
+  font-family: "Poppins";
+  background: -webkit-linear-gradient(left, #fc39fc 0%, #337ef0 60%, #337ef0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  border: 1px solid transparent;
+  margin-bottom: 1vw;
+}
+.Text_Navigasi {
+  font-family: "Poppins";
+  color: #52525b;
+}
+.Kompetisi {
+  border: 1px solid transparent;
+}
+.Head_Kompetisi {
+  font-family: "Poppins";
+  background: -webkit-linear-gradient(left, #fc39fc 0%, #337ef0 90%, #337ef0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  border: 1px solid transparent;
+  margin-bottom: 1vw;
+}
+.Text_Kompetisi {
+  font-family: "Poppins";
+  color: #52525b;
+}
+.Bottom {
+  border: 0.5pt solid transparent;
+  width: 100%;
+  margin: auto;
+  margin-top: 66.62pt;
+  display: flex;
+  position: relative;
+  bottom: 15%;
+}
+.©_SRIFOTON_2023 {
+  font-family: "Poppins";
+  background: -webkit-linear-gradient(left, #fc39fc 0%, #337ef0 40%, #337ef0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+  font-size: 100%;
+  /* width: 120pt; */
+  border: 1px solid transparent;
+  display: inline;
+  position: relative;
+  left: 82%;
+}
+.Social {
+  display: flex;
+  position: relative;
+  left: 5%;
+}
+
+/* end footer */
+
+/* media screen */
+/* nest hub max */
+@media screen and (width: 1280px) and (height: 800px) {
+  .Hallo-Semua {
+    font-size: 100%;
+  }
+  .Orang-Tua {
+    bottom: 35%;
+  }
+  .container .SRIFOTON-2023 {
+    font-size: 200%;
+  }
+  .div-selamat-datang {
+    font-size: 250%;
+  }
+  .©_SRIFOTON_2023 {
+    left: 80%;
+  }
+}
+
+/* nest hub */
+/* @media screen and (width: 1024px) and (height: 600px) {
+  body {
+    background-color: #fc39fc;
+  }
+  .Hallo-Semua {
+    font-size: 100%;
+  }
+  .Orang-Tua {
+    bottom: 35%;
+  }
+  .container .SRIFOTON-2023 {
+    font-size: 180%;
+  }
+  .div-selamat-datang {
+    font-size: 220%;
+  }
+  .©_SRIFOTON_2023 {
+    left: 77%;
+  }
+} */
+
+/* samsung galaxy a51 */
+
+/* end media screen */
+@font-face {
+  font-family: "Ethnocentric";
+  src: url(../supply/ethnocentric\ rg.ttf);
+}
