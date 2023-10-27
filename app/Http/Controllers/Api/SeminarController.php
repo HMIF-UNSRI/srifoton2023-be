@@ -48,6 +48,12 @@ class SeminarController extends Controller
      */
     public function register(SeminarRequest $request)
     {
+        if($request->type == 'offline') {
+            return response()->json([
+                'message' => 'Maaf, Pendaftaran dengan tipe offline telah ditutup'
+            ], 403);
+        }
+
         $data = $request->validated();
 
         $existingUser = Seminar::where('email', $request->email)->first();
